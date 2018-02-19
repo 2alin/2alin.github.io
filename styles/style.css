@@ -3,6 +3,11 @@
 html{
   font-size: 10px;
 }
+body{
+  margin: 0 auto;
+  max-width: 800px;
+  
+}
 
 header{
   margin: 5rem 0 2rem;
@@ -16,4 +21,10 @@ header p{
 main img{
   display: block;
   margin: 0 auto;
+}
+
+footer p{
+  font-family: monospace;
+  font-size: 1.6rem;
+  text-align: right;
 }
