@@ -200,3 +200,43 @@ aside ul li::before{
   margin: 0 -1.2em;
   font-size: 0.9em;
 }
+
+/* styling navbar */
+
+nav ul{
+  margin: 2.6rem 0;
+  padding: 0;
+}
+
+/* nav ul li{
+  display: inline;
+} */
+
+nav ul li{
+  display: block;
+  max-width: 200px;
+  height: 80px;
+  padding: 1rem;
+}
+nav ul li a{
+  outline: none;
+  display: block;
+  border: thin solid;
+  line-height: 3em;
+  text-align: center;
+  font-size: 2em;
+  text-decoration: none;
+  
+}
+
+nav ul li a:focus, nav ul li a:hover {
+  border: none;
+  background-color: #578B74;
+  color: white;
+}
+
+nav ul li a:active {
+  text-shadow: 0 0 10px white;
+  background-color: #AA6666;
+  color: white;
+}
