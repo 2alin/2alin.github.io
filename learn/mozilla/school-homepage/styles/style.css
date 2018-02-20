@@ -120,16 +120,22 @@ h2{
   font-size: 3.2rem;
 }
 
+
+
+
 section  p, section li{
   font-size: 1.6rem;
+  line-height: 2.2rem;
 }
 
 aside p, aside li{
   font-size: 1.6rem;
+  line-height: 2.8rem;
 }
 
 nav li{
   font-size: 1.6rem;
+  line-height: 2.2rem;
 }
 
 footer p{
