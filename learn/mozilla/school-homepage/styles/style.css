@@ -149,3 +149,34 @@ nav li{
 footer p{
   font-size: 1.4rem;
 }
+
+/* Styiling Links */
+a:link{
+  color: #894846;
+}
+
+a:visited{
+  color: #894846;
+}
+
+a:focus{
+  outline: none;
+  text-decoration: none;
+  color: #578B74;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #578B74;
+}
+
+a:active{
+  font-weight: bold;
+  text-shadow: 0 0 10px #AA6666;
+}
+
+a[href*="http"]{
+  background: url("../assets/external-link-52.png") no-repeat 100% 50%;
+  background-size: 0.8em 0.8em;
+  padding-right: 1.2em;
+}
