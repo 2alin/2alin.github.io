@@ -210,30 +210,60 @@ nav ul{
 }
 
 nav ul li{
-  display: block;
   max-width: 200px;
   height: 80px;
   padding: 1rem;
+
+  /*---------------------*/
+  /* Chrismills contribution*/
+  /* layout the children of the <li>s (the <a>s) as flex items */
+  display: flex;
+  /* Force them to stay in the center of the parent space */
+  justify-content: center;
+  /*---------------------*/
+
+  /* vertical effect */
+  align-items: center;
 }
 nav ul li a{
   outline: none;
-  display: block;
+
+  /*-----------------------*/
+  /* chrismills contribution*/
+  display: inline-block;
+  width: 100%;
+  /*-----------------------*/
+
   border: thin solid;
   line-height: 3em;
   text-align: center;
   font-size: 2em;
-  text-decoration: none;
-  
+  text-decoration: none;  
 }
 
 nav ul li a:focus, nav ul li a:hover {
   border: none;
   background-color: #578B74;
   color: white;
+
+  /*-----------------------*/
+  /* chrismills contribution*/
+  /* add a transition so that when the state changes, the width will animate over 0.4 seconds */ 
+  transition: width 0.4s, line-height 0.4s ;
+  /*-----------------------*/
 }
 
 nav ul li a:active {
   text-shadow: 0 0 10px white;
-  background-color: #AA6666;
+  /* background-color: #AA6666; */
   color: white;
+
+  /*-----------------------*/
+  /* chrismills contribution*/
+  /* change the width to 80% upon activation of the link; this change animates because of the above transition */
+  width: 80%;
+  /*-----------------------*/
+
+  /* vertical effect */
+  line-height: 2em;
 }
