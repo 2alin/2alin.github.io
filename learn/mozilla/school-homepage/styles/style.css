@@ -114,18 +114,26 @@ h1, h2{
 /* Specific Element Styles */
 h1{
   font-size: 4.8rem;
+  letter-spacing: 0.4rem;
 }
 
 h2{
   font-size: 3.2rem;
+  letter-spacing: 0.3rem;
 }
 
-
-
+p, li{
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+}
 
 section  p, section li{
   font-size: 1.6rem;
   line-height: 2.2rem;
+}
+
+section h2+p{
+  text-indent: 20px;
 }
 
 aside p, aside li{
