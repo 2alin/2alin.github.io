@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Weird Shapes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <div id="container">
+
+    <canvas></canvas>
+
+    <!-- button to show settings menu -->
+    <div id="show-settings"></div>
+
+    <!-- settings menu -->
+    <form id="settings-box">
+      <header>
+        <div id="settings-tag"></div>
+        <div id="en-select"></div>
+        <div id="sp-select"></div>
+        <div id="hide-settings"></div>
+      </header>
+
+      <fieldset>
+        <legend id="size-tag"></legend>
+
+        <!-- slider selector for size values-->
+        <input type="range" name="size" id="size-slider" min="8" max = "100" step = "4">
+        <p><span class="value-tags"></span>: <span id="size-value"> </span></p>
+  
+        <!-- check/uncheck randomness for size -->
+        <p>
+          <input type="checkbox" id="size-random-check"> 
+          <label for="size-random-check" class="random-tags"></label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend id="complexity-tag"></legend>
+
+        <!-- slider selector for size values-->
+        <input type="range" name="size" id="complex-slider" min="1" max = "6" step = "1">
+        <p><span class="value-tags"></span>: <span id="complex-value"> </span></p>
+
+        <p>
+          <input type="checkbox" id="complex-random-check"> 
+          <label for="complex-random-check" class="random-tags"></label>
+        </p>
+      </fieldset>
+
+      <button id="clear-button" type="button"></button>
+
+
+    </form>
+    
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>

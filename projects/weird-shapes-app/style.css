@@ -1,0 +1,120 @@
+html, body {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+html, button {
+  font-family: 'Verdana', sans-serif;
+}
+
+#container {
+  position: relative;
+}
+
+#container canvas, #show-settings, #settings-box {
+  position: absolute;
+}
+
+#show-settings {
+  display: block;
+  top: 5px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  background-color: #F9F9FA;
+  background-image: url("./assets/sliders.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 72%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#settings-box {
+  display: none;
+  padding: 0;
+  width: 100%;
+  max-width: 720px; 
+  height: 500px;
+  background-color: #F9F9FA;
+}
+
+@media (min-width:721px){
+  #settings-box{
+    width: 420px;
+  }
+}
+
+#settings-box header {
+  display: grid;
+  height: 26px;
+  margin: 10px 10px 30px;  
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+  
+}
+
+#settings-tag {
+  grid-column: 1 / span 5;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: Georgia, serif;
+  font-weight: bold;
+}
+
+#en-select {
+  grid-column: 7 / span 2;
+  width: 40px;
+  justify-self: center;
+  background-image: url("./assets/gb.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 18px;
+  cursor: pointer;
+  border: 2px solid;
+}
+
+#sp-select {
+  grid-column: 9 / span 2;
+  width: 36px;
+  justify-self: left;
+  background-image: url("./assets/mx.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 18px;
+  cursor: pointer;
+}
+
+#hide-settings {
+  grid-column: 11 / span 2;
+  width: 26px;  
+  justify-self: right;
+  background-image: url("./assets/x-square.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 26px;
+  cursor: pointer;
+}
+
+fieldset {
+  margin: 0 10px 30px;
+}
+
+input, label {
+  cursor: pointer;
+}
+
+#size-slider, #complex-slider{
+  width: 90%;
+}
+
+button {
+  margin: 0 10px; 
+  font-size: 0.95rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
