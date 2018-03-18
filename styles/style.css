@@ -5,6 +5,7 @@ html{
 }
 body{
   margin: 0 auto;
+  width: 100%;
   max-width: 800px;
   
 }
@@ -24,7 +25,12 @@ main img{
 }
 
 footer p{
+  margin: 0 10px;
   font-family: monospace;
   font-size: 1.6rem;
   text-align: right;
+}
+
+img{
+  width: 400px;
 }
