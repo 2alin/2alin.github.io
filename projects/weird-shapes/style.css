@@ -118,3 +118,11 @@ button {
   cursor: pointer;
 }
 
+footer{
+  padding: 10px; 
+  font-size: 0.8rem; 
+  font-weight: bold;
+  text-align: right;
+  color: #A9A9A9;
+}
+
