@@ -22,8 +22,8 @@ html, button {
   display: block;
   top: 5px;
   right: 5px;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   background-color: #F9F9FA;
   background-image: url("./assets/sliders.svg");
   background-repeat: no-repeat;
