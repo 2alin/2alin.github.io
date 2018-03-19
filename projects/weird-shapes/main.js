@@ -88,7 +88,7 @@ function drawSettings() {
   spSelect.addEventListener('click', spSelected);
   function spSelected() {
     if (settings['language'] != 'sp'){
-      spSelect.style.border = "2px solid";
+      spSelect.style.border = "2px solid #888";
       enSelect.style.border = "none";
       settings['language'] = 'sp';
       fillTags();
@@ -97,7 +97,7 @@ function drawSettings() {
   enSelect.addEventListener('click', enSelected);
   function enSelected() {
     if (settings['language'] != 'en'){
-      enSelect.style.border = "2px solid";
+      enSelect.style.border = "2px solid #888";
       spSelect.style.border = "none";
       settings['language'] = 'en';
       fillTags();

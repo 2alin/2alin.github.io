@@ -8,6 +8,7 @@ html {
 
 html, button {
   font-family: 'Verdana', sans-serif;
+  letter-spacing: 0.05rem;
 }
 
 #container {
@@ -61,8 +62,11 @@ html, button {
   grid-column: 1 / span 5;
   text-align: center;
   font-size: 1.4rem;
-  font-family: Georgia, serif;
-  font-weight: bold;
+  /*font-family: Georgia, serif;
+  font-weight: bold;*/
+  text-shadow: 0 0 2px #A9A9A9;
+  letter-spacing: 0.2rem
+  
 }
 
 #en-select {
@@ -74,7 +78,7 @@ html, button {
   background-position: center;
   background-size: auto 18px;
   cursor: pointer;
-  border: 2px solid;
+  border: 2px solid #888;
 }
 
 #sp-select {
@@ -103,12 +107,25 @@ fieldset {
   margin: 0 10px 30px;
 }
 
+fieldset legend {
+  text-shadow: 0 0 2px #A9A9A9;
+  letter-spacing: 0.1rem;
+}
+
 input, label {
   cursor: pointer;
 }
 
 #size-slider, #complex-slider{
   width: 90%;
+}
+
+fieldset p {
+  margin-left: 1rem;
+}
+
+fieldset .value-tags {
+  padding: 0.1rem;
 }
 
 button {
