@@ -60,7 +60,8 @@ html, button {
 
 #settings-tag {
   grid-column: 1 / span 5;
-  text-align: center;
+  
+  text-align: left;
   font-size: 1.4rem;
   /*font-family: Georgia, serif;
   font-weight: bold;*/
