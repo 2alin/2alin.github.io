@@ -65,7 +65,7 @@ html, button {
   /*font-family: Georgia, serif;
   font-weight: bold;*/
   text-shadow: 0 0 2px #A9A9A9;
-  letter-spacing: 0.2rem
+  letter-spacing: 0.12rem
   
 }
 
@@ -135,7 +135,8 @@ button {
   cursor: pointer;
 }
 
-footer{
+footer p{
+  margin: 0;
   padding: 10px; 
   font-size: 0.8rem; 
   font-weight: bold;
