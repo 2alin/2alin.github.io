@@ -23,7 +23,9 @@ var langTags = {
       "size": "Size",
       "complexity": "Complexity",
       "value": "Value",
-      "clear": "Clear canvas"
+      "clear": "Clear canvas",
+      "startText" : "Welcome to Weird Shapes, an app that allows you to draw nice forms every time you click/tap over the screen. Also, you can adjust some properties after activating the menu at the top-right corner.",
+      "start": "Start"
     },
   "sp":
     {
@@ -32,26 +34,74 @@ var langTags = {
       "size": "Tamaño",
       "complexity": "Complejidad",
       "value": "Valor",
-      "clear": "Limpiar lienzo"
+      "clear": "Limpiar lienzo",
+      "startText" : "Bienvenido a Weird Shapes, una app que te permite dibujar figuras curiosas cada vez que haces click o presionas (rápido) sobre la pantalla. Ademas puedes ajustar algunas propiedades al activar el menú en la esquina superior derecha.",
+      "start" : "Empezar"
     }
 }
 
 var settingsButton = document.querySelector('#show-settings');
 var settingsBox = document.querySelector('#settings-box');
 
-//reset form elements in settings box
+//reset form elements in settings box in every page's reload
 window.addEventListener('load', resetForm);
 function resetForm(){
   settingsBox.reset();
 }
+
+
+/*  opening popup window and PRESTART mode ACTIVATED */
+
+var disablingContainer = document.querySelector("#disabling-container");
+var openingPopup = document.querySelector("#opening-popup");
+var paraStart = document.querySelector("#opening-popup p ");
+var buttonStart = document.querySelector("#opening-popup button ");
+function fillPopup() {
+  paraStart.textContent = langTags[settings.language].startText;
+  buttonStart.textContent = langTags[settings.language].start;
+}
+
+fillPopup();
+
+var spSelect = document.querySelector('#opening-popup .sp-select');
+var enSelect = document.querySelector('#opening-popup .en-select');
+// select language at popup
+spSelect.addEventListener('click', spSelected);
+function spSelected() {
+  if (settings['language'] != 'sp'){
+    spSelect.style.border = "2px solid #888";
+    enSelect.style.border = "none";
+    settings['language'] = 'sp';
+    fillPopup();
+  }
+}
+enSelect.addEventListener('click', enSelected);
+function enSelected() {
+  if (settings['language'] != 'en'){
+    enSelect.style.border = "2px solid #888";
+    spSelect.style.border = "none";
+    settings['language'] = 'en';
+    fillPopup();
+  }
+}
+
+buttonStart.addEventListener('click', quitStartMode);
+function quitStartMode(){
+  disablingContainer.style.display = "none";
+  openingPopup.style.display = "none";
+
+}
+
+
+
 
 // if settings button is clicked, show drawSettings
 settingsButton.addEventListener('click', drawSettings);
 // draw settings box
 function drawSettings() {
 
-  var spSelect = document.querySelector('#sp-select');
-  var enSelect = document.querySelector('#en-select');
+  var spSelect = document.querySelector('#settings-box .sp-select');
+  var enSelect = document.querySelector('#settings-box .en-select');
   var hideSettings = document.querySelector('#hide-settings');
 
   var settingsTag = document.querySelector('#settings-tag');
@@ -82,6 +132,13 @@ function drawSettings() {
       randomTags[k].textContent = langTags[lang]['random'];
     }
     clearButton.textContent = langTags[lang]['clear']
+  }
+
+  // set initial language icon border
+  if (settings['language'] === 'en'){
+    enSelect.style.border = "2px solid #888"; 
+  } else {
+    spSelect.style.border = "2px solid #888"; 
   }
 
   // select language
