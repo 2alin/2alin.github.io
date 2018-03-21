@@ -35,7 +35,7 @@ var langTags = {
       "complexity": "Complejidad",
       "value": "Valor",
       "clear": "Limpiar lienzo",
-      "startText" : "Bienvenido a Weird Shapes, una app que te permite dibujar figuras curiosas cada vez que haces click o presionas (rápido) sobre la pantalla. Ademas puedes ajustar algunas propiedades al activar el menú en la esquina superior derecha.",
+      "startText" : "Bienvenido a Weird Shapes, una app que te permite dibujar figuras raras cada vez que haces click sobre la pantalla. Ademas puedes ajustar algunas propiedades al activar el menú en la esquina superior derecha.",
       "start" : "Empezar"
     }
 }
