@@ -184,7 +184,7 @@ nav ul a {
 nav ul a:link, nav ul a:visited {
   color: var(--nav-btn-link-color);
 }
-nav ul a:focus, nav ul a:hover{
+nav ul a:hover{
   color: var(--nav-btn-hover-color);
   box-shadow: 0 0 5px var(--nav-btn-hover-color); 
 }

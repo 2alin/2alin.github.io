@@ -1,46 +1,87 @@
-var sectionBtns = document.querySelectorAll('nav ul a');
+/* nav bar buttons, just in case*/
+var navButtons = document.querySelectorAll('nav ul a');
+var sections = document.querySelectorAll('section');
+var posBreakPoints = [];
 
-/* 
-  Update style in nav bar depending of position
-*/
-window.addEventListener('scroll', scrollAnalizeViewPort);
-// breakpoint function
-function scrollAnalizeViewPort(){
-  if (window.matchMedia("(max-width: 760px)").matches){
-    scrollUpdate([670, 2750 ]);
-    navBarUpdate();
-  } else if (window.matchMedia("(max-width: 1000px)").matches){
-    navBar.className = ''; //in case resized when nav bar was hidden
-    scrollUpdate([600, 2560 ]);
-  } else {
-    navBar.className = ''; //in case resized when nav bar was hidden
-    scrollUpdate([400,1270]);
+/* set listeners to each nav button */
+setNavListeners();
+function setNavListeners(){
+  for(let button of navButtons){
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      let targetID = document.querySelector(e.target.attributes.href.textContent);
+      console.log(e.target.id + ' selected');
+      smoothScroll(targetID);
+    });
   }
+}
+
+/* change navbar button status*/
+function setActive(selectedBtn){
+  for(let button of navButtons) {
+    if (button === selectedBtn){
+      button.className = 'active';
+      console.log(button.id + ' set active');
+  } else {
+      button.className = '';
+  }
+  }
+}
   
+/* scrolling smoothly to an element position */
+function smoothScroll(targetElement){
+  // calculate top position of the target Element
+  let posElement = targetElement.getBoundingClientRect().y + window.scrollY;
+  // consider the height of the nav bar
+  if (window.getComputedStyle(document.querySelector('nav')).position === 'sticky'){
+    posElement -= document.querySelector('nav').getBoundingClientRect().height;
+  }
+  console.log("I'm scrolling to " + posElement);
+  window.scroll({top: posElement, behavior:'smooth'});
 }
 
-//change nav buttons class depending of scroll position
-function scrollUpdate(sectionPositions){
-  var pos = document.scrollingElement.scrollTop;
-  if (pos < sectionPositions[0]){
-    clearSectionBtns();
-    sectionBtns[0].className = 'active'
-  } else if(pos < sectionPositions[1]) {
-    clearSectionBtns(); 
-    sectionBtns[1].className = 'active'
-  } else {
-    clearSectionBtns();
-    sectionBtns[2].className = 'active'
+/* update position break poinnts when window size changes*/
+window.addEventListener('resize', updateBreakPoints);
+function updateBreakPoints(){
+  posBreakPoints = [];
+  for (let section of sections){
+    let posSection = section.getBoundingClientRect().y + window.scrollY;
+    posBreakPoints.push(posSection)
+  }
+  console.log('position break points updated: ' + posBreakPoints);
+  //update nav bar buttons because of rezising
+  updateBtnsOnScroll();
   }
 
+/* update nav button status depnding on scroll position */
+window.addEventListener('scroll', updateBtnsOnScroll);
+function updateBtnsOnScroll(){
+  let currentPos = window.scrollY;
+  // consider the height of the nav bar
+  if (window.getComputedStyle(document.querySelector('nav')).position === 'sticky') {
+    currentPos += document.querySelector('nav').getBoundingClientRect().height;
+  }
+  // set position to 30% of window height
+  currentPos += 0.3*window.innerHeight;
+  console.log("current position: " + currentPos);
+  if (currentPos < (posBreakPoints[1])){
+    setActive(navButtons[0]);
+  } else if (currentPos < (posBreakPoints[2])){
+    setActive(navButtons[1]);
+  } else{
+    setActive(navButtons[2]);
 }
-
-//clear classes nav buttons
-function clearSectionBtns(){
-  for  (var k = 0; k < sectionBtns.length; k++){
-    sectionBtns[k].className = '';
+  //considering the case where the scroll has reached 
+  //bottom but the last article can't reach the right height
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    setActive(navButtons[2]);
+    console.log("bottom reached");
   }
 }
+
+/* code executed right after document loads */
+updateBreakPoints();
+updateBtnsOnScroll();
 
 
 //hide navbar
@@ -57,31 +98,6 @@ function navBarUpdate(){
   }
 }
 
-
-/* 
-  nav bar buttons, smooth scroll effect 
-*/
-
-// add event listeners to every button of the section nav bar
-for (var k = 0; k < sectionBtns.length; k++){
-  var button = sectionBtns[k];
-  button.addEventListener('click', scrollSection);
-}
-
-// assigns proper classes to section nav buttons
-// and scrolls to the respective section
-function scrollSection(e) {
-  //prever default click action on anchors
-  e.preventDefault();
-  //scroll smoothly
-  var targetId = e.target.getAttribute('href');
-  if(targetId === '#top'){
-    window.scroll({top:0, left:0, behavior:'smooth'});
-  } else {
-    var targetSection = document.querySelector(targetId);
-    targetSection.scrollIntoView({behavior:'smooth'})
-  }
-}
 
 
 /* 
