@@ -1,0 +1,170 @@
+:root {
+  --darker-color: #301E1A;
+  --dark-color: #A04B26;
+  --light-color: #B7833A;
+  --highlight-color: #B4B943;
+  --subtle-color: #79ABA2;
+}
+
+/* ------------
+Genetal Styling
+--------------- */
+html{
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+
+/* ----------------
+Nav Bars Styling
+-------------------*/
+header {
+  font-size: 0.9rem;
+}
+
+header nav {
+  display: flex;
+  height: 60px;
+  /* border: 2px solid green; */
+}
+
+/* clearing format in nav bar lists */
+header ul{
+  margin: 0;
+  padding: 0; 
+  list-style-type: none;
+}
+
+/* style nav bar sections (first children) */
+.bar-section {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid pink; */
+}
+
+.bar-section a{
+  display: inline-block;
+  font-weight: bold;
+  /* border: 2px solid salmon; */
+}
+
+/* Styling nav bar text links */
+
+.bar-section li a {
+  padding: .4em .6em  ;
+  text-decoration: none;
+}
+
+/*Section: Logo*/
+
+#logo-section {
+  flex: 1;
+  padding-left: .5em;
+}
+
+#logo-section a {
+  padding: 0 .5em;
+  width: 48px;
+  height: 48px;
+  background-color: darkorchid;
+  background: url("./assets/coffee_logo.svg") no-repeat center;
+  
+}
+
+/* Section: Company */
+
+#company-section {
+  flex: 2;
+  justify-content: space-around;
+}
+
+#company-section a{
+  background: transparent;
+  color: var(--dark-color);
+}
+
+
+/* Section: User Bar */
+#user-section {
+  flex: 1;
+  justify-content: end;
+  padding-right: .5em;
+}
+
+#user-section a{
+  padding: 0 .5em;
+  width: 24px;
+  height: 24px;
+}
+
+
+#user-profile {
+  background: url('./assets/profile.svg') no-repeat center;
+}
+
+#shopping-cart {
+  background: url('./assets/shopping_cart.svg') no-repeat center;
+}
+
+#user-messages {
+  background: url('./assets/mail.svg') no-repeat center;
+}
+
+/* Second Bar Style */
+
+#store-bar {
+  justify-content: space-around;
+  background: var(--dark-color)
+}
+
+#store-bar .bar-section {
+  width: 60%;
+  justify-content: space-around;
+}
+
+#store-bar a {
+  background: transparent;
+  color: #fff;
+}
+
+
+
+
+/* ------------------------
+M E D I A    Q U E R I E S
+--------------------------*/
+
+@media (max-width: 640px) {
+  /* -------------
+  Style nav bars 
+  ---------------*/
+
+  /* Bar 1 */
+  #company-section {
+    flex: 6;
+  }
+
+  #user-section {
+    flex: 2;
+    justify-content: space-around;
+  }
+
+  #logo-section {
+    justify-content: space-around;
+  }
+
+  #user-section a,
+  #logo-section a {
+    margin: 0;
+  }
+
+  /* Bar 2 */
+
+  #store-bar .bar-section {
+    width: 100%;
+  }
+}
