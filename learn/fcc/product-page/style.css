@@ -48,7 +48,10 @@ header ul{
 
 .bar-section a{
   display: inline-block;
+  font-size: 0.75rem;
   font-weight: bold;
+  font-variant: small-caps;
+  letter-spacing: .3em;
   /* border: 2px solid salmon; */
 }
 
@@ -57,7 +60,22 @@ header ul{
 .bar-section li a {
   padding: .4em .6em  ;
   text-decoration: none;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: border-bottom-color 1s; 
 }
+
+.bar-section a:hover,
+.bar-section a:focus{
+  border-bottom-color: initial;
+}
+
+
+/* Section: menu-button */
+#menu-button {
+  display: none;
+}
+
 
 /*Section: Logo*/
 
@@ -78,14 +96,15 @@ header ul{
 /* Section: Company */
 
 #company-section {
-  flex: 2;
+  flex: 3;
   justify-content: space-around;
 }
 
-#company-section a{
+#company-section a {
   background: transparent;
   color: var(--dark-color);
 }
+
 
 
 /* Section: User Bar */
@@ -100,10 +119,11 @@ header ul{
   width: 24px;
   height: 24px;
   opacity: .6;
-  transition: opacity .5s ease;
+  transition: opacity .5s ease; 
 }
 
-#user-section a:hover{
+#user-section a:hover,
+#user-section a:focus{
   opacity: 1;
 }
 
@@ -121,6 +141,7 @@ header ul{
   background: url('./assets/mail.svg') no-repeat center;
 }
 
+
 /* Second Bar Style */
 
 #store-bar {
@@ -129,7 +150,8 @@ header ul{
 }
 
 #store-bar .bar-section {
-  width: 50%;
+  flex-wrap: wrap;
+  width: 60%;
   justify-content: space-around;
 }
 
@@ -146,14 +168,19 @@ header ul{
 M E D I A    Q U E R I E S
 --------------------------*/
 
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   /* -------------
   Style nav bars 
   ---------------*/
 
   /* Bar 1 */
+
+  #logo-section {
+    padding-left: 0;
+  }
+
   #company-section {
-    flex: 6;
+    flex: 7;
   }
 
   #user-section {
@@ -170,9 +197,73 @@ M E D I A    Q U E R I E S
     margin: 0;
   }
 
+  #user-section {
+    padding-right: 0;
+  }
+
+
   /* Bar 2 */
 
   #store-bar .bar-section {
     width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  #menu-section {
+    flex: 1;
+    justify-content: center;
+  }
+
+  #menu-section a {
+    width: 36px;
+    height: 36px;
+    padding: 0 .5em;
+    background: url('./assets/menu.svg') no-repeat center / contain;
+  }
+
+  #menu-section a.opened {
+    background-image: url('./assets/close.svg');
+  }
+
+
+  #logo-section {
+    flex: 2;
+  }
+
+
+  #user-section {
+    flex: 1;
+  }
+
+  #company-section {
+    display: none;
+    position: absolute;
+    top: 60px;
+    flex-direction: column;
+    z-index: 100;
+    width: 100%;  
+    background: white;
+    border-top: 8px solid var(--dark-color);
+  }
+
+  #company-section li {
+    width: 100%;
+  }
+
+  #company-section a {
+    width: 100%;
+    text-align: center;
+    line-height: 3;
+  }
+
+  .bar-section a {
+    transition: text-shadow 1s ease;
+  }
+
+  .bar-section a:hover,
+  .bar-section a:focus {
+    border-bottom-color: transparent;
+    text-shadow: 0 0 1px;
   }
 }
