@@ -65,8 +65,8 @@ header ul{
   transition: border-bottom-color 1s; 
 }
 
-.bar-section a:hover,
-.bar-section a:focus{
+.bar-section li a:hover,
+.bar-section li a:focus{
   border-bottom-color: initial;
 }
 
@@ -257,12 +257,12 @@ M E D I A    Q U E R I E S
     line-height: 3;
   }
 
-  .bar-section a {
-    transition: text-shadow 1s ease;
+  .bar-section li a {
+    transition: text-shadow .5s ease;
   }
 
-  .bar-section a:hover,
-  .bar-section a:focus {
+  .bar-section li a:hover,
+  .bar-section li a:focus {
     border-bottom-color: transparent;
     text-shadow: 0 0 2px;
   }

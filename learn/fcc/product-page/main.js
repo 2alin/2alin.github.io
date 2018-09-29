@@ -12,3 +12,13 @@ menuButton.addEventListener("click", (e) => {
     companySection.style.display = "flex";
   }
 });
+
+window.addEventListener("resize", () => {
+  var width = window.innerWidth;
+  if (width >= 540) {
+    menuButton.classList.remove("opened");
+    companySection.style.display = "flex";
+  } else {
+    companySection.style.display = "none";
+  }
+});
