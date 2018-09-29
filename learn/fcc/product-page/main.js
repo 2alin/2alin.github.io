@@ -15,10 +15,12 @@ menuButton.addEventListener("click", (e) => {
 
 window.addEventListener("resize", () => {
   var width = window.innerWidth;
+  var isMenuVisible = (companySection.style.display === "flex");
+  var isButtonActivated = menuButton.classList.contains("opened");
   if (width >= 540) {
     menuButton.classList.remove("opened");
     companySection.style.display = "flex";
-  } else {
+  } else if (isMenuVisible && !isButtonActivated) {
     companySection.style.display = "none";
   }
 });
