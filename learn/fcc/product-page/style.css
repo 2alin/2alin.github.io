@@ -264,6 +264,6 @@ M E D I A    Q U E R I E S
   .bar-section a:hover,
   .bar-section a:focus {
     border-bottom-color: transparent;
-    text-shadow: 0 0 1px;
+    text-shadow: 0 0 2px;
   }
 }
