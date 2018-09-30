@@ -161,6 +161,153 @@ header ul{
 }
 
 
+/* -------------------------
+G A L L E R Y   S T Y L E
+----------------------------*/
+#gallery-display {
+  margin: 0 auto;
+  padding: 1em 1em;
+  height: calc(100vh - (2.5  * 60px ));
+  min-height: 480px;
+  width: 100%;
+  max-width: 960px;
+  box-sizing: border-box;
+}
+
+.popular-product {
+  display: flex;  
+  
+  height: calc(100% - 60px);
+  /* background: pink; */
+  box-sizing: border-box;
+  border: 2px solid green;
+}
+
+.popular-product.hidden {
+  display: none;
+}
+
+.product-image {
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em;
+  /* background: greenyellow; */
+}
+
+.product-image img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
+.product-description {
+  flex: 3;
+  padding: .5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: #79ABA2; */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.product-description h1 {
+  margin: .5em 0;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.product-description h2 {
+  order: -1;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .2em; 
+}
+
+.product-description p {
+  font-style: italic;
+}
+
+.product-description button {
+  margin: 4em 0;
+  padding: .8em 1em;
+  font: inherit;
+  font-size: .8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  align-self: flex-start;
+  background: var(--dark-color);
+  color: white; 
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+
+.product-description button:hover,
+.product-description button:focus {
+  background: var(--highlight-color);
+  color: black;
+  cursor: pointer;
+}
+
+#gallery-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+
+  border: 2px solid blue;
+}
+
+.controls-section {
+  
+  border: 2px solid blue;
+}
+
+
+.seek-button {
+  width: 34px;
+  height: 34px;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.seek-button:hover,
+.seek-button:focus{
+  width: 36px;
+  height: 36px;
+  opacity: .8;
+}
+
+#previous {
+  background: url("./assets/arrow_left.svg") no-repeat center / contain;
+}
+
+#next {
+  background: url("./assets/arrow_right.svg") no-repeat center / contain;
+}
+
+#pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 120px;
+  height: 48px;
+}
+
+.page-indicator {
+  width: 8px;
+  height: 8px;
+
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
 
 
 

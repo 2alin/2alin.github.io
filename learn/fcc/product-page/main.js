@@ -24,3 +24,43 @@ window.addEventListener("resize", () => {
     companySection.style.display = "none";
   }
 });
+
+// --------------------------------------
+// G A L L E R Y   C O N T R O L S
+// ---------------------------------------
+
+var backButton = document.querySelector("#previous");
+var nextButton = document.querySelector("#next");
+
+var currentIndex = 0;
+var productsList = document.querySelectorAll(".popular-product");
+
+function goNext() {
+  if (currentIndex === 2) {
+    var nextIndex = 0;
+  } else {
+    var nextIndex = currentIndex + 1 ;
+  }
+  productsList[currentIndex].classList.add("hidden");
+  productsList[nextIndex].classList.remove("hidden");
+  currentIndex = nextIndex;
+}
+
+function goBack() {
+  if (currentIndex === 0) {
+    var backIndex = 2;
+  } else {
+    var backIndex = currentIndex - 1;
+  }
+  productsList[currentIndex].classList.add("hidden");
+  productsList[backIndex].classList.remove("hidden");
+  currentIndex = backIndex;
+}
+
+backButton.addEventListener("click", () => {
+  goBack();
+});
+
+nextButton.addEventListener("click", () => {
+  goNext();
+});
