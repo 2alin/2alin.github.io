@@ -422,6 +422,10 @@ M E D I A    Q U E R I E S
 
   /* Gallery [screen <= 540px] */
 
+  #populars-gallery {
+    height: 480px;
+  }
+
   .popular-product{
     flex-direction: column;
   }
