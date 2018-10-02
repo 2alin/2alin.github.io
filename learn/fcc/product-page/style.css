@@ -197,7 +197,7 @@ G A L L E R Y   S T Y L E
 }
 
 .product-image img {
-  display: inline-block;
+  display: block;
   max-width: 100%;
   max-height: 100%;
 
@@ -430,8 +430,13 @@ M E D I A    Q U E R I E S
     flex: 1;
     padding: 0;
     max-height: 50%;
+    display: initial;
   }
   
+  .product-image img {
+    margin: auto;
+  }
+
   .product-description {
     flex: 1;
     align-items: center;
