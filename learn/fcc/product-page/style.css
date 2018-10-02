@@ -169,6 +169,7 @@ G A L L E R Y   S T Y L E
   padding: 1em 1em;
   height: calc(100vh - (2.5  * 60px ));
   min-height: 480px;
+  max-height: 640px;
   width: 100%;
   max-width: 960px;
   box-sizing: border-box;
