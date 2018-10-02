@@ -36,6 +36,8 @@ var currentIndex = 0;
 var productsList = document.querySelectorAll(".popular-product");
 var pageIndicators = document.querySelectorAll(".page-indicator");
 
+var intervalID;
+
 function goNext() {
   if (currentIndex === 2) {
     var nextIndex = 0;
@@ -47,6 +49,11 @@ function goNext() {
   pageIndicators[currentIndex].classList.remove("current");
   pageIndicators[nextIndex].classList.add("current");
   currentIndex = nextIndex;
+
+  // clearing automatic transition timer
+  clearInterval(intervalID);
+  startInterval();
+
 }
 
 function goBack() {
@@ -60,6 +67,11 @@ function goBack() {
   pageIndicators[currentIndex].classList.remove("current");
   pageIndicators[backIndex].classList.add("current");
   currentIndex = backIndex;
+
+  // clearing automatic transition timer
+  clearInterval(intervalID);
+  startInterval();
+  
 }
 
 backButton.addEventListener("click", () => {
@@ -71,4 +83,8 @@ nextButton.addEventListener("click", () => {
 });
 
 /* automatic transition */
-window.setInterval(goNext, 5000)
+startInterval();
+
+function startInterval() {
+  intervalID = setInterval(goNext, 5000)
+}
