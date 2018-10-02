@@ -34,6 +34,7 @@ var nextButton = document.querySelector("#next");
 
 var currentIndex = 0;
 var productsList = document.querySelectorAll(".popular-product");
+var pageIndicators = document.querySelectorAll(".page-indicator");
 
 function goNext() {
   if (currentIndex === 2) {
@@ -43,6 +44,8 @@ function goNext() {
   }
   productsList[currentIndex].classList.add("hidden");
   productsList[nextIndex].classList.remove("hidden");
+  pageIndicators[currentIndex].classList.remove("current");
+  pageIndicators[nextIndex].classList.add("current");
   currentIndex = nextIndex;
 }
 
@@ -54,6 +57,8 @@ function goBack() {
   }
   productsList[currentIndex].classList.add("hidden");
   productsList[backIndex].classList.remove("hidden");
+  pageIndicators[currentIndex].classList.remove("current");
+  pageIndicators[backIndex].classList.add("current");
   currentIndex = backIndex;
 }
 
@@ -64,3 +69,4 @@ backButton.addEventListener("click", () => {
 nextButton.addEventListener("click", () => {
   goNext();
 });
+

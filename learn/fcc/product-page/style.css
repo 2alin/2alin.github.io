@@ -164,7 +164,7 @@ header ul{
 /* -------------------------
 G A L L E R Y   S T Y L E
 ----------------------------*/
-#gallery-display {
+#populars-gallery {
   margin: 0 auto;
   padding: 1em 1em;
   height: calc(100vh - (2.5  * 60px ));
@@ -180,7 +180,7 @@ G A L L E R Y   S T Y L E
   height: calc(100% - 60px);
   /* background: pink; */
   box-sizing: border-box;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .popular-product.hidden {
@@ -234,7 +234,7 @@ G A L L E R Y   S T Y L E
 }
 
 .product-description button {
-  margin: 4em 0;
+  margin: 1em 0;
   padding: .8em 1em;
   font: inherit;
   font-size: .8em;
@@ -261,12 +261,12 @@ G A L L E R Y   S T Y L E
   align-items: center;
   height: 60px;
 
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .controls-section {
   
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 
@@ -301,11 +301,16 @@ G A L L E R Y   S T Y L E
 }
 
 .page-indicator {
-  width: 8px;
-  height: 8px;
-
-  border: 1px solid black;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--dark-color);
+  opacity: .7;
   border-radius: 50%;
+}
+
+.page-indicator.current {
+  background: var(--highlight-color);
+  box-shadow: 0 0 4px var(--dark-color);
 }
 
 
@@ -413,4 +418,35 @@ M E D I A    Q U E R I E S
     border-bottom-color: transparent;
     text-shadow: 0 0 2px;
   }
+
+
+  /* Gallery [screen <= 540px] */
+
+  .popular-product{
+    flex-direction: column;
+  }
+
+  .product-image {
+    flex: 1;
+    padding: 0;
+    max-height: 50%;
+  }
+  
+  .product-description {
+    flex: 1;
+    align-items: center;
+  }
+
+  .product-description h1 {
+    font-size: 1.6em;
+  }
+
+  .product-description p {
+    display: none;
+  }
+
+  .product-description button{
+    align-self: initial;
+  }
+  
 }
