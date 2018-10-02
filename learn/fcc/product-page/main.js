@@ -71,4 +71,4 @@ nextButton.addEventListener("click", () => {
 });
 
 /* automatic transition */
-window.setInterval(goNext, 3000)
+window.setInterval(goNext, 5000)

@@ -169,7 +169,7 @@ G A L L E R Y   S T Y L E
   padding: 1em 1em;
   height: calc(100vh - (2.5  * 60px ));
   min-height: 480px;
-  max-height: 640px;
+  max-height: 560px;
   width: 100%;
   max-width: 960px;
   box-sizing: border-box;
@@ -182,10 +182,15 @@ G A L L E R Y   S T Y L E
   /* background: pink; */
   box-sizing: border-box;
   /* border: 2px solid green; */
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  overflow: hidden;
 }
 
-.popular-product.hidden {
-  display: none;
+.popular-product.hidden{
+  opacity: 0;
+  height: 0;
+  /* display: none; */
 }
 
 .product-image {
