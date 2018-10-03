@@ -27,18 +27,20 @@ body {
 /* ----------------
 Nav Bars Styling
 -------------------*/
-header {
+header,
+main nav {
   font-size: 0.9rem;
 }
 
-header nav {
+header nav,
+main nav {
   display: flex;
   height: 60px;
   /* border: 2px solid green; */
 }
 
 /* clearing format in nav bar lists */
-header ul{
+nav ul{
   margin: 0;
   padding: 0; 
   list-style-type: none;
@@ -150,8 +152,13 @@ header ul{
 /* Second Bar Style */
 
 #store-bar {
+  position: sticky;
+  top: 0; 
+  z-index: 100;
   justify-content: space-around;
-  background: var(--dark-color)
+  background: var(--dark-color);
+  color: #fff;
+  transition: all .5s ease;
 }
 
 #store-bar .bar-section {
@@ -161,9 +168,17 @@ header ul{
 }
 
 #store-bar a {
-  background: transparent;
-  color: #fff;
+  color: inherit;
 }
+
+#store-bar.fixed {
+  background: #fff;
+  color: var(--darker-color);
+  box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+
+
 
 
 /* -------------------------
@@ -351,16 +366,24 @@ C A T A L O G U E   S T Y L E
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 360px;
+  width: 340px;
   /* border: 2px solid blue; */
+  cursor: pointer;
 }
 
 .product .image-container {
   order: -2;
   display: flex;
+  margin-bottom: 1.2em;
   justify-content: center;
   align-items: flex-start;
-  height: 300px;
+  height: 280px;
+  transition: transform .5s ease;
+}
+
+.product:hover .image-container,
+.product:focus .image-container {
+  transform: scale(1.2);
 }
 
 .image-container img {
@@ -374,6 +397,12 @@ C A T A L O G U E   S T Y L E
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: .1em;
+  border-bottom: 4px solid transparent;
+  transition: border-color .5s ease;
+}
+
+.product:hover h1 {
+  border-color: var(--dark-color);
 }
 
 .product h2 {
@@ -391,6 +420,14 @@ C A T A L O G U E   S T Y L E
   background: var(--darker-color);
   color: #fff;
 }
+
+
+
+
+
+
+
+
 
 
 /* ------------------------

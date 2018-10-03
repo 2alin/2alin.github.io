@@ -31,6 +31,22 @@ window.addEventListener("resize", () => {
   }
 });
 
+// ---------------------------------------
+// O N   S C R O L L   A C T I O N S 
+// ---------------------------------------
+var storeBar = document.querySelector("#store-bar");
+var storeBarTopPos = storeBar.getBoundingClientRect().top
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= storeBarTopPos) {
+    storeBar.classList.add("fixed");
+  } else {
+    storeBar.classList.remove("fixed")
+  }
+  console.log(storeBarTopPos);
+});
+
+
+
 // --------------------------------------
 // G A L L E R Y   C O N T R O L S
 // ---------------------------------------
