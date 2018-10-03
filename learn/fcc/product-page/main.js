@@ -8,26 +8,26 @@ menuButton.addEventListener("click", (e) => {
   e.preventDefault();
   if(menuButton.classList.contains("opened")) {
     menuButton.classList.remove("opened");
-    mainContent.classList.remove("blurred");
-    companySection.style.display = "none";
+    mainContent.classList.remove("hidden");
+    companySection.classList.remove("opened");
   }  else {
     menuButton.classList.add("opened");
-    mainContent.classList.add("blurred");
-    companySection.style.display = "flex";
+    mainContent.classList.add("hidden");
+    companySection.classList.add("opened");
   }
 });
 
 window.addEventListener("resize", () => {
   var width = window.innerWidth;
-  var isMenuVisible = (companySection.style.display === "flex");
+  var isMenuVisible = companySection.classList.contains("opened");
   var isButtonActivated = menuButton.classList.contains("opened");
   if (width >= 540) {
     menuButton.classList.remove("opened");
-    companySection.style.display = "flex";
-    mainContent.classList.add("blurred");
+    companySection.classList.add("opened");
+    mainContent.classList.add("hidden");
   } else if (isMenuVisible && !isButtonActivated) {
-    companySection.style.display = "none";
-    mainContent.classList.remove("blurred");
+    companySection.classList.remove("opened");
+    mainContent.classList.remove("hidden");
   }
 });
 
