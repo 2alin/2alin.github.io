@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900');
 
 :root {
   --darker-color: #301E1A;
   --dark-color: #A04B26;
   --light-color: #B7833A;
   --highlight-color: #B4B943;
-  --subtle-color: #79ABA2;
+  --subtle-color: #EFEFEF;
 }
 
 
@@ -331,6 +331,66 @@ G A L L E R Y   S T Y L E
 }
 
 
+/* ----------------------------
+C A T A L O G U E   S T Y L E
+------------------------------*/
+
+#products-catalogue {
+  margin: 0 auto;
+  padding: 3em 0;
+  max-width: 1200px;
+  max-width: calc(3 * (360px + 8px));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: var(--subtle-color);
+}
+
+.product {
+  margin: 16px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  /* border: 2px solid blue; */
+}
+
+.product .image-container {
+  order: -2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 300px;
+}
+
+.image-container img {
+  height: 100%;
+  width: auto;
+}
+
+.product h1 {
+  margin: .5em 0;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.product h2 {
+  order: -1;
+	font-size: .8em;
+	text-transform: uppercase;
+	font-weight: 900;
+	letter-spacing: .2em;
+}
+
+.product p.price {
+  padding: .4em 1.2em;
+  font-size: .9em;
+  font-weight: 700;
+  background: var(--darker-color);
+  color: #fff;
+}
 
 
 /* ------------------------
