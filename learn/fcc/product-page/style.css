@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 :root {
   --darker-color: #301E1A;
   --dark-color: #A04B26;
@@ -5,6 +7,9 @@
   --highlight-color: #B4B943;
   --subtle-color: #79ABA2;
 }
+
+
+
 
 /* ------------
 Genetal Styling
@@ -216,8 +221,14 @@ G A L L E R Y   S T Y L E
   flex-direction: column;
   justify-content: center;
   /* background: #79ABA2; */
+  line-height: 1.5;
   height: 100%;
   box-sizing: border-box;
+  transition: transform 1s ease;
+}
+
+.popular-product.hidden .product-description {
+  transform: translateY(80px);
 }
 
 .product-description h1 {
@@ -310,12 +321,12 @@ G A L L E R Y   S T Y L E
   width: 6px;
   height: 6px;
   border: 1px solid var(--dark-color);
-  opacity: .7;
+  opacity: .5;
   border-radius: 50%;
 }
 
 .page-indicator.current {
-  background: var(--highlight-color);
+  background: var(--dark-color);
   box-shadow: 0 0 4px var(--dark-color);
 }
 
