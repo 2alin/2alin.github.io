@@ -1,3 +1,5 @@
+var mainContent = document.querySelector("main");
+
 var menuButton = document.querySelector("#menu-section a");
 var companySection = document.querySelector("#company-section");
 
@@ -6,9 +8,11 @@ menuButton.addEventListener("click", (e) => {
   e.preventDefault();
   if(menuButton.classList.contains("opened")) {
     menuButton.classList.remove("opened");
+    mainContent.classList.remove("blurred");
     companySection.style.display = "none";
   }  else {
     menuButton.classList.add("opened");
+    mainContent.classList.add("blurred");
     companySection.style.display = "flex";
   }
 });
@@ -20,8 +24,10 @@ window.addEventListener("resize", () => {
   if (width >= 540) {
     menuButton.classList.remove("opened");
     companySection.style.display = "flex";
+    mainContent.classList.add("blurred");
   } else if (isMenuVisible && !isButtonActivated) {
     companySection.style.display = "none";
+    mainContent.classList.remove("blurred");
   }
 });
 
@@ -71,7 +77,7 @@ function goBack() {
   // clearing automatic transition timer
   clearInterval(intervalID);
   startInterval();
-  
+
 }
 
 backButton.addEventListener("click", () => {

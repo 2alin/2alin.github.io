@@ -379,6 +379,10 @@ M E D I A    Q U E R I E S
 }
 
 @media (max-width: 540px) {
+  main.blurred {
+    filter: blur(4px);
+  }
+
   #menu-section {
     flex: 1;
     justify-content: center;
