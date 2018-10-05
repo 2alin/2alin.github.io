@@ -34,17 +34,28 @@ window.addEventListener("resize", () => {
 // ---------------------------------------
 // O N   S C R O L L   A C T I O N S 
 // ---------------------------------------
+var companyBar = document.querySelector("#company-bar");
 var storeBar = document.querySelector("#store-bar");
-var storeBarTopPos = storeBar.getBoundingClientRect().top
-window.addEventListener("scroll", () => {
+// var storeBarTopPos = storeBar.getBoundingClientRect().top
+var storeBarTopPos = companyBar.getBoundingClientRect().height; 
+
+window.addEventListener("scroll", storeBar_setClass);
+
+function storeBar_setClass() {
   if (window.scrollY >= storeBarTopPos) {
     storeBar.classList.add("fixed");
   } else {
     storeBar.classList.remove("fixed")
   }
-  console.log(storeBarTopPos);
-});
+}
 
+
+// -------------------------------
+// O N   L O A D   A C T I O N S
+// -------------------------------
+
+// establish secondary bar status taking current scrolling in consideration
+document.addEventListener('DOMContentLoaded', storeBar_setClass);
 
 
 // --------------------------------------

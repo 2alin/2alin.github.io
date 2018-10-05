@@ -3,7 +3,7 @@
 :root {
   --darker-color: #301E1A;
   --dark-color: #A04B26;
-  --light-color: #B7833A;
+  --light-color: #ede9d0;
   --highlight-color: #B4B943;
   --subtle-color: #EFEFEF;
 }
@@ -21,6 +21,16 @@ html{
 
 body {
   margin: 0;
+}
+
+section {
+  margin: 0 auto;
+  padding: 4em 0;
+  /* max-width: calc(3 * (360px + 8px)); */
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
@@ -185,7 +195,6 @@ nav ul{
 G A L L E R Y   S T Y L E
 ----------------------------*/
 #populars-gallery {
-  margin: 0 auto;
   padding: 1em 1em;
   height: calc(100vh - (2.5  * 60px ));
   min-height: 480px;
@@ -351,13 +360,6 @@ C A T A L O G U E   S T Y L E
 ------------------------------*/
 
 #products-catalogue {
-  margin: 0 auto;
-  padding: 3em 0;
-  max-width: 1200px;
-  max-width: calc(3 * (360px + 8px));
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   background: var(--subtle-color);
 }
 
@@ -366,7 +368,7 @@ C A T A L O G U E   S T Y L E
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 340px;
+  width: 310px;
   /* border: 2px solid blue; */
   cursor: pointer;
 }
@@ -423,9 +425,28 @@ C A T A L O G U E   S T Y L E
 
 
 
+/* --------------------------
+V I D E O   S T Y L E
+----------------------------*/
 
+#equipment {
+  background: var(--light-color);
+}
 
+.video-container {
+  position: relative;
+  width: calc(100% - (3 * 3em));
+  padding-bottom: calc(.5625*(100% - (3 * 3em))); 
+  height: 0;
+}
 
+#video {
+  position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 
 
@@ -473,6 +494,16 @@ M E D I A    Q U E R I E S
   #store-bar .bar-section {
     width: 100%;
   }
+
+
+  /* Video Section */
+  
+  .video-container {
+    width: 100%;
+    padding-bottom: 56.25%; 
+  }
+
+
 }
 
 @media (max-width: 540px) {
