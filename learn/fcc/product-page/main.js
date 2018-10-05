@@ -1,4 +1,5 @@
 var mainContent = document.querySelector("main");
+var footerContent = document.querySelector("footer");
 
 var menuButton = document.querySelector("#menu-section a");
 var companySection = document.querySelector("#company-section");
@@ -9,10 +10,12 @@ menuButton.addEventListener("click", (e) => {
   if(menuButton.classList.contains("opened")) {
     menuButton.classList.remove("opened");
     mainContent.classList.remove("hidden");
+    footerContent.classList.remove("hidden");
     companySection.classList.remove("opened");
   }  else {
     menuButton.classList.add("opened");
     mainContent.classList.add("hidden");
+    footerContent.classList.add("hidden");
     companySection.classList.add("opened");
   }
 });
@@ -25,9 +28,11 @@ window.addEventListener("resize", () => {
     menuButton.classList.remove("opened");
     companySection.classList.add("opened");
     mainContent.classList.add("hidden");
+    footerContent.classList.add("hidden");
   } else if (isMenuVisible && !isButtonActivated) {
     companySection.classList.remove("opened");
     mainContent.classList.remove("hidden");
+    footerContent.classList.remove("hidden");
   }
 });
 
