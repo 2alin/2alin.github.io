@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
+  <script src="smooth-scroll.polyfills.min.js"></script>
   <title>Coffee Shop</title>
 </head>
 <body>
@@ -166,5 +167,8 @@
   <footer></footer>
 
   <script src="main.js"></script>
+  <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+  </script> 
 </body>
 </html>
