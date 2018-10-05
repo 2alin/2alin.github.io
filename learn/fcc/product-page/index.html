@@ -8,8 +8,9 @@
   <script src="smooth-scroll.polyfills.min.js"></script>
   <title>Coffee Shop</title>
 </head>
+
 <body>
-  <header>
+  <header id="header">
     <!-- Nav Bar that contains information purely about the company and the client. 
       It will show at the top of the page, and will auto hide after scrolling -->
     <nav id="company-bar">
@@ -43,7 +44,7 @@
       <ul class="bar-section">
         <li><a href="#products-catalogue">Coffee</a></li>
         <li><a href="#equipment">Equipment</a></li>
-        <li><a href="#">Subscriptions</a></li>        
+        <li><a href="#subscriptions">Subscriptions</a></li>        
         <li><a href="#">Gifts</a></li>
       </ul>
     </nav>
@@ -160,11 +161,49 @@
         </iframe>
       </div>
     </section>
+
+
+    <!-- subcription section -->
+    <section id="subscriptions">
+      <p>
+        Our Coffee Subscriptions will deliver our products right to your door every week.
+        Become a member and you will receive a new Single Origin specialty for free.
+        Send us your email to get more information.
+      </p>
+      <form action="https://www.freecodecamp.com/email-submit">
+        <input type="email" name="email" id="email" placeholder="Enter your email address">
+        <input type="submit" value="Find Out More" id="submit">
+      </form>
+    </section>
+
   </main>
 
 
 
-  <footer></footer>
+  <footer>
+    <h1>Stay in touch</h1>
+    <ul>
+      <li><a href="https://www.facebook.com/" target="_blank">
+        <img src="./assets/facebook.svg" alt="facebook logo">
+      </a></li>
+      <li><a href="http://www.instagram.com" target="_blank">
+        <img src="./assets/instagram.svg" alt="instagram logo">
+      </a></li>
+      <li><a href="https://wa.me/15550000000" target="_blank">
+        <img src="./assets/whatsapp.svg" alt="whatsapp logo">
+      </a></li>
+      <li><a href="http://www.youtube.com" target="_blank">
+        <img src="./assets/youtube.svg" alt="youtube logo">
+      </a></li>
+      <li><a href="http://www.twitter.com" target="_blank">
+        <img src="./assets/twitter.svg" alt="twitter logo">
+      </a></li>
+      <li><a href="mailto:adilsonsdev@gmail.com" target="_blank">
+        <img src="./assets/email.svg" alt="email logo">
+      </a></li>
+    </ul>
+
+  </footer>
 
   <script src="main.js"></script>
   <script>
