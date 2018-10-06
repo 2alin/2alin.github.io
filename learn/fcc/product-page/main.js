@@ -27,8 +27,8 @@ window.addEventListener("resize", () => {
   if (width >= 540) {
     menuButton.classList.remove("opened");
     companySection.classList.add("opened");
-    mainContent.classList.add("hidden");
-    footerContent.classList.add("hidden");
+    mainContent.classList.remove("hidden");
+    footerContent.classList.remove("hidden");
   } else if (isMenuVisible && !isButtonActivated) {
     companySection.classList.remove("opened");
     mainContent.classList.remove("hidden");
