@@ -310,6 +310,7 @@ G A L L E R Y   S T Y L E
   justify-content: space-around;
   align-items: center;
   height: 60px;
+  width: 100%;
 
   /* border: 2px solid blue; */
 }
