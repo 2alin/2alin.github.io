@@ -18,12 +18,64 @@
         <li>Each model is a Python class that subclasses <code>django.db.models.Model</code>.</li>
         <li>Each attribute of the model represents a database field.</li>
         <li>With all of this, Django gives you an automatically-generated database-access API; 
-          see <a href="https://docs.djangoproject.com/en/2.1/topics/db/queries/">Making queries</a>.</li>
+          see <a href="https://docs.djangoproject.com/en/2.1/topics/db/queries/" target="_blank">Making queries</a>.</li>
       </ul>
     </section>
-    <section id="Quick Example">
+    <section id="Quick_example">
+      <h1>Qick Example</h1>
       <p>This example model defines a <code>Person</code>, which has a <code>first_name</code> and <code>last_name</code>:</p>
+      <pre>
+        from django.db import models
 
+        class Person(models.Model):
+            first_name = models.CharField(max_length=30)
+            last_name = models.CharField(max_length=30)
+      </pre>
+      <p>
+        <code>first_name</code> and <code>last_name</code> are <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#fields" target="_blank">fields</a> of the model. 
+        Each field is specified as a class attribute, and each attribute maps to a database column.
+      </p>
+      <p>
+        The above <code>Person</code> model would create a database table like this:
+      </p>
+      <pre>
+        CREATE TABLE myapp_person (
+            "id" serial NOT NULL PRIMARY KEY,
+            "first_name" varchar(30) NOT NULL,
+            "last_name" varchar(30) NOT NULL
+        );
+      </pre>
+      <p>
+        Some technical notes:
+      </p>
+      <ul>
+        <li>The name of the table, <code>myapp_person</code>, is automatically derived from some model metadata but can be overridden. 
+          See <a href="https://docs.djangoproject.com/en/2.1/ref/models/options/#table-names" target="_blank">Table names</a> for more details.</li>
+        <li>An <code>id</code> field is added automatically, but this behavior can be overridden. 
+          See <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#automatic-primary-key-fields" target="_blank">Automatic primary key</a> fields.</li>
+        <li>The <code>CREATE TABLE</code> SQL in this example is formatted using PostgreSQL syntax, but it’s worth noting Django uses SQL tailored 
+          to the database backend specified in your <a href="https://docs.djangoproject.com/en/2.1/topics/settings/" target="_blank">settings file</a>.</li>
+      </ul>
+    </section>
+    <section id="Using_models">
+      <h1>Using models</h1>
+      <p>
+        Once you have defined your models, you need to tell Django you’re going to use those models. Do this by editing your settings file 
+        and changing the <code>INSTALLED_APPS</code> setting to add the name of the module that contains your <code>models.py</code>.
+      </p>
+      <p>
+        For example, if the models for your application live in the module <code>myapp.models</code> (the package structure that is created for an application 
+        by the <code>manage.py startapp</code> script), <code>INSTALLED_APPS</code> should read, in part:
+      </p>
+      <pre>
+        INSTALLED_APPS = [
+            #...
+            'myapp',
+            #...
+        ]
+      </pre>
+      <p>When you add new apps to <code>INSTALLED_APPS</code>, be sure to run <code>manage.py migrate</code>, optionally making migrations for them first 
+        with <code>manage.py makemigrations</code>.</p>
     </section>
   </main>
 </body>
