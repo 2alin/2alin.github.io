@@ -286,6 +286,236 @@ place = models.OneToOneField(
         The convention is not to capitalize the first letter of the <code>verbose_name</code>. Django will automatically capitalize the first letter where it needs to.
       </p>
     </section>
+
+    <section id="Meta options">
+      
+      <h1><code>Meta</code> options</h1>
+
+      <p>Give your model metadata by using an inner <code>class Meta</code>, like so:</p>
+      <pre><code>from django.db import models
+    
+class Ox(models.Model):
+    horn_length = models.IntegerField()
+
+    class Meta:
+        ordering = ["horn_length"]
+        verbose_name_plural = "oxen"</code></pre>
+      <p>
+        Model metadata is “anything that’s not a field”, such as ordering options (<code>ordering</code>), database table name (<code>db_table</code>), 
+        or human-readable singular and plural names (<code>verbose_name</code> and <code>verbose_name_plural</code>). None are required, and adding 
+        <code>class Meta</code> to a model is completely optional.
+      </p>
+      <p>
+        A complete list of all possible <code>Meta</code> options can be found in the <a href="https://docs.djangoproject.com/en/2.1/ref/models/options/" 
+        target="_blank">model option reference</a>.
+      </p>
+
+    </section>
+
+
+    <section id="Model_attributes">
+      
+      <h1>Model attributes</h1>
+
+      <dl>
+        <dt><code>objects</code></dt>
+        <dd>
+          <p>
+            The most important attribute of a model is the <code>Manager</code>. It’s the interface through which database query operations are provided 
+            to Django models and is used to <a href="https://docs.djangoproject.com/en/2.1/topics/db/queries/#retrieving-objects" target="_blank">retrieve 
+              the instances</a> from the database. If no custom <code>Manager</code> is defined, the default name is <code>objects</code>. Managers are 
+              only accessible via model classes, not the model instances.</p>
+        </dd>
+      </dl>
+
+    </section>
+
+
+    <section id= "Model_methods">
+      
+      <h1>Model methods</h1>
+
+      <p>
+        Define custom methods on a model to add custom “row-level” functionality to your objects. Whereas <code>Manager</code> methods are intended 
+        to do “table-wide” things, model methods should act on a particular model instance.
+      </p>
+      <p>
+        This is a valuable technique for keeping business logic in one place – the model.
+      </p>
+      <p>
+        For example, this model has a few custom methods:
+      </p>
+      <pre><code>from django.db import models
+    
+class Person(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    birth_date = models.DateField()
+
+    def baby_boomer_status(self):
+        "Returns the person's baby-boomer status."
+        import datetime
+        if self.birth_date &lt; datetime.date(1945, 8, 1):
+            return "Pre-boomer"
+        elif self.birth_date &gt; datetime.date(1965, 1, 1):
+            return "Baby boomer"
+        else:
+            return "Post-boomer"
+
+    @property
+    def full_name(self):
+        "Returns the person's full name."
+        return '%s %s' % (self.first_name, self.last_name)</code></pre>
+      <p>The last method in this example is a <a href="https://docs.djangoproject.com/en/2.1/glossary/#term-property" target="_blank">property</a>.</p>
+      <p>
+        The <a href="https://docs.djangoproject.com/en/2.1/ref/models/instances/" target="_blank">model instance reference</a> has a complete list 
+        of <a href="https://docs.djangoproject.com/en/2.1/ref/models/instances/#model-instance-methods" target="_blank">methods automatically given to each model</a>. 
+        You can override most of these – <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#overriding-predefined-model-methods" 
+        target="_blank">see overriding predefined model methods</a> – but there are a couple that you’ll almost always want to define:
+      </p>
+      <dl>
+        <dt><code>__str__()</code></dt>
+        <dd>
+          <p>
+            A Python “magic method” that returns a string representation of any object. This is what Python and Django will use whenever a model instance needs 
+            to be coerced and displayed as a plain string. Most notably, this happens when you display an object in an interactive console or in the admin.
+          </p>
+          <p>
+            You’ll always want to define this method; the default isn’t very helpful at all.
+          </p>
+        </dd>
+        <dt><code>get_absolute_url()</code></dt>
+        <dd>
+          <p>
+            This tells Django how to calculate the URL for an object. Django uses this in its admin interface, and any time it needs to figure out 
+            a URL for an object.
+          </p>
+          <p>
+            Any object that has a URL that uniquely identifies it should define this method.
+          </p>
+        </dd>
+      </dl>
+
+      <h2>Overriding predefined model methods</h2>
+      <p>
+        There’s another set of model methods that encapsulate a bunch of database behavior that you’ll want to customize. In particular you’ll often want 
+        to change the way <code>save()</code> and <code>delete()</code> work.
+      </p>
+      <p>
+        You’re free to override these methods (and any other model method) to alter behavior.
+      </p>
+      <p>
+        A classic use-case for overriding the built-in methods is if you want something to happen whenever you save an object. For example (see 
+        <a href="https://docs.djangoproject.com/en/2.1/ref/models/instances/#django.db.models.Model.save" target="_blank"><code>save()</code></a> 
+        for documentation of the parameters it accepts):
+      </p>
+      <pre><code>from django.db import models
+
+class Blog(models.Model):
+    name = models.CharField(max_length=100)
+    tagline = models.TextField()
+
+    def save(self, *args, **kwargs):
+        do_something()
+        super().save(*args, **kwargs)  # Call the "real" save() method.
+        do_something_else()</code></pre>
+
+      <p>You can also prevent saving:</p>
+      <pre><code>from django.db import models
+
+class Blog(models.Model):
+    name = models.CharField(max_length=100)
+    tagline = models.TextField()
+
+    def save(self, *args, **kwargs):
+        if self.name == "Yoko Ono's blog":
+            return # Yoko shall never have her own blog!
+        else:
+            super().save(*args, **kwargs)  # Call the "real" save() method.</code></pre>
+      <p>
+        It’s important to remember to call the superclass method – that’s that <code>super().save(*args, **kwargs)</code> business – to ensure that the object 
+        still gets saved into the database. If you forget to call the superclass method, the default behavior won’t happen and the database won’t get touched.
+      </p>
+      <p>
+        It’s also important that you pass through the arguments that can be passed to the model method – that’s what the <code>*args</code>, 
+        <code>**kwargs</code> bit does. Django will, from time to time, extend the capabilities of built-in model methods, adding new arguments. 
+        If you use <code>*args</code>, <code>**kwargs</code> in your method definitions, you are guaranteed that your code will automatically support those 
+        arguments when they are added.
+      </p>
+
+      <h2>Executing custom SQL</h2>
+      <p>
+        Another common pattern is writing custom SQL statements in model methods and module-level methods. For more details on using raw SQL, 
+        see the documentation on <a href="https://docs.djangoproject.com/en/2.1/topics/db/sql/" target="_blank">using raw SQL</a>.
+      </p>
+
+    </section>
+
+
+    <section id="Model_inheritance">
+
+      <h1>Model inheritance</h1>
+      <p>
+        Model inheritance in Django works almost identically to the way normal class inheritance works in Python, but the basics at the beginning 
+        of the page should still be followed. That means the base class should subclass <code>django.db.models.Model</code>.
+      </p>
+      <p>
+        The only decision you have to make is whether you want the parent models to be models in their own right (with their own database tables), 
+        or if the parents are just holders of common information that will only be visible through the child models.
+      </p>
+      <p>
+        There are three styles of inheritance that are possible in Django.
+      </p>
+      <ol>
+        <li>
+          Often, you will just want to use the parent class to hold information that you don’t want to have to type out for each child model. 
+          This class isn’t going to ever be used in isolation, so <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#abstract-base-classes" 
+          target="_blank">Abstract base classes</a> are what you’re after.
+        </li>
+        <li>
+          If you’re subclassing an existing model (perhaps something from another application entirely) and want each model to have its own database table, 
+          <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#multi-table-inheritance" target="_blank">Multi-table inheritance</a> is the way to go.
+        </li>
+        <li>
+          Finally, if you only want to modify the Python-level behavior of a model, without changing the models fields in any way, you can use 
+          <a href="https://docs.djangoproject.com/en/2.1/topics/db/models/#proxy-models" target="_blank">Proxy models</a>.
+        </li>
+      </ol>
+
+    </section>
+
+
+    <section id="Organizing_models_in_a_package">
+
+      <h1>Organizing models in a package</h1>
+
+      <p>
+        The <code>manage.py startapp</code> command creates an application structure that includes a <code>models.py</code> file. If you have many models, 
+        organizing them in separate files may be useful.
+      </p>
+      <p>
+        To do so, create a <code>models</code> package. Remove <code>models.py</code> and create a <code>myapp/models/</code> directory with an 
+        <code>__init__.py</code> file and the files to store your models. You must import the models in the <code>__init__.py</code> file.
+      </p>
+      <p>
+        For example, if you had <code>organic.py</code> and <code>synthetic.py</code> in the <code>models</code> directory:
+      </p>
+      <pre><code>from .organic import Person
+from .synthetic import Robot</code></pre>
+      <p>
+        Explicitly importing each model rather than using <code>from .models import *</code> has the advantages of not cluttering the namespace, 
+        making code more readable, and keeping code analysis tools useful.
+      </p>
+
+    </section>
+
+    <section id="Reference">
+      <h1>Reference</h1>
+      <p>
+        All the documentation in this page is taken from <a href="https://docs.djangoproject.com/en/2.1/topics/db/models" 
+        target="_blank">Djano's official documentation page</a>.
+      </p>
+    </section>
   </main>
 </body>
 </html>

@@ -2,3 +2,16 @@ body {
   margin: 0 auto;
   max-width: 780px;
 }
+
+h1 {
+  font-size: 2em;
+}
+
+h1::before{
+  content: ">";
+  margin-right: .5em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
