@@ -433,7 +433,7 @@ class Blog(models.Model):
 
     def save(self, *args, **kwargs):
         do_something()
-        super().save(*args, **kwargs)  # Call the "real" save() method.
+        super().save(*args, **kwargs)  #Call the "real" save() method.
         do_something_else()</code></pre>
 
       <p>You can also prevent saving:</p>
@@ -447,7 +447,7 @@ class Blog(models.Model):
         if self.name == "Yoko Ono's blog":
             return # Yoko shall never have her own blog!
         else:
-            super().save(*args, **kwargs)  # Call the "real" save() method.</code></pre>
+            super().save(*args, **kwargs)  #Call the "real" save() method.</code></pre>
       <p>
         It’s important to remember to call the superclass method – that’s that <code>super().save(*args, **kwargs)</code> business – to ensure that the object 
         still gets saved into the database. If you forget to call the superclass method, the default behavior won’t happen and the database won’t get touched.

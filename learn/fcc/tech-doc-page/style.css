@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Oswald|Fira+Mono:400,700');
 
+:root {
+  --main-color: #44B78B;
+  --main-dark-color: #384b42;
+  --gray-color: #e8f0e6;
+  --gray-dark-color: #9ab0a6;
+  --secondary-color: #007ab8;
+  --secondary-light-color: #1caef0;
+}
+
 
 /* ---------------------------
 G E N E R A L   S T Y L I N G
@@ -8,6 +17,7 @@ G E N E R A L   S T Y L I N G
 html {
   font-family: Lato, sans-serif;
   font-size: 16px;
+  color: var(--main-dark-color)
 }
 
 body {
@@ -65,13 +75,31 @@ N A V B A R   S T Y L E
   box-sizing: border-box;
   text-align: right;
   overflow: auto;
+  /* border-right: 4px solid var(--main-dark-color); */
+  background: var(--gray-color);  
+  box-shadow: 0 0 8px var(--gray-color);
 }
 
 #navbar h1 {
+  position: relative;
+  display: inline-block;
   font-family: Lato, sans-serif;
   font-size: 1.6em;
   /* font-variant-caps: small-caps; */
   font-weight: 700;
+  border-bottom: 16px solid var(--main-dark-color);
+}
+
+#navbar h1::after {
+  position: absolute;
+  right: 12px;
+  bottom: -16px;
+  padding: 0 1em;
+  line-height: 16px;
+  content: "documentation";
+  font-size: .5rem;
+  text-transform: uppercase;
+  background: var(--gray-color);
 }
 
 #navbar ul {
@@ -86,13 +114,20 @@ N A V B A R   S T Y L E
 #navbar a{
   display: inline-block;
   padding: .5em 1em;
-  margin-bottom: 1em;
+  margin-bottom: .75em;
   text-decoration: none;
-  background: lightcyan;  
+  /* background: lightcyan;   */
+  
 }
 
 #navbar a:visited {
   color: inherit;
+}
+
+#navbar a:hover,
+#navbar a:focus {
+  text-decoration: underline;
+  filter: brightness(2);
 }
 
 #navbar code {
@@ -109,8 +144,53 @@ main {
   box-sizing: border-box;
 }
 
-main section {
+section {
   margin: 0 auto;
   padding: 0 1rem;
   max-width: 760px;
+}
+
+main p,
+main ul,
+main ol {
+  line-height: 1.5;
+}
+
+pre {
+  padding: 1em;
+  box-sizing: border-box; 
+  border-left: 5px solid var(--main-dark-color);
+  background: var(--gray-color);
+  overflow: auto;
+}
+
+main a,
+main a:visited {
+  text-decoration: underline dotted;
+  color: var(--secondary-color);
+}
+
+main ul {
+  list-style: none;
+}
+
+main ul li {
+  position: relative;
+}
+
+main ul li::before {
+  position: absolute;
+  content: "\25C8";
+  left: -1.2em;
+  line-height: 1.3em;
+}
+
+/* ------------------------------
+
+     M E DI A   Q U E R I E S
+
+---------------------------------*/
+
+@media (max-width: 560px) {
+
 }
