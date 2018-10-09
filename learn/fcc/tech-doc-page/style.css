@@ -62,6 +62,8 @@ code {
 
 pre > code {
   font-weight: 400;
+  white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 
@@ -116,6 +118,7 @@ N A V B A R   S T Y L E
   padding: .5em 1em;
   margin-bottom: .75em;
   text-decoration: none;
+  color: inherit;
   /* background: lightcyan;   */
   
 }
@@ -131,7 +134,7 @@ N A V B A R   S T Y L E
 }
 
 #navbar code {
-  font-weight: 400;
+  font-weight: inherit;
 }
 
 
@@ -176,6 +179,7 @@ main ul {
 
 main ul li {
   position: relative;
+  z-index: -1;
 }
 
 main ul li::before {
@@ -191,6 +195,118 @@ main ul li::before {
 
 ---------------------------------*/
 
-@media (max-width: 560px) {
+@media (max-width: 780px) {
+  
+  /* General Style */
+
+  body.fixed {
+    overflow: hidden;
+  }
+
+  #navbar {
+    float: none;
+    width: 100%;
+    position: static;
+  }
+
+  main {
+    float: none;
+    width: 100%;
+  }
+  
+
+
+
+  /* Navbar Style */
+  
+  #navbar {
+    text-align: left;
+    position: sticky;
+    top: 0;
+    height: 48px;
+    overflow: visible;
+  }
+
+  #navbar header {
+    z-index: 100;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    background: var(--gray-color);
+    border-left: 16px solid var(--main-dark-color);
+  }
+
+  #navbar h1{
+    padding: 0 1rem;
+    margin: 0;
+    border-bottom: none;
+  }
+
+  #navbar h1::after {
+    display: none;
+  }
+
+  #navbar .button {
+    width: 36px;
+    height: 36px;
+    margin-right: 1rem;
+    background: url(./assets/menu.svg) center / cover no-repeat;
+    cursor: pointer;
+  }
+
+  #navbar .button.activated {
+    background-image: url(./assets/close.svg);
+  }
+
+  #navbar ul{
+    position: absolute;
+    top: calc(-100vh + 96px);
+    left: 0;
+    padding-left: 3rem;
+    box-sizing: border-box;
+    height: calc(100vh - 48px);
+    width: 100%;
+    /* border-left: 16px solid var(--main-dark-color); */
+    font-weight: 700;
+    background: var(--gray-color);
+    box-shadow: 0 2px 2px;
+    transition: top 1.5s ease-in-out;
+  }
+
+  #navbar ul.visible {
+    top: 48px;
+  }
+
+  #navbar ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: .5rem;
+    height: 100%;
+    width: 16px;
+    background: var(--main-dark-color);
+  }
+
+  #navbar ul::after {
+    position: absolute;
+    padding: 0 1em;
+    line-height: 16px;
+    content: "documentation";
+    font-size: .5rem;
+    text-transform: uppercase;
+    background: var(--gray-color);
+    transform: rotate(-90deg) translate(50%, 0);
+    left: calc(-3rem + .5rem + 13px);
+    top: 25vh;
+    height: 18px;
+  }
+
+
+  #navbar li:first-child a {
+    margin-top: .75em;
+  } 
 
 }
