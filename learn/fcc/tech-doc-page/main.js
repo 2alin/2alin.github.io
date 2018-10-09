@@ -46,8 +46,10 @@ for( var i = 0; i < indexItems.length; i++) {
     e.preventDefault();
     var section = document.querySelector(e.target.attributes["href"].value);
     var posSection = section.getBoundingClientRect().top + window.scrollY;
-    console.log(posSection);
-    window.scrollTo(0, posSection - 48);
-    console.log(window.scrollY);
+    if (window.innerWidth <= 780) {
+      window.scrollTo(0, posSection - 48);
+    } else {
+      window.scrollTo(0, posSection);
+    }
   });
 }
