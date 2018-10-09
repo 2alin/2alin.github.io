@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
+  <nav id="navbar">
+    <header><h1>Django Models</h1></header>
+      <ul>
+        <li><a href="#Introduction">Introduction</a></li>
+        <li><a href="#Quick_example">Quick example</a></li>
+        <li><a href="#Using_models">Using models</a></li>
+        <li><a href="#Meta_options"><code>Meta</code> options</a></li>
+        <li><a href="#Model_attributes">Model attributes</a></li>
+        <li><a href="#Model_methods">Model methods</a></li>
+        <li><a href="#Model_inheritance">Model inheritance</a></li>
+        <li><a href="#Organizing_models_in_a_package">Organizing models in a package</a></li>
+        <li><a href="#Reference">Reference</a></li>
+      </ul>
+  </nav>
+
   <main>
     <section id="Introduction">
       <h1>Introduction</h1>
@@ -23,7 +39,7 @@
       </ul>
     </section>
     <section id="Quick_example">
-      <h1>Qick Example</h1>
+      <h1>Qick example</h1>
       <p>This example model defines a <code>Person</code>, which has a <code>first_name</code> and <code>last_name</code>:</p>
       <pre><code>from django.db import models
   
@@ -287,7 +303,7 @@ place = models.OneToOneField(
       </p>
     </section>
 
-    <section id="Meta options">
+    <section id="Meta_options">
       
       <h1><code>Meta</code> options</h1>
 
@@ -513,7 +529,7 @@ from .synthetic import Robot</code></pre>
       <h1>Reference</h1>
       <p>
         All the documentation in this page is taken from <a href="https://docs.djangoproject.com/en/2.1/topics/db/models" 
-        target="_blank">Djano's official documentation page</a>.
+        target="_blank">Django's official documentation page</a>.
       </p>
     </section>
   </main>

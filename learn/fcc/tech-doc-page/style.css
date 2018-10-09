@@ -11,8 +11,23 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  max-width: 780px;
+  /* margin: 0 auto;
+  max-width: 780px; */
+  margin: 0;
+}
+
+#navbar {
+  float: left;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  /* background: papayawhip; */
+}
+
+main {
+  float: right; 
+  width: 75%;
+  /* background: lemonchiffon; */
 }
 
 h1 {
@@ -37,4 +52,65 @@ code {
 
 pre > code {
   font-weight: 400;
+}
+
+
+/*---------------------
+N A V B A R   S T Y L E
+----------------------- */
+
+#navbar {
+  height: 100vh; /* for overflow auto purposes */
+  padding: 0 1rem 0 .5rem;
+  box-sizing: border-box;
+  text-align: right;
+  overflow: auto;
+}
+
+#navbar h1 {
+  font-family: Lato, sans-serif;
+  font-size: 1.6em;
+  /* font-variant-caps: small-caps; */
+  font-weight: 700;
+}
+
+#navbar ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+#navbar a{
+  display: inline-block;
+  padding: .5em 1em;
+  margin-bottom: 1em;
+  text-decoration: none;
+  background: lightcyan;  
+}
+
+#navbar a:visited {
+  color: inherit;
+}
+
+#navbar code {
+  font-weight: 400;
+}
+
+
+
+/*-----------------
+M A I N   S T Y L E 
+-------------------*/
+
+main {
+  box-sizing: border-box;
+}
+
+main section {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 760px;
 }
