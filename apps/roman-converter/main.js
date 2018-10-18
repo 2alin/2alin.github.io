@@ -6,8 +6,9 @@ function convertToRoman(num) {
   if (!(Number.isInteger(num)) || num > 3999 || num <= 0) {
     return undefined;
   }
+  
 
-  const romanChars = {
+  var romanChars = {
     1: 'I',
     5: 'V',
     10: 'X',
@@ -17,11 +18,11 @@ function convertToRoman(num) {
     1000: 'M'
   }
 
-  let roman = "";
-  let base = 10 ** 3;
-  let residue = num;
-  let quotient;
-
+  var roman = "";
+  var base = Math.pow(10,3);
+  var residue = num;
+  var quotient;
+  
   do {
     //calculates quotient
     quotient = Math.floor(residue / base);
@@ -29,7 +30,7 @@ function convertToRoman(num) {
     // check quotient to determine right romans chars to add
     if (quotient === 9) {
       roman += romanChars[base] + romanChars[base * 10];
-    } else if ([8, 7, 6, 5].includes(quotient)) {
+    } else if ([8, 7, 6, 5].indexOf(quotient) != -1) {
       roman += romanChars[5 * base] + romanChars[base].repeat(quotient % 5);
     } else if (quotient === 4) {
       roman += romanChars[base] + romanChars[5 * base];
@@ -44,7 +45,7 @@ function convertToRoman(num) {
     base = base / 10;
 
   } while (residue > 0)
-
+  
   return roman;
 }
 
@@ -54,20 +55,20 @@ function convertToRoman(num) {
 // Converter WebApp
 //-------------------------
 
-let output = document.querySelector(".output");
-let input = document.querySelector(".input-container input")
+var output = document.querySelector(".output");
+var input = document.querySelector(".input-container input")
 
 // focus input field when the page loads
 input.focus();
 
 // convertion bot
 function convertBot() {
-  let inputValue = Number(input.value);
-  if (input.value.trimStart() === "") {
+  var inputValue = Number(input.value);
+  if (input.value.trim() === "") {
     output.textContent = "";
     output.classList.remove("error");
   } else if (checkValue(inputValue) && input.value) {
-    let romanNumber = convertToRoman(inputValue);
+    var romanNumber = convertToRoman(inputValue);
     output.textContent = romanNumber;
     output.classList.remove("error");
   }
@@ -89,7 +90,8 @@ function checkValue(value) {
 }
 
 
+
 // call convertion bot every time text input is changed
-input.addEventListener("input", () => {
+input.addEventListener("input",  function () {
   convertBot();
 });
