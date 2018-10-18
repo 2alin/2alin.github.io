@@ -73,6 +73,7 @@ input:focus {
   background: #efedff;
   color: #55433b;
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  border: thick double #55433b;
 }
 
 .output.error {
