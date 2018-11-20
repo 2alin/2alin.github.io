@@ -73,7 +73,7 @@ input {
   border-bottom: 2px solid var(--light-text-color);
   background: var(--light-bg-color);
   color: var(--light-text-color);
-  font-size: .8rem;
+  font-size: .9rem;
   font-family: inherit;
   outline: none;
 }
