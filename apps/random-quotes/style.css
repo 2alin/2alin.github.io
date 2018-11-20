@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Jacques+Francois|Roboto:400,500');
+
+:root {
+  --main-color: #fff;
+  --card-bg-color: #fff;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--main-color);
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  margin: 0 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+#quote-box {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 480px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg-color);
+  color: var(--main-color);
+  border-radius: 8px;
+  border: thick double var(--main-color);
+}
+
+#quote-box main {
+  text-align: center;
+  font-family: 'Jacques Francois', serif;
+  font-size: 1.5rem;
+  margin: auto 0;
+  margin-bottom: 1.5rem;
+}
+
+/*
+  --------------  
+    Quote Style
+  --------------
+*/
+
+#quote-box blockquote {
+  position: relative;
+  margin-left: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#quote-box cite {
+  display: block;
+  position: relative;
+  margin-right: 1rem;
+  font-size: .7em;
+  font-style: normal;
+  text-align: right;
+  
+}
+
+#quote-box blockquote::before {
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 6rem;
+  filter: opacity(25%);
+  position: absolute;
+  left: -1.8rem;
+  top: -3rem;
+  
+}
+
+#quote-box cite::before {
+  content: "– ";
+  filter: opacity(90%);
+}
+
+#quote-box footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  background: transparent;
+  color: var(--main-color);
+  border: 2px var(--main-color) solid;
+  /* border-color: var(--main-color); */
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  color: var(--card-bg-color);
+  background: var(--main-color);
+}
+
+button::-moz-focus-inner {
+	border-style: none;
+}
+
+
+/* 
+  -------------
+  STYLE CREDITS
+  -------------
+*/
+#credits {
+  margin-top: .5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: .75rem;
+  color: #fff;
+}
+
+#credits a,
+#credits a:visited {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#credits a:link {
+  color: inherit
+
+}
+
+
+
+
+
+/* Transitions */
+
+body {
+  transition: background-color 1000ms ease;
+}
+
+button {
+  transition: all 1000ms ease;
+}
+
+#quote-box {
+  transition: all 1000ms ease;
+}
+
+.quote-enter {
+  opacity: 0.01;
+  transform: translateY(-40px);
+}
+.quote-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1000ms ease-out;
+}
+.quote-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.quote-exit-active {
+  opacity: 0.01;
+  transform: translateY(40px);
+  transition: all 1000ms ease-out;
+}
+
+
+/* 
+  -----------------
+    MEDIA QUERIES
+  -----------------
+*/
+
+@media (max-width: 480px) {
+  #quote-box {
+    min-height: 380px;
+  }
+}
