@@ -75,6 +75,7 @@ input {
   color: var(--light-text-color);
   font-size: .8rem;
   font-family: inherit;
+  outline: none;
 }
 
 #app p{
