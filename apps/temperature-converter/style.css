@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Source+Sans+Pro:400,600');
+
+:root {
+  --body-bg-color: #298683;
+  --main-bg-color: #262838;
+  --light-bg-color: #343a4d;
+  --main-text-color: #f5f6ff;
+  --light-text-color: #BFD2FF;
+  --variant-text-color: #5DECBF;
+  
+}
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0 2rem;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  background: var(--body-bg-color);
+}
+
+#container {
+  margin: auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 480px;
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+  box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#footer {
+  margin: 1rem .5rem .5rem;
+  font-size: .7rem;
+  text-align: right;
+  color: var(--light-text-color);
+}
+
+a, a:visited {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* APP STYLE */
+#app {
+  height: 160px;
+}
+
+#input-field {
+  margin-bottom: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  padding: .3rem .5rem;
+  margin-left: .8rem;
+  width: 100px;
+  border: none;
+  border-bottom: 2px solid var(--light-text-color);
+  background: var(--light-bg-color);
+  color: var(--light-text-color);
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+#app p{
+  margin: 1rem 0 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--variant-text-color);
+}
+
+
+@media (max-width: 440px) {
+  h1 {
+    margin-bottom: .5rem;
+  }
+  #input-field {
+    flex-direction: column;
+    align-items: center;
+    justify-content: initial;
+  }
+  input {
+    margin: 0;
+    margin-top: .2rem;
+  }
+}
