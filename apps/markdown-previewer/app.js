@@ -14,7 +14,13 @@ function Editor(props) {
       "h2",
       null,
       "Editor"
-    )
+    ),
+    React.createElement("textarea", {
+      cols: "30",
+      rows: "10",
+      value: props.editorText,
+      onChange: props.onInputChange
+    })
   );
 }
 
@@ -26,27 +32,41 @@ function Preview(props) {
       "h2",
       null,
       "Preview"
-    )
+    ),
+    React.createElement("div", { id: "output", dangerouslySetInnerHTML: { __html: props.parsedText } })
   );
 }
 
 var MarkdownApp = function (_React$Component) {
   _inherits(MarkdownApp, _React$Component);
 
-  function MarkdownApp() {
+  function MarkdownApp(props) {
     _classCallCheck(this, MarkdownApp);
 
-    return _possibleConstructorReturn(this, (MarkdownApp.__proto__ || Object.getPrototypeOf(MarkdownApp)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (MarkdownApp.__proto__ || Object.getPrototypeOf(MarkdownApp)).call(this, props));
+
+    _this.state = { rawText: "" };
+    _this.handleInputChange = _this.handleInputChange.bind(_this);
+    return _this;
   }
 
   _createClass(MarkdownApp, [{
+    key: "handleInputChange",
+    value: function handleInputChange(e) {
+      this.setState({ rawText: e.target.value });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var rawText = this.state.rawText;
       return React.createElement(
         "div",
         null,
-        React.createElement(Editor, null),
-        React.createElement(Preview, null)
+        React.createElement(Editor, {
+          onInputChange: this.handleInputChange,
+          editorText: rawText
+        }),
+        React.createElement(Preview, { parsedText: marked(rawText) })
       );
     }
   }]);
