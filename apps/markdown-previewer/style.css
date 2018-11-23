@@ -1,3 +1,60 @@
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
+}
+
+#app>div {
+  height: 100%;
+  display: flex;
+}
+
+#editor.hidden,
+#preview.hidden {
+  display: none;
+}
+
+#editor {
+  padding: 0 .5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#editor textarea {
+  resize: none;
+  width: 100%;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+#preview{
+  padding: 0 .5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#preview #output {
+  flex: 1;
+  overflow: auto;
+}
+
+
+button.material-icons {
+  cursor: pointer;
+}
+
 img {
   width: 200px;
 }

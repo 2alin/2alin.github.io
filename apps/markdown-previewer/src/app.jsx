@@ -1,52 +1,84 @@
 function Editor(props) {
   return (
-    <div id="editor">
-      <h2>Editor</h2>
+    <section id="editor" className={props.minimized ? "hidden" : ""}>
+      <header>
+        <h1>Editor</h1>
+        <button
+          className="material-icons"
+          onClick={e => props.onExpandClick(e, "editor")}
+        >
+          {props.fullscreen ? "fullscreen_exit" : "fullscreen"}
+        </button>
+      </header>
       <textarea
         cols="30"
-        rows="10"
         value={props.editorText}
         onChange={props.onInputChange}
       />
-    </div>
+    </section>
   );
 }
 
 function Preview(props) {
   return (
-    <div id="preview">
-      <h2>Preview</h2>
-      <div id="output" dangerouslySetInnerHTML={{__html: props.parsedText}} />
-    </div>
+    <section id="preview" className={props.minimized ? "hidden" : ""}>
+      <header>
+        <h1>Preview</h1>
+        <button
+          className="material-icons"
+          onClick={e => props.onExpandClick(e, "preview")}
+        >
+          {props.fullscreen ? "fullscreen_exit" : "fullscreen"}
+        </button>
+      </header>
+      <div id="output" dangerouslySetInnerHTML={{ __html: props.parsedText }} />
+    </section>
   );
 }
 
 class MarkdownApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rawText: INITIAL_MARKDOWN };
+    this.state = { rawText: INITIAL_MARKDOWN, elementExpanded: "" };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleExpandClick = this.handleExpandClick.bind(this);
   }
 
   handleInputChange(e) {
     this.setState({ rawText: e.target.value });
   }
 
+  handleExpandClick(e, section) {
+    const elementExpanded = this.state.elementExpanded;
+    this.setState({
+      elementExpanded: elementExpanded === section ? "" : section
+    });
+  }
+
   render() {
     const rawText = this.state.rawText;
+    const elementExpanded = this.state.elementExpanded;
     return (
       <div>
         <Editor
           onInputChange={this.handleInputChange}
           editorText={rawText}
+          minimized={elementExpanded === "preview"}
+          fullscreen={elementExpanded === "editor"}
+          onExpandClick={this.handleExpandClick}
         />
-        <Preview parsedText={marked(rawText)}/>
+        <Preview
+          parsedText={marked(rawText)}
+          minimized={elementExpanded === "editor"}
+          fullscreen={elementExpanded === "preview"}
+          onExpandClick={this.handleExpandClick}
+        />
       </div>
     );
   }
 }
 
-const INITIAL_MARKDOWN =`
+const INITIAL_MARKDOWN = `
 # Quesadillas with Guacamole
 
 ![Quesadillas with guacamole](https://c1.staticflickr.com/5/4023/4308368180_7a2f817518_b.jpg)
@@ -80,7 +112,6 @@ Fat             14.66g
 Protein         2.00g
 \`\`\`
 `;
-
 
 const APP_CONTAINER = document.querySelector("#app");
 ReactDOM.render(<MarkdownApp />, APP_CONTAINER);

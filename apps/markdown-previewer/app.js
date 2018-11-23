@@ -8,16 +8,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function Editor(props) {
   return React.createElement(
-    "div",
-    { id: "editor" },
+    "section",
+    { id: "editor", className: props.minimized ? "hidden" : "" },
     React.createElement(
-      "h2",
+      "header",
       null,
-      "Editor"
+      React.createElement(
+        "h1",
+        null,
+        "Editor"
+      ),
+      React.createElement(
+        "button",
+        {
+          className: "material-icons",
+          onClick: function onClick(e) {
+            return props.onExpandClick(e, "editor");
+          }
+        },
+        props.fullscreen ? "fullscreen_exit" : "fullscreen"
+      )
     ),
     React.createElement("textarea", {
       cols: "30",
-      rows: "10",
       value: props.editorText,
       onChange: props.onInputChange
     })
@@ -26,12 +39,26 @@ function Editor(props) {
 
 function Preview(props) {
   return React.createElement(
-    "div",
-    { id: "preview" },
+    "section",
+    { id: "preview", className: props.minimized ? "hidden" : "" },
     React.createElement(
-      "h2",
+      "header",
       null,
-      "Preview"
+      React.createElement(
+        "h1",
+        null,
+        "Preview"
+      ),
+      React.createElement(
+        "button",
+        {
+          className: "material-icons",
+          onClick: function onClick(e) {
+            return props.onExpandClick(e, "preview");
+          }
+        },
+        props.fullscreen ? "fullscreen_exit" : "fullscreen"
+      )
     ),
     React.createElement("div", { id: "output", dangerouslySetInnerHTML: { __html: props.parsedText } })
   );
@@ -45,8 +72,9 @@ var MarkdownApp = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (MarkdownApp.__proto__ || Object.getPrototypeOf(MarkdownApp)).call(this, props));
 
-    _this.state = { rawText: INITIAL_MARKDOWN };
+    _this.state = { rawText: INITIAL_MARKDOWN, elementExpanded: "" };
     _this.handleInputChange = _this.handleInputChange.bind(_this);
+    _this.handleExpandClick = _this.handleExpandClick.bind(_this);
     return _this;
   }
 
@@ -56,17 +84,34 @@ var MarkdownApp = function (_React$Component) {
       this.setState({ rawText: e.target.value });
     }
   }, {
+    key: "handleExpandClick",
+    value: function handleExpandClick(e, section) {
+      var elementExpanded = this.state.elementExpanded;
+      this.setState({
+        elementExpanded: elementExpanded === section ? "" : section
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var rawText = this.state.rawText;
+      var elementExpanded = this.state.elementExpanded;
       return React.createElement(
         "div",
         null,
         React.createElement(Editor, {
           onInputChange: this.handleInputChange,
-          editorText: rawText
+          editorText: rawText,
+          minimized: elementExpanded === "preview",
+          fullscreen: elementExpanded === "editor",
+          onExpandClick: this.handleExpandClick
         }),
-        React.createElement(Preview, { parsedText: marked(rawText) })
+        React.createElement(Preview, {
+          parsedText: marked(rawText),
+          minimized: elementExpanded === "editor",
+          fullscreen: elementExpanded === "preview",
+          onExpandClick: this.handleExpandClick
+        })
       );
     }
   }]);
