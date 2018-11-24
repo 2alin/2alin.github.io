@@ -6,10 +6,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var IconButton = window["material-ui"].IconButton;
+
+
 function Editor(props) {
   return React.createElement(
     "section",
-    { id: "editor", className: props.minimized ? "hidden" : "" },
+    {
+      id: "editor",
+      className: props.minimized ? "hidden" : props.fullscreen ? "maximized" : ""
+    },
     React.createElement(
       "header",
       null,
@@ -19,7 +25,7 @@ function Editor(props) {
         "Editor"
       ),
       React.createElement(
-        "button",
+        IconButton,
         {
           className: "material-icons",
           onClick: function onClick(e) {
@@ -40,7 +46,10 @@ function Editor(props) {
 function Preview(props) {
   return React.createElement(
     "section",
-    { id: "preview", className: props.minimized ? "hidden" : "" },
+    {
+      id: "preview",
+      className: props.minimized ? "hidden" : props.fullscreen ? "maximized" : ""
+    },
     React.createElement(
       "header",
       null,
@@ -50,7 +59,7 @@ function Preview(props) {
         "Preview"
       ),
       React.createElement(
-        "button",
+        IconButton,
         {
           className: "material-icons",
           onClick: function onClick(e) {

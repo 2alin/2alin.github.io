@@ -1,14 +1,21 @@
+const { IconButton } = window["material-ui"];
+
 function Editor(props) {
   return (
-    <section id="editor" className={props.minimized ? "hidden" : ""}>
+    <section
+      id="editor"
+      className={
+        props.minimized ? "hidden" : props.fullscreen ? "maximized" : ""
+      }
+    >
       <header>
         <h1>Editor</h1>
-        <button
+        <IconButton
           className="material-icons"
           onClick={e => props.onExpandClick(e, "editor")}
         >
           {props.fullscreen ? "fullscreen_exit" : "fullscreen"}
-        </button>
+        </IconButton>
       </header>
       <textarea
         cols="30"
@@ -21,15 +28,20 @@ function Editor(props) {
 
 function Preview(props) {
   return (
-    <section id="preview" className={props.minimized ? "hidden" : ""}>
+    <section
+      id="preview"
+      className={
+        props.minimized ? "hidden" : props.fullscreen ? "maximized" : ""
+      }
+    >
       <header>
         <h1>Preview</h1>
-        <button
+        <IconButton
           className="material-icons"
           onClick={e => props.onExpandClick(e, "preview")}
         >
           {props.fullscreen ? "fullscreen_exit" : "fullscreen"}
-        </button>
+        </IconButton>
       </header>
       <div id="output" dangerouslySetInnerHTML={{ __html: props.parsedText }} />
     </section>
