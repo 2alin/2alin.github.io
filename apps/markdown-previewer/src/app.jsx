@@ -93,7 +93,7 @@ class MarkdownApp extends React.Component {
 const INITIAL_MARKDOWN = `
 # Quesadillas with Guacamole
 
-![Quesadillas with guacamole](https://c1.staticflickr.com/5/4023/4308368180_7a2f817518_b.jpg)
+![Quesadillas with guacamole](https://2alin.github.io/apps/markdown-previewer/assets/quesadilla_guacamole.jpg)
 
 photo by [Robert](https://www.flickr.com/photos/rdpeyton/)
 

@@ -119,7 +119,10 @@ button.material-icons {
   font-weight: 300;
 }
 
-#preview h1,
+#preview h1 {
+  font-weight: 400;
+}
+
 #preview h2,
 #preview h3,
 #preview h4,
