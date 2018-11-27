@@ -95,3 +95,15 @@ P R O J E C T S   N A V B A R
     inset 4em 0 2px var(--secondary-hover-color),
     inset -4em 0 2px var(--secondary-hover-color);
 }
+
+/* ACTIVE STYLE */
+
+
+
+/* Temporal Footer */
+
+footer {
+  max-width: 400px;
+  margin-top: 4rem;
+  font-size: .7rem;
+}
