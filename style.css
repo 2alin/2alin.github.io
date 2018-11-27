@@ -29,6 +29,10 @@ body {
   background: var(--main-bg-color);
 }
 
+#portfolio {
+  display: flex;
+}
+
 /* 
 ------------------------------
 P R O J E C T S   N A V B A R
@@ -36,6 +40,7 @@ P R O J E C T S   N A V B A R
 */
 
 #projects-nav {
+  margin-right: 4rem;
   display: flex;
   flex-direction: column;
   font-size: 14px;
@@ -98,6 +103,56 @@ P R O J E C T S   N A V B A R
 
 /* ACTIVE STYLE */
 
+#projects-nav button.active {
+  color: var(--main-bg-color);
+}
+
+#projects-nav button.active:before {
+  border-color: var(--secondary-hover-color);
+  box-shadow: 
+    inset 4em 0 2px var(--secondary-hover-color),
+    inset -4em 0 2px var(--secondary-hover-color);
+}
+
+#projects-nav button:after {
+  position: absolute;
+  content: '';
+  top:0; left: 100%;
+  width: 0;
+  color: var(--secondary-color);
+  border: 1px solid;
+  transition: 400ms;
+}
+#projects-nav button.active:after {
+  width: 4rem;
+  color: var(--secondary-hover-color);
+}
+
+
+/* 
+------------------------------------
+P R O J E C T S   C O N T A I N E R
+------------------------------------
+*/
+
+#projects-container {
+  flex: 0;
+  background: var(--secondary-hover-color);
+  transition: 400ms;
+  position: relative;
+}
+
+#projects-container::after{
+  
+  position: absolute;
+  content: '';
+  top: 1px; right: 1px; bottom: 1px; left: 1px;
+  background: var(--main-bg-color);
+}
+
+#projects-container.opened {
+  flex: 1;
+}
 
 
 /* Temporal Footer */
