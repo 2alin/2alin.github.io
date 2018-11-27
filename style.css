@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500,600');
+
+/* 
+-------------------------
+G E N E R A L   S T Y L E
+-------------------------
+*/
+
+:root {
+  --main-bg-color: #282828;
+  --main-text-color: #fff;
+  --default-color: gray;
+  --primary-color: blue;
+  --primary-hover-color: ;
+  --secondary-color: #19bc8b;
+  --secondary-hover-color: #00ad9e;
+
+}
+
+
+html {
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+  padding: 1rem;
+  color: var(--main-text-color);
+  background: var(--main-bg-color);
+}
+
+/* 
+------------------------------
+P R O J E C T S   N A V B A R
+-----------------------------
+*/
+
+#projects-nav {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+#projects-nav button {
+  background: none;
+  border: none;
+  width: 8em;
+  padding: 1em 0;
+  margin-bottom: 1em;
+  font: inherit;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  
+  /* lock text selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  /* disable blue hihglight on mobile chrome */
+  -webkit-tap-highlight-color: transparent;
+}
+
+#projects-nav button::-moz-focus-inner { 
+  /* no dotted line on firefox when clicked */
+  border: 0;
+}
+
+#projects-nav button:before {
+  position: absolute;
+  content: '';
+  top: 0; right: 0; bottom: 0; left: 0;
+  border: 2px solid;
+  border-radius: 4px;
+  transform: skewX(-34deg);
+  z-index: -1;
+  transition: box-shadow 400ms;
+}
+
+/* HOVER/FOCUS STYLE */
+
+#projects-nav button:hover,
+#projects-nav button:focus {
+  color: var(--main-bg-color);
+  transition: color 400ms;
+}
+
+#projects-nav button:hover:before,
+#projects-nav button:focus:before {
+  border-color: var(--secondary-hover-color);
+  box-shadow: 
+    inset 4em 0 2px var(--secondary-hover-color),
+    inset -4em 0 2px var(--secondary-hover-color);
+}
