@@ -162,3 +162,9 @@ footer {
   margin-top: 4rem;
   font-size: .7rem;
 }
+
+footer a,
+footer a:visited {
+  color: inherit;
+  text-decoration: underline dotted;
+}
