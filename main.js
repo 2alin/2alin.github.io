@@ -1,4 +1,4 @@
-projectButtons = document.querySelectorAll(".projects-nav-btn");
+projectButtons = document.querySelectorAll(".nav-btn");
 projectsContainer = document.querySelector("#projects-container");
 
 
