@@ -1,0 +1,57 @@
+{
+  "reactjs": [
+    {
+      "id": 1,
+      "projectName": "Random Quotes",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
+      "liveVersionUrl": "https:/www.adisdev.com/2ali/apps/random-quotes",
+      "description": "App that fetches random quotes and display it to the user, made with ReactJS and react-transition-group for the main transition.",
+      "technologies": [
+        "reactjs",
+        "react-transition-group",
+        "javascript",
+        "ES6",
+        "CSS"
+      ],
+      "datePeriod": "November 2018"
+    },
+    {
+      "id": 2,
+      "projectName": "Temperature Converter",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
+      "liveVersionUrl": "https://www.adisdev.com/apps/random-quotes",
+      "description": "Simple app made with ReactJS that automatically identifies the units of temperature the user types in, and converts the amount to other units.",
+      "technologies": ["reactjs", "javascript", "ES6", "CSS"],
+      "datePeriod": "November 2018"
+    },
+    {
+      "id": 3,
+      "projectName": "Markdown Previewer",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/blob/master/apps/markdown-previewer",
+      "liveVersionUrl": "https://www.adisdev.com/apps/markdown-previewer/",
+      "description": "A simple app made with ReactJS that previews markdown input.",
+      "technologies": ["reactjs", "javascript", "ES6", "CSS", "material-ui"],
+      "datePeriod": "November 2018"
+    }
+  ],
+  "frontEnd": [
+    {
+      "id": 1,
+      "projectName": "Product Landing Page",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/product-page",
+      "liveVersionUrl": "https://www.adisdev.com/learn/fcc/product-page/",
+      "description": "Another FreeCodeCamp Responsive Web Design Project for a coffee shop. Here I used a polyfill for smooth scrolling, rather than coding it manually as I did in my previous project.",
+      "technologies": ["javascript", "CSS", "html5"],
+      "datePeriod": "September 2018"
+    },
+    {
+      "id": 2,
+      "projectName": "Technical Documentation Page",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/tech-doc-page",
+      "liveVersionUrl": "https://www.adisdev.com/learn/fcc/tech-doc-page/",
+      "description": "A Responsive Web Design Project for a technical documentation page. From this activity I specially loved learning how to use the :before and :after pseudo-elements to make all kind of css effects. I still use those tricks nowadays.",
+      "technologies": ["javascript", "CSS", "html5"],
+      "datePeriod": "November 2018"
+    }
+  ]
+}
