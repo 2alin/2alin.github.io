@@ -1,1 +1,1 @@
-Try this app: http://2alin.github.io/apps/random-quotes.
+Try this app: https://adisdev.com/apps/random-quotes.
