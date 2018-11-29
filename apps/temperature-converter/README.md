@@ -1,1 +1,1 @@
-Try this app: http://2alin.github.io/apps/temperature-converter.
+Try this app: https://www.adisdev.com/apps/temperature-converter/

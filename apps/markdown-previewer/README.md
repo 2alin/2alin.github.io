@@ -1,1 +1,1 @@
-Try this app: http://2alin.github.io/apps/markdown-previewer.
+Try this app: https://www.adisdev.com/apps/markdown-previewer/
