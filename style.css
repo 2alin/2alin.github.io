@@ -24,6 +24,7 @@ html {
 }
 
 body {
+  margin: 0;
   padding: 1rem;
   color: var(--main-text-color);
   background: var(--main-bg-color);
@@ -31,6 +32,10 @@ body {
 
 #portfolio {
   display: flex;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  /* background: pink; */
 }
 
 /* 
@@ -40,7 +45,7 @@ P R O J E C T S   N A V B A R
 */
 
 #nav-bar {
-  margin-right: 4rem;
+  margin: 0 2em 0 1em;
   display: flex;
   flex-direction: column;
   font-size: 14px;
@@ -121,41 +126,50 @@ P R O J E C T S   N A V B A R
   width: 0;
   color: var(--secondary-color);
   border: 1px solid;
+  box-sizing: border-box;
   transition: 400ms;
 }
-#nav-bar button.active:after {
-  width: 4rem;
+/* #nav-bar button.active:after {
+  width: calc(28vw - 2rem - 9em);
   color: var(--secondary-hover-color);
-}
+} */
 
 
 /* 
 ------------------------------------
-P R O J E C T S   C O N T A I N E R
+D I S P L A Y   C O N T A I N E R
 ------------------------------------
 */
 
-#projects-container {
-  flex: 0;
-  background: var(--secondary-hover-color);
-  transition: 400ms;
+#display-container {
+  flex: 1;
+  padding: 1rem;
+  border-left: 1px solid var(--secondary-color);
   position: relative;
 }
 
-#projects-container::after{
-  
+#display-container:after {
   position: absolute;
   content: '';
-  top: 1px; right: 1px; bottom: 1px; left: 1px;
+  top: 0; right: 0; bottom: 0; left: 0;
   background: var(--main-bg-color);
+  border-left: 1px solid var(--secondary-color);
+  transition: 400ms;
 }
 
-#projects-container.opened {
-  flex: 1;
+#display-container.opened:after {
+  left: 100%;
 }
 
+/* DISPLAY SECTIONS */
+.display-section.active {
+  display: block;
+  
+}
 
-
+.display-section {
+  display: none;
+}
 
 
 /* Temporal Footer */
