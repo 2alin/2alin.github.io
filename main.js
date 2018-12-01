@@ -4,7 +4,6 @@ HANDLE NAV ACTIONS
 ------------------
 */
 
-
 navButtons = document.querySelectorAll(".nav-btn");
 displayContainer = document.querySelector("#display-container");
 
@@ -41,8 +40,6 @@ function setActive(chosenBtn) {
   });
 }
 
-
-
 /* 
 ---------------------
 FETCH AND INJECT DATA
@@ -66,20 +63,46 @@ function injectProjects(sectionDOMElement, data) {
   //receives a DOM element (section) and injects new elements in there using json data
   for (let project of data) {
     // console.log(project.projectName);
+    let main = document.createElement("main");
     let projectName = document.createElement("h1");
+    let timePeriod = document.createElement("p");
     let description = document.createElement("p");
+    let pictureContainer = document.createElement("picture");
+    let picture = document.createElement("img");
+    let footer = document.createElement("footer");
+    let sourceCode = document.createElement("a");
+    let tryLive = document.createElement("a");
     let projectContainer = document.createElement("article");
-    projectContainer.classList.add('project')
-    if (project.id === 1) projectContainer.classList.add('active');
+    
+    //adding classes and properties
+    timePeriod.classList.add('period');
+    projectContainer.classList.add("project");
+    if (project.id === 1) projectContainer.classList.add("active");
+    sourceCode.href = project.sourceCodeUrl;
+    tryLive.href = project.liveVersionUrl;
+    sourceCode.target = "_blank";
+    tryLive.target = "_blank";
 
+    //filling data in html elements
     projectName.textContent = project.projectName;
+    timePeriod.textContent = project.datePeriod;
     description.textContent = project.description;
+    sourceCode.textContent = "source code"
+    tryLive.textContent = "try it"
+    picture.src = './assets/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
 
-    projectContainer.appendChild(projectName);
-    projectContainer.appendChild(description);
+    //adding elements to the DOM
+    main.appendChild(timePeriod);
+    main.appendChild(projectName);
+    main.appendChild(description);
+    footer.appendChild(tryLive);
+    footer.appendChild(sourceCode);
+    main.appendChild(footer);
+    pictureContainer.appendChild(picture);
+    projectContainer.appendChild(main);
+    projectContainer.appendChild(pictureContainer);
+
 
     sectionDOMElement.appendChild(projectContainer);
   }
 }
-
-

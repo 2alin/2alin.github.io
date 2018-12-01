@@ -8,7 +8,7 @@ G E N E R A L   S T Y L E
 
 :root {
   --main-bg-color: #282828;
-  --main-text-color: #fff;
+  --main-text-color: #efe;
   --default-color: gray;
   --primary-color: blue;
   --primary-hover-color: ;
@@ -178,11 +178,66 @@ D I S P L A Y   S E C T I O N S
 --------------------------------
 */
 .project.active {
-  display: block;
+  display: flex;
 }
 
 .project {
   display: none;
+}
+
+.project main {
+  flex: 3;
+  margin-right: .7rem;
+}
+
+.project main h1 {
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.project .period {
+  margin: 0;
+  font-size: .8rem;
+  color: var(--secondary-color);
+}
+
+.project main p {
+  
+}
+
+.project footer {
+  font-size: .7rem;
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+  /* color: var(--secondary-color); */
+}
+
+.project footer a,
+.project footer a:visited {
+  color: inherit;
+  text-decoration: none;
+  padding: 1.2em 1em;
+  /* text-decoration: underline dotted; */
+}
+
+.project footer a::after {
+  content: "⤴";
+  font-size: 1.2em;
+  margin-left: 2px;
+}
+
+.project picture {
+  flex: 2;
+  margin-top: 2rem;
+}
+
+.project img {
+  width: 100%;
+  /* border: 1px dashed var(--secondary-color); */
+  border-radius: 4px;
 }
 
 /*
@@ -197,14 +252,14 @@ P R O F I L E    S E C T I O N
 
 /* Temporal Footer */
 
-footer {
+footer.temporal {
   max-width: 400px;
   margin-top: 4rem;
   font-size: 0.7rem;
 }
 
-footer a,
-footer a:visited {
+footer.temporal a,
+footer.temporal a:visited {
   color: inherit;
   text-decoration: underline dotted;
 }
