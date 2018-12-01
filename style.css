@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500,600');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500,600");
 
 /* 
 -------------------------
@@ -14,13 +14,11 @@ G E N E R A L   S T Y L E
   --primary-hover-color: ;
   --secondary-color: #19bc8b;
   --secondary-hover-color: #00ad9e;
-
 }
-
 
 html {
   font-size: 16px;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 body {
@@ -63,7 +61,7 @@ P R O J E C T S   N A V B A R
   cursor: pointer;
   outline: none;
   position: relative;
-  
+
   /* lock text selection */
   -moz-user-select: none;
   -ms-user-select: none;
@@ -74,15 +72,18 @@ P R O J E C T S   N A V B A R
   -webkit-tap-highlight-color: transparent;
 }
 
-#nav-bar button::-moz-focus-inner { 
+#nav-bar button::-moz-focus-inner {
   /* no dotted line on firefox when clicked */
   border: 0;
 }
 
 #nav-bar button:before {
   position: absolute;
-  content: '';
-  top: 0; right: 0; bottom: 0; left: 0;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border: 2px solid;
   border-radius: 4px;
   transform: skewX(-34deg);
@@ -101,8 +102,7 @@ P R O J E C T S   N A V B A R
 #nav-bar button:hover:before,
 #nav-bar button:focus:before {
   border-color: var(--secondary-hover-color);
-  box-shadow: 
-    inset 4em 0 2px var(--secondary-hover-color),
+  box-shadow: inset 4em 0 2px var(--secondary-hover-color),
     inset -4em 0 2px var(--secondary-hover-color);
 }
 
@@ -114,15 +114,15 @@ P R O J E C T S   N A V B A R
 
 #nav-bar button.active:before {
   border-color: var(--secondary-hover-color);
-  box-shadow: 
-    inset 4em 0 2px var(--secondary-hover-color),
+  box-shadow: inset 4em 0 2px var(--secondary-hover-color),
     inset -4em 0 2px var(--secondary-hover-color);
 }
 
 #nav-bar button:after {
   position: absolute;
-  content: '';
-  top:0; left: 100%;
+  content: "";
+  top: 0;
+  left: 100%;
   width: 0;
   color: var(--secondary-color);
   border: 1px solid;
@@ -133,7 +133,6 @@ P R O J E C T S   N A V B A R
   width: calc(28vw - 2rem - 9em);
   color: var(--secondary-hover-color);
 } */
-
 
 /* 
 ------------------------------------
@@ -150,8 +149,11 @@ D I S P L A Y   C O N T A I N E R
 
 #display-container:after {
   position: absolute;
-  content: '';
-  top: 0; right: 0; bottom: 0; left: 0;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: var(--main-bg-color);
   border-left: 1px solid var(--secondary-color);
   transition: 400ms;
@@ -170,7 +172,6 @@ D I S P L A Y   C O N T A I N E R
   display: none;
 }
 
-
 /* 
 --------------------------------
 D I S P L A Y   S E C T I O N S 
@@ -184,14 +185,22 @@ D I S P L A Y   S E C T I O N S
   display: none;
 }
 
-
+/*
+-------------------------------
+P R O F I L E    S E C T I O N
+-------------------------------
+*/
+#profile-display > h1,
+#profile-display > p:first-of-type {
+  text-align: center;
+}
 
 /* Temporal Footer */
 
 footer {
   max-width: 400px;
   margin-top: 4rem;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
 
 footer a,
