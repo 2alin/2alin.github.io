@@ -89,7 +89,8 @@ function injectProjects(sectionDOMElement, data) {
     description.textContent = project.description;
     sourceCode.textContent = "source code"
     tryLive.textContent = "try it"
-    picture.src = './assets/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
+    // picture.src = './assets/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
+    picture.src = 'https://raw.githubusercontent.com/2alin/2alin.github.io/master/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
 
     //adding elements to the DOM
     main.appendChild(timePeriod);
