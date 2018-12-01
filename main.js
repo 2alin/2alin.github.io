@@ -1,3 +1,10 @@
+/* 
+------------------
+HANDLE NAV ACTIONS
+------------------
+*/
+
+
 navButtons = document.querySelectorAll(".nav-btn");
 displayContainer = document.querySelector("#display-container");
 
@@ -34,6 +41,8 @@ function setActive(chosenBtn) {
   });
 }
 
+
+
 /* 
 ---------------------
 FETCH AND INJECT DATA
@@ -60,6 +69,8 @@ function injectProjects(sectionDOMElement, data) {
     let projectName = document.createElement("h1");
     let description = document.createElement("p");
     let projectContainer = document.createElement("article");
+    projectContainer.classList.add('project')
+    if (project.id === 1) projectContainer.classList.add('active');
 
     projectName.textContent = project.projectName;
     description.textContent = project.description;
@@ -70,3 +81,5 @@ function injectProjects(sectionDOMElement, data) {
     sectionDOMElement.appendChild(projectContainer);
   }
 }
+
+

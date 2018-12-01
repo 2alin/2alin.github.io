@@ -164,12 +164,26 @@ D I S P L A Y   C O N T A I N E R
 /* DISPLAY SECTIONS */
 .display-section.active {
   display: block;
-  
 }
 
 .display-section {
   display: none;
 }
+
+
+/* 
+--------------------------------
+D I S P L A Y   S E C T I O N S 
+--------------------------------
+*/
+.project.active {
+  display: block;
+}
+
+.project {
+  display: none;
+}
+
 
 
 /* Temporal Footer */
