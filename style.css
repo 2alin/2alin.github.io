@@ -26,6 +26,9 @@ body {
   padding: 1rem;
   color: var(--main-text-color);
   background: var(--main-bg-color);
+  /* display: flex;
+  height: 100vh;
+  align-items: center; */
 }
 
 #portfolio {
@@ -227,8 +230,15 @@ D I S P L A Y   S E C T I O N S
 }
 
 .project main .technologies {
+  font-family: 'Fira Sans Mono', monospace;
+  font-size: .8em;
+}
+
+.project main .technologies::before {
+  content: "Technologies: ";
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1rem;
   
-  font-style: italic;
 }
 
 .project footer {
@@ -338,16 +348,95 @@ P R O F I L E    S E C T I O N
   text-align: center;
 }
 
-/* Temporal Footer */
 
-footer.temporal {
-  max-width: 400px;
-  margin-top: 4rem;
-  font-size: 0.7rem;
+/* 
+--------------------------------
+R E S P O N S I V E   S T Y L E
+--------------------------------
+*/
+
+@media (max-width: 700px) {
+  html {
+    height: 100%;
+  }
+
+  body {
+    box-sizing: border-box;
+    height: 100% ;
+  }
+
+  #portfolio {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  #nav-bar {
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  #nav-bar button {
+    margin: 0;
+    margin-right: .5em;
+    margin-bottom: .5em;
+    padding: .6em .7em;
+    width: initial;
+    
+  }
+
+  #nav-bar button:last-of-type {
+    margin-bottom: .5em;
+    margin-right: 0;
+  }
+
+
+
+  .projects-container {
+  
+  }
+
+  .project {
+    flex-direction: column;
+  }
+
+  .project main {
+    flex: initial;
+    margin: 0;
+    /* margin-top: 6em; */
+  }
+
+  .project main h1 {
+    /* margin-top: 2em; */
+    text-align: left;
+  }
+
+  .project main .technologies::before {
+    content: 'Used: ';
+  }
+
+  .project picture{
+    flex: initial;
+    margin: 0;
+    /* position: absolute; */
+    right: 0;
+    order: -1;
+    align-self: center;
+  }
+
+  .project picture img {
+    width: initial;
+    height: 100px;
+  }
+
+  
+
 }
 
-footer.temporal a,
-footer.temporal a:visited {
-  color: inherit;
-  text-decoration: underline dotted;
-}
+
+
+
+
+
+

@@ -97,7 +97,7 @@ function injectProjects(sectionDOMElement, data) {
     projectName.textContent = project.projectName;
     timePeriod.textContent = project.datePeriod;
     description.textContent = project.description;
-    technologies.textContent = "Technologies: " + project.technologies.join(", ") + ".";
+    technologies.textContent = project.technologies.join(", ") + ".";
     sourceCode.textContent = "source code";
     tryLive.textContent = "try it";
     picture.src =
