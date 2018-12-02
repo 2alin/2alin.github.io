@@ -33,6 +33,7 @@ body {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  height: 340px;
   /* background: pink; */
 }
 
@@ -46,6 +47,7 @@ P R O J E C T S   N A V B A R
   margin: 0 2em 0 1em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: 14px;
 }
 
@@ -70,6 +72,10 @@ P R O J E C T S   N A V B A R
 
   /* disable blue hihglight on mobile chrome */
   -webkit-tap-highlight-color: transparent;
+}
+
+#nav-bar button:last-of-type {
+  margin-bottom: 0;
 }
 
 #nav-bar button::-moz-focus-inner {
@@ -163,26 +169,28 @@ D I S P L A Y   C O N T A I N E R
   left: 100%;
 }
 
-/* DISPLAY SECTIONS */
-.display-section.active {
-  display: block;
-}
-
-.display-section {
-  display: none;
-}
-
 /* 
 --------------------------------
 D I S P L A Y   S E C T I O N S 
 --------------------------------
 */
-.project.active {
+.display-section {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.display-section.active {
   display: flex;
 }
 
 .project {
   display: none;
+}
+
+.project.active {
+  display: flex;
 }
 
 .project main {
@@ -205,6 +213,11 @@ D I S P L A Y   S E C T I O N S
 
 .project main p {
   
+}
+
+.project main .technologies {
+  
+  font-style: italic;
 }
 
 .project footer {
@@ -238,6 +251,67 @@ D I S P L A Y   S E C T I O N S
   width: 100%;
   /* border: 1px dashed var(--secondary-color); */
   border-radius: 4px;
+}
+
+/* nav controls*/
+.controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.controls .button {
+  cursor: pointer;
+  /* background: pink; */
+  width: 3.2rem;
+  line-height: 2;
+  font-size: .8em;
+  text-transform: uppercase;
+  position: relative;
+  text-align: center;
+  color: var(--secondary-color);
+
+  /* lock text selection */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.controls .button:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* border: 2px solid; */
+  border-radius: 4px;
+  transform: skewX(-34deg);
+  z-index: -1;
+}
+.controls .button:hover,
+.controls .button:focus {
+  color: var(--secondary-hover-color);
+}
+
+.controls .previous:before {
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.controls .previous:hover:before,
+.controls .previous:focus:before {
+  box-shadow: -2px 2px 1px;
+}
+
+.controls .next:before {
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.controls .next:hover:before,
+.controls .next:focus:before {
+  box-shadow: 2px -2px 1px;
 }
 
 /*

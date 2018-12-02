@@ -67,17 +67,19 @@ function injectProjects(sectionDOMElement, data) {
     let projectName = document.createElement("h1");
     let timePeriod = document.createElement("p");
     let description = document.createElement("p");
+    let technologies = document.createElement("p");
     let pictureContainer = document.createElement("picture");
     let picture = document.createElement("img");
     let footer = document.createElement("footer");
     let sourceCode = document.createElement("a");
     let tryLive = document.createElement("a");
     let projectContainer = document.createElement("article");
-    
+
     //adding classes and properties
-    timePeriod.classList.add('period');
+    timePeriod.classList.add("period");
     projectContainer.classList.add("project");
-    if (project.id === 1) projectContainer.classList.add("active");
+    // if (project.id === 1) projectContainer.classList.add("active");
+    technologies.classList.add('technologies');
     sourceCode.href = project.sourceCodeUrl;
     tryLive.href = project.liveVersionUrl;
     sourceCode.target = "_blank";
@@ -87,15 +89,20 @@ function injectProjects(sectionDOMElement, data) {
     projectName.textContent = project.projectName;
     timePeriod.textContent = project.datePeriod;
     description.textContent = project.description;
-    sourceCode.textContent = "source code"
-    tryLive.textContent = "try it"
-    picture.src = './assets/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
+    technologies.textContent = "Technologies: " + project.technologies.join(", ") + ".";
+    sourceCode.textContent = "source code";
+    tryLive.textContent = "try it";
+    picture.src =
+      "./assets/" +
+      project.projectName.toLowerCase().replace(/\s/g, "_") +
+      ".png";
     // picture.src = 'https://raw.githubusercontent.com/2alin/2alin.github.io/master/' + project.projectName.toLowerCase().replace(/\s/g,'_') + '.png'
 
     //adding elements to the DOM
     main.appendChild(timePeriod);
     main.appendChild(projectName);
     main.appendChild(description);
+    main.appendChild(technologies);
     footer.appendChild(tryLive);
     footer.appendChild(sourceCode);
     main.appendChild(footer);
@@ -103,7 +110,51 @@ function injectProjects(sectionDOMElement, data) {
     projectContainer.appendChild(main);
     projectContainer.appendChild(pictureContainer);
 
-
     sectionDOMElement.appendChild(projectContainer);
   }
+
+  //adding control bar elements to section container
+  let navControls = document.createElement("nav");
+  let previousButton = document.createElement("span");
+  let nextButton = document.createElement("span");
+
+  previousButton.textContent = "prev";
+  nextButton.textContent = "next";
+
+  previousButton.classList.add("previous", "button");
+  nextButton.classList.add("next", "button");
+  navControls.classList.add("controls");
+
+  navControls.appendChild(previousButton);
+  navControls.appendChild(nextButton);
+  sectionDOMElement.appendChild(navControls);
+
+  //handle control actions
+  let projectsList = document.querySelectorAll(
+    "#" + sectionDOMElement.id + " .project"
+  );
+  let currentProjectIndex = 0;
+  projectsList[currentProjectIndex].classList.add('active');
+
+  nextButton.addEventListener("click", () => {
+    projectsList[currentProjectIndex].classList.remove("active");
+    if (currentProjectIndex === projectsList.length - 1) {
+      currentProjectIndex = 0;
+    } else {
+      currentProjectIndex++;
+    }
+    projectsList[currentProjectIndex].classList.add("active");
+    console.log(currentProjectIndex);
+  });
+
+  previousButton.addEventListener("click", () => {
+    projectsList[currentProjectIndex].classList.remove("active");
+    if (currentProjectIndex === 0) {
+      currentProjectIndex = projectsList.length - 1;
+    } else {
+      currentProjectIndex--;
+    }
+    projectsList[currentProjectIndex].classList.add("active");
+    console.log(currentProjectIndex);
+  });
 }
