@@ -361,12 +361,13 @@ P R O F I L E    S E C T I O N
 #profile-display picture {
   align-self: center;
   order: 1;
-  margin-left: 0.5rem;
+  margin: calc(180px * 0.15);
 }
 
 #profile-display picture img {
-  max-width: 180px;
-  border-radius: 4px;
+  max-width: calc(180px / 1.4);
+  border-radius: 12px;
+  transform: rotate(45deg);
 }
 
 #profile-display .description footer {
@@ -480,8 +481,7 @@ R E S P O N S I V E   S T Y L E
   #profile-display main picture {
     order: 0;
     /* margin-top: 1rem; */
-    margin: 0;
-    margin-bottom: .5rem;
+    
   }
 
   #profile-display main p {
@@ -513,7 +513,7 @@ R E S P O N S I V E   S T Y L E
   }
 
   #profile-display picture img {
-    max-width: 120px;
+    max-width: calc(120px / 1.4);
   }
 
 }
