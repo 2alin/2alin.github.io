@@ -209,7 +209,7 @@ D I S P L A Y   S E C T I O N S
 
 .project main {
   flex: 3;
-  margin-right: .7rem;
+  margin-right: 0.7rem;
 }
 
 .project main h1 {
@@ -221,28 +221,26 @@ D I S P L A Y   S E C T I O N S
 
 .project .period {
   margin: 0;
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: var(--secondary-color);
 }
 
 .project main p {
-  
 }
 
 .project main .technologies {
-  font-family: 'Fira Sans Mono', monospace;
-  font-size: .8em;
+  font-family: "Fira Sans Mono", monospace;
+  font-size: 0.8em;
 }
 
 .project main .technologies::before {
   content: "Technologies: ";
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
-  
 }
 
 .project footer {
-  font-size: .7rem;
+  font-size: 0.7rem;
   display: flex;
   justify-content: space-around;
   text-transform: uppercase;
@@ -285,7 +283,7 @@ D I S P L A Y   S E C T I O N S
   /* background: pink; */
   width: 3.2rem;
   line-height: 2;
-  font-size: .8em;
+  font-size: 0.8em;
   text-transform: uppercase;
   position: relative;
   text-align: center;
@@ -296,7 +294,6 @@ D I S P L A Y   S E C T I O N S
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-
 }
 
 .controls .button:before {
@@ -343,11 +340,37 @@ D I S P L A Y   S E C T I O N S
 P R O F I L E    S E C T I O N
 -------------------------------
 */
-#profile-display > h1,
-#profile-display > p:first-of-type {
+
+
+#profile-display h1 {
+  font-weight: 500;
+  font-size: 1.6rem;
   text-align: center;
+  margin-top: 1rem;
+  margin-bottom: .8rem;
 }
 
+#profile-display h2 {
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+#profile-display main {
+  display: flex;
+  align-items: center;
+}
+
+#profile-display picture {
+  align-self: center;
+  order: 1;
+}
+
+#profile-display picture img {
+  max-width: 180px;
+  border-radius: 4px;
+}
 
 /* 
 --------------------------------
@@ -362,7 +385,7 @@ R E S P O N S I V E   S T Y L E
 
   body {
     box-sizing: border-box;
-    height: 100% ;
+    height: 100%;
   }
 
   #portfolio {
@@ -379,22 +402,18 @@ R E S P O N S I V E   S T Y L E
 
   #nav-bar button {
     margin: 0;
-    margin-right: .5em;
-    margin-bottom: .5em;
-    padding: .6em .7em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.6em 0.7em;
     width: initial;
-    
   }
 
   #nav-bar button:last-of-type {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     margin-right: 0;
   }
 
-
-
   .projects-container {
-  
   }
 
   .project {
@@ -413,10 +432,10 @@ R E S P O N S I V E   S T Y L E
   }
 
   .project main .technologies::before {
-    content: 'Used: ';
+    content: "Used: ";
   }
 
-  .project picture{
+  .project picture {
     flex: initial;
     margin: 0;
     /* position: absolute; */
@@ -430,13 +449,26 @@ R E S P O N S I V E   S T Y L E
     height: 100px;
   }
 
-  
+  #profile-display {
+    justify-content: space-around;
+  }
 
+  #profile-display main {
+    flex-direction: column;
+  }
+
+  #profile-display main picture {
+    order: 0;
+    /* margin-top: 1rem; */
+    margin-bottom: 1rem;
+  }
+
+  #profile-display main p {
+    margin: 0;
+  }
+
+  #profile-display a,
+  #profile-display a:visited {
+    color: inherit;
+  }
 }
-
-
-
-
-
-
-
