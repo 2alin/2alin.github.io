@@ -19,7 +19,7 @@
       "id": 2,
       "projectName": "Temperature Converter",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
-      "liveVersionUrl": "https://www.adisdev.com/apps/random-quotes",
+      "liveVersionUrl": "https://www.adisdev.com/apps/temperature-converter",
       "description": "Simple app made with ReactJS that automatically identifies the units of temperature the user types in, and converts the amount to other units.",
       "technologies": ["ReactJS", "JavaScript", "ES6", "CSS"],
       "datePeriod": "Nov 2018"

@@ -61,6 +61,10 @@ reactjsDisplay = document.querySelector("#reactjs-display");
 
 function injectProjects(sectionDOMElement, data) {
   //receives a DOM element (section) and injects new elements in there using json data
+
+  let projectsContainer = document.createElement('div');
+  projectsContainer.classList.add('projects-container');
+
   for (let project of data) {
     // console.log(project.projectName);
     let main = document.createElement("main");
@@ -73,12 +77,12 @@ function injectProjects(sectionDOMElement, data) {
     let footer = document.createElement("footer");
     let sourceCode = document.createElement("a");
     let tryLive = document.createElement("a");
-    let projectContainer = document.createElement("article");
+    let projectArticle = document.createElement("article");
 
     //adding classes and properties
     timePeriod.classList.add("period");
-    projectContainer.classList.add("project");
-    // if (project.id === 1) projectContainer.classList.add("active");
+    projectArticle.classList.add("project");
+    // if (project.id === 1) projectArticle.classList.add("active");
     technologies.classList.add('technologies');
     sourceCode.href = project.sourceCodeUrl;
     tryLive.href = project.liveVersionUrl;
@@ -107,11 +111,14 @@ function injectProjects(sectionDOMElement, data) {
     footer.appendChild(sourceCode);
     main.appendChild(footer);
     pictureContainer.appendChild(picture);
-    projectContainer.appendChild(main);
-    projectContainer.appendChild(pictureContainer);
+    projectArticle.appendChild(main);
+    projectArticle.appendChild(pictureContainer);
 
-    sectionDOMElement.appendChild(projectContainer);
+    projectsContainer.appendChild(projectArticle);
   }
+  
+  sectionDOMElement.appendChild(projectsContainer);
+  
 
   //adding control bar elements to section container
   let navControls = document.createElement("nav");
