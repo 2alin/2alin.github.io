@@ -53,11 +53,15 @@ fetch("./src/resume.json")
     // inject data in DOM
     injectProjects(frontEndDisplay, resumeJson.frontEnd);
     injectProjects(reactjsDisplay, resumeJson.reactjs);
+    injectProjects(pythonDisplay, resumeJson.python);
+    injectProjects(miscDisplay, resumeJson.misc);
   });
 
 // selectors
 frontEndDisplay = document.querySelector("#front-end-display");
 reactjsDisplay = document.querySelector("#reactjs-display");
+pythonDisplay = document.querySelector("#python-display");
+miscDisplay = document.querySelector("#misc-display");
 
 function injectProjects(sectionDOMElement, data) {
   //receives a DOM element (section) and injects new elements in there using json data
@@ -134,7 +138,8 @@ function injectProjects(sectionDOMElement, data) {
 
   navControls.appendChild(previousButton);
   navControls.appendChild(nextButton);
-  sectionDOMElement.appendChild(navControls);
+  // append navControls only if the number of projects is 2 or more
+  if(data.length > 1) sectionDOMElement.appendChild(navControls);
 
   //handle control actions
   let projectsList = document.querySelectorAll(

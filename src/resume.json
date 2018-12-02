@@ -1,7 +1,6 @@
 {
   "reactjs": [
     {
-      "id": 1,
       "projectName": "Random Quotes",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
       "liveVersionUrl": "https:/www.adisdev.com/apps/random-quotes",
@@ -16,7 +15,6 @@
       "datePeriod": "Nov 2018"
     },
     {
-      "id": 2,
       "projectName": "Temperature Converter",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
       "liveVersionUrl": "https://www.adisdev.com/apps/temperature-converter",
@@ -25,9 +23,8 @@
       "datePeriod": "Nov 2018"
     },
     {
-      "id": 3,
       "projectName": "Markdown Previewer",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/blob/master/apps/markdown-previewer",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/markdown-previewer",
       "liveVersionUrl": "https://www.adisdev.com/apps/markdown-previewer/",
       "description": "A simple app made with ReactJS that previews markdown input.",
       "technologies": ["ReactJS", "JavaScript", "ES6", "CSS", "Material-UI"],
@@ -36,7 +33,6 @@
   ],
   "frontEnd": [
     {
-      "id": 1,
       "projectName": "Product Landing Page",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/product-page",
       "liveVersionUrl": "https://www.adisdev.com/learn/fcc/product-page/",
@@ -45,13 +41,56 @@
       "datePeriod": "Sept 2018"
     },
     {
-      "id": 2,
       "projectName": "Technical Documentation Page",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/tech-doc-page",
       "liveVersionUrl": "https://www.adisdev.com/learn/fcc/tech-doc-page/",
-      "description": "A Responsive Web Design Project for a technical documentation page. I specially loved learning how to use the :before and :after pseudo-elements to make all kind of css effects. I still use those tricks nowadays.",
+      "description": "A responsive project for a technical documentation page. I specially loved learning how to use the :before and :after pseudo-elements to design and implement tricky styles.",
       "technologies": ["JavaScript", "CSS", "HTML5"],
       "datePeriod": "Nov 2018"
+    },
+    {
+      "projectName": "Weird Shapes",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/projects/weird-shapes",
+      "liveVersionUrl": "https://www.adisdev.com/projects/weird-shapes/",
+      "description": "This was my first big project. It's an app that allows to draw weird shapes everytime the user clicks over the white canvas. It allows shapes customization and language selection.",
+      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
+      "datePeriod": "Mar 2018"
+    },
+    {
+      "projectName": "Bouncing Balls (Improved)",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/mozilla/improve-bouncing-balls",
+      "liveVersionUrl": "http://www.adisdev.com/learn/mozilla/improve-bouncing-balls/",
+      "description": "I improved the bouncing balls game that was developed at MDN course site, allowing multiplayer and diagonal moves. Use arrow and A/W/S/D keys to play the game. Only for Desktop.",
+      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
+      "datePeriod": "Mar 2018"
+    }
+  ],
+  "python": [
+    {
+      "projectName": "Django Local Library",
+      "sourceCodeUrl": "https://github.com/2alin/django_local_library",
+      "liveVersionUrl": "http://adi-library.herokuapp.com",
+      "description": "I developed and deployed a server app that manages books, authors and loaning for a local library with user/admin login integration.",
+      "technologies": ["Python", "Django"],
+      "datePeriod": "Aug 2018"
+    },
+    {
+      "projectName": "MBac (openCV)",
+      "sourceCodeUrl": "https://github.com/2alin/mbac/commits?author=2alin",
+      "liveVersionUrl": "https://github.com/vektorious/mbac",
+      "description": "I ventured with a project called MBac on Open Science about image recognition on bacteria samples. I learned OpenCV for a month from scratch and coded a script on python for our needs.",
+      "technologies": ["Python", "OpenCV"],
+      "datePeriod": "May 2018"
+    }
+  ],
+  "misc": [
+    {
+      "projectName": "tabFx (Firefox Extension)",
+      "sourceCodeUrl": "https://github.com/2alin/tabFx",
+      "liveVersionUrl": "https://addons.mozilla.org/en-GB/firefox/addon/tab-fx/",
+      "description": "Born from a forum user request. I designed, developed and maintained my first browser extension, that allows the user to filter and manage tabs either manually or automatically.",
+      "technologies": ["JavaScript", "ES6", "CSS"],
+      "datePeriod": "Apr 2018"
     }
   ]
 }
