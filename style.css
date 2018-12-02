@@ -225,9 +225,6 @@ D I S P L A Y   S E C T I O N S
   color: var(--secondary-color);
 }
 
-.project main p {
-}
-
 .project main .technologies {
   font-family: "Fira Sans Mono", monospace;
   font-size: 0.8em;
@@ -372,6 +369,11 @@ P R O F I L E    S E C T I O N
   border-radius: 4px;
 }
 
+#profile-display a,
+#profile-display a:visited {
+  color: inherit;
+}
+
 /* 
 --------------------------------
 R E S P O N S I V E   S T Y L E
@@ -411,9 +413,6 @@ R E S P O N S I V E   S T Y L E
   #nav-bar button:last-of-type {
     margin-bottom: 0.5em;
     margin-right: 0;
-  }
-
-  .projects-container {
   }
 
   .project {
@@ -467,8 +466,5 @@ R E S P O N S I V E   S T Y L E
     margin: 0;
   }
 
-  #profile-display a,
-  #profile-display a:visited {
-    color: inherit;
-  }
+
 }
