@@ -92,6 +92,8 @@ function injectProjects(sectionDOMElement, data) {
     tryLive.href = project.liveVersionUrl;
     sourceCode.target = "_blank";
     tryLive.target = "_blank";
+    sourceCode.classList.add("fas", "fa-external-link-alt");
+    tryLive.classList.add("fas", "fa-external-link-alt");
 
     //filling data in html elements
     projectName.textContent = project.projectName;

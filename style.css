@@ -252,10 +252,8 @@ D I S P L A Y   S E C T I O N S
   /* text-decoration: underline dotted; */
 }
 
-.project footer a::after {
-  content: "⤴";
-  font-size: 1.2em;
-  margin-left: 2px;
+.project footer a::before {
+  margin-right: .5em;
 }
 
 .project picture {
