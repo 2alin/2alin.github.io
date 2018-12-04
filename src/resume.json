@@ -3,7 +3,7 @@
     {
       "projectName": "Random Quotes",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
-      "liveVersionUrl": "https:/www.adisdev.com/apps/random-quotes",
+      "liveVersionUrl": "https://www.adisdev.com/apps/random-quotes",
       "description": "App that fetches random quotes and display it to the user, made with ReactJS and react-transition-group for the main transition.",
       "technologies": [
         "ReactJS",
