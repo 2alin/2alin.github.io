@@ -1,0 +1,21 @@
+html {
+  background: green;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#app {
+  background: pink;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+}
+
