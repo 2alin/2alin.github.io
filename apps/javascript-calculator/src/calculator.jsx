@@ -1,5 +1,5 @@
 function Button(props) {
-  return <button onClick={props.onClick}>{props.value}</button>;
+  return <button id={props.idValue} onClick={props.onClick}>{props.value}</button>;
 }
 
 function DisplayScreen(props) {
@@ -139,32 +139,32 @@ class Calculator extends React.Component {
       <div>
         <DisplayScreen formula={formula} display={display} />
         <div className="row">
-          <Button value="C" id="clear" onClick={this.handleClear} />
-          <Button value="DEL" id="delete" onClick={this.handleDelete} />
+          <Button value="C" idValue="clear" onClick={this.handleClear} />
+          <Button value="DEL" idValue="delete" onClick={this.handleDelete} />
         </div>
         <div className="row">
-          <Button value="7" id="seven" onClick={this.handleDigit} />
-          <Button value="8" id="eight" onClick={this.handleDigit} />
-          <Button value="9" id="nine" onClick={this.handleDigit} />
-          <Button value="/" id="divide" onClick={this.handleOperator} />
+          <Button value="7" idValue="seven" onClick={this.handleDigit} />
+          <Button value="8" idValue="eight" onClick={this.handleDigit} />
+          <Button value="9" idValue="nine" onClick={this.handleDigit} />
+          <Button value="/" idValue="divide" onClick={this.handleOperator} />
         </div>
         <div className="row">
-          <Button value="4" id="four" onClick={this.handleDigit} />
-          <Button value="5" id="five" onClick={this.handleDigit} />
-          <Button value="6" id="six" onClick={this.handleDigit} />
-          <Button value="*" id="multiply" onClick={this.handleOperator} />
+          <Button value="4" idValue="four" onClick={this.handleDigit} />
+          <Button value="5" idValue="five" onClick={this.handleDigit} />
+          <Button value="6" idValue="six" onClick={this.handleDigit} />
+          <Button value="*" idValue="multiply" onClick={this.handleOperator} />
         </div>
         <div className="row">
-          <Button value="1" id="one" onClick={this.handleDigit} />
-          <Button value="2" id="two" onClick={this.handleDigit} />
-          <Button value="3" id="three" onClick={this.handleDigit} />
-          <Button value="-" id="substract" onClick={this.handleOperator} />
+          <Button value="1" idValue="one" onClick={this.handleDigit} />
+          <Button value="2" idValue="two" onClick={this.handleDigit} />
+          <Button value="3" idValue="three" onClick={this.handleDigit} />
+          <Button value="-" idValue="subtract" onClick={this.handleOperator} />
         </div>
         <div className="row">
-          <Button value="0" id="zero" onClick={this.handleDigit} />
-          <Button value="." id="decimal" onClick={this.handlePeriod} />
-          <Button value="=" id="equals" onClick={this.handleEqual}/>
-          <Button value="+" id="add" onClick={this.handleOperator} />
+          <Button value="0" idValue="zero" onClick={this.handleDigit} />
+          <Button value="." idValue="decimal" onClick={this.handlePeriod} />
+          <Button value="=" idValue="equals" onClick={this.handleEqual}/>
+          <Button value="+" idValue="add" onClick={this.handleOperator} />
         </div>
       </div>
     );
