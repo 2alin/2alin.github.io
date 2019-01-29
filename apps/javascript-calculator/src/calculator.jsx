@@ -94,7 +94,9 @@ class Calculator extends React.Component {
 
   handleEqual() {
     const formulaValue = this.state.input !== "0" ? this.state.input : this.state.formula;
-    const result = eval(formulaValue).toString();
+    let result = eval(formulaValue);
+    result = Math.round(result * (10**10)) / (10**10);
+    result = result.toString();
     
     this.setState({
       formula: formulaValue,
