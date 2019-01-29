@@ -1,0 +1,18 @@
+#display-screen {
+  width: 200px;
+}
+
+#formula-display,
+#display {
+  height: 1.4em;
+  margin: 0;
+}
+
+#formula-display {
+  background: lightblue;
+  font-size: .8em;
+}
+
+#display {
+  background: lightgreen;
+}

@@ -8,9 +8,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function Button(props) {
   return React.createElement(
-    'button',
+    "button",
     { onClick: props.onClick },
     props.value
+  );
+}
+
+function DisplayScreen(props) {
+  return React.createElement(
+    "div",
+    { id: "display-screen" },
+    React.createElement(
+      "p",
+      { id: "formula-display" },
+      props.formula
+    ),
+    React.createElement(
+      "p",
+      { id: "display" },
+      props.display
+    )
   );
 }
 
@@ -22,86 +39,139 @@ var Calculator = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
 
-    _this.handleClick = _this.handleClick.bind(_this);
+    _this.handleDigit = _this.handleDigit.bind(_this);
+    _this.handlePeriod = _this.handlePeriod.bind(_this);
+    _this.handleOperator = _this.handleOperator.bind(_this);
+    _this.handleEqual = _this.handleEqual.bind(_this);
     _this.handleClear = _this.handleClear.bind(_this);
     _this.handleDelete = _this.handleDelete.bind(_this);
     _this.state = {
-      input: ""
+      input: "0",
+      formula: ""
     };
     return _this;
   }
 
   _createClass(Calculator, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
+    key: "handleDigit",
+    value: function handleDigit(e) {
       var keyValue = e.target.textContent;
-      var updatedInput = this.state.input + keyValue;
+      var updatedInput = void 0;
+      if (this.state.input === "0") {
+        // handle initial state '0'
+        updatedInput = keyValue;
+      } else {
+        updatedInput = this.state.input + keyValue;
+      }
+
       this.setState({
         input: updatedInput
       });
       console.log(updatedInput);
     }
   }, {
-    key: 'handleClear',
-    value: function handleClear() {
+    key: "handlePeriod",
+    value: function handlePeriod() {
+      var updatedInput = void 0;
+      if (/\.\d*$/.test(this.state.input)) {
+        // handle multiple periods
+        updatedInput = this.state.input;
+      } else if (/[^\d]$/.test(this.state.input)) {
+        // handle operands starting without a digit
+        updatedInput = this.state.input + "0.";
+      } else {
+        updatedInput = this.state.input + ".";
+      }
+
       this.setState({
-        input: ''
+        input: updatedInput
       });
-      console.log('cleared');
+      console.log(updatedInput);
     }
   }, {
-    key: 'handleDelete',
+    key: "handleOperator",
+    value: function handleOperator(e) {
+      var keyValue = e.target.textContent;
+      var updatedInput = void 0;
+      if (/[\+\-\*\/\.]$/.test(this.state.input)) {
+        // handle replacing operator and period ending
+        updatedInput = this.state.input.slice(0, -1) + keyValue;
+      } else {
+        updatedInput = this.state.input + keyValue;
+      }
+
+      this.setState({
+        input: updatedInput
+      });
+      console.log(updatedInput);
+    }
+  }, {
+    key: "handleEqual",
+    value: function handleEqual() {}
+  }, {
+    key: "handleClear",
+    value: function handleClear() {
+      this.setState({
+        input: "0"
+      });
+      console.log("cleared");
+    }
+  }, {
+    key: "handleDelete",
     value: function handleDelete() {
       var input = this.state.input;
       var updatedInput = input.slice(0, -1);
       this.setState({
-        input: updatedInput
+        input: updatedInput === "" ? "0" : updatedInput
       });
       console.log(updatedInput);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
+      var input = this.state.input;
+      var formula = this.state.formula;
       return React.createElement(
-        'div',
+        "div",
         null,
+        React.createElement(DisplayScreen, { formula: formula, display: input }),
         React.createElement(
-          'div',
-          { className: 'row' },
-          React.createElement(Button, { value: 'C', onClick: this.handleClear }),
-          React.createElement(Button, { value: 'DEL', onClick: this.handleDelete })
+          "div",
+          { className: "row" },
+          React.createElement(Button, { value: "C", id: "clear", onClick: this.handleClear }),
+          React.createElement(Button, { value: "DEL", id: "delete", onClick: this.handleDelete })
         ),
         React.createElement(
-          'div',
-          { className: 'row' },
-          React.createElement(Button, { value: '7', onClick: this.handleClick }),
-          React.createElement(Button, { value: '8', onClick: this.handleClick }),
-          React.createElement(Button, { value: '9', onClick: this.handleClick }),
-          React.createElement(Button, { value: '\xF7' })
+          "div",
+          { className: "row" },
+          React.createElement(Button, { value: "7", id: "seven", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "8", id: "eight", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "9", id: "nine", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "/", id: "divide", onClick: this.handleOperator })
         ),
         React.createElement(
-          'div',
-          { className: 'row' },
-          React.createElement(Button, { value: '4', onClick: this.handleClick }),
-          React.createElement(Button, { value: '5', onClick: this.handleClick }),
-          React.createElement(Button, { value: '6', onClick: this.handleClick }),
-          React.createElement(Button, { value: '\xD7' })
+          "div",
+          { className: "row" },
+          React.createElement(Button, { value: "4", id: "four", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "5", id: "five", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "6", id: "six", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "*", id: "multiply", onClick: this.handleOperator })
         ),
         React.createElement(
-          'div',
-          { className: 'row' },
-          React.createElement(Button, { value: '1', onClick: this.handleClick }),
-          React.createElement(Button, { value: '2', onClick: this.handleClick }),
-          React.createElement(Button, { value: '3', onClick: this.handleClick }),
-          React.createElement(Button, { value: '\u2212' })
+          "div",
+          { className: "row" },
+          React.createElement(Button, { value: "1", id: "one", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "2", id: "two", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "3", id: "three", onClick: this.handleDigit }),
+          React.createElement(Button, { value: "-", id: "substract", onClick: this.handleOperator })
         ),
         React.createElement(
-          'div',
-          { className: 'row' },
-          React.createElement(Button, { value: '0', onClick: this.handleClick }),
-          React.createElement(Button, { value: '.', onClick: this.handleClick }),
-          React.createElement(Button, { value: '=' }),
-          React.createElement(Button, { value: '+' })
+          "div",
+          { className: "row" },
+          React.createElement(Button, { value: "0", id: "zero", onClick: this.handleDigit }),
+          React.createElement(Button, { value: ".", id: "decimal", onClick: this.handlePeriod }),
+          React.createElement(Button, { value: "=", id: "equals", onClick: this.handleEqual }),
+          React.createElement(Button, { value: "+", id: "add", onClick: this.handleOperator })
         )
       );
     }
