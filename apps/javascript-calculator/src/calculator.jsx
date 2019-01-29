@@ -21,15 +21,21 @@ class Calculator extends React.Component {
     this.handleClear = this.handleClear.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.state = {
+      formula: "",
       input: "0",
-      formula: ""
+      result: ""
     };
   }
 
   handleDigit(e) {
     const keyValue = e.target.textContent;
     let updatedInput;
-    if (this.state.input === "0") {
+
+    if(this.state.result != "") {
+      // handle key press after an operation has been made
+      updatedInput = keyValue;
+      this.setState({formula:"", result: ""})
+    } else if (this.state.input === "0") {
       // handle initial state '0'
       updatedInput = keyValue;
     } else {
@@ -44,7 +50,12 @@ class Calculator extends React.Component {
 
   handlePeriod() {
     let updatedInput;
-    if (/\.\d*$/.test(this.state.input)) {
+
+    if(this.state.result != "") {
+      // handle key press after an operation has been made
+      updatedInput = "0.";
+      this.setState({formula:"", result: ""})
+    } else if (/\.\d*$/.test(this.state.input)) {
       // handle multiple periods
       updatedInput = this.state.input;
     } else if (/[^\d]$/.test(this.state.input)) {
@@ -63,7 +74,12 @@ class Calculator extends React.Component {
   handleOperator(e) {
     const keyValue = e.target.textContent;
     let updatedInput;
-    if (/[\+\-\*\/\.]$/.test(this.state.input)) {
+    
+    if (this.state.result !== "") {
+      // handle key press after an operation has been made
+      updatedInput = this.state.result + keyValue;
+      this.setState({formula:"", result: ""})
+    } else if (/[\+\-\*\/\.]$/.test(this.state.input)) {
       // handle replacing operator and period ending
       updatedInput = this.state.input.slice(0,-1) + keyValue;
     } else {
@@ -77,17 +93,33 @@ class Calculator extends React.Component {
   }
 
   handleEqual() {
+    const formulaValue = this.state.input !== "0" ? this.state.input : this.state.formula;
+    const result = eval(formulaValue).toString();
     
+    this.setState({
+      formula: formulaValue,
+      input: "0",
+      result: result
+    })
+
+    console.log(result)
   }
 
   handleClear() {
     this.setState({
-      input: "0"
+      formula:"",
+      input: "0",
+      result: ""
     });
     console.log("cleared");
   }
 
   handleDelete() {
+    if(this.state.result != "") {
+      // handle key press after an operation has been made
+      this.setState({formula:"", result: ""})
+    }
+
     const input = this.state.input;
     const updatedInput = input.slice(0, -1);
     this.setState({
@@ -97,11 +129,15 @@ class Calculator extends React.Component {
   }
 
   render() {
-    const input = this.state.input;
     const formula = this.state.formula;
+    const input = this.state.input;
+    const result = this.state.result;
+    
+    const display = result !== "" ? result : input;
+
     return (
       <div>
-        <DisplayScreen formula={formula} display={input} />
+        <DisplayScreen formula={formula} display={display} />
         <div className="row">
           <Button value="C" id="clear" onClick={this.handleClear} />
           <Button value="DEL" id="delete" onClick={this.handleDelete} />

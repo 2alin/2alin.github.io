@@ -46,8 +46,9 @@ var Calculator = function (_React$Component) {
     _this.handleClear = _this.handleClear.bind(_this);
     _this.handleDelete = _this.handleDelete.bind(_this);
     _this.state = {
+      formula: "",
       input: "0",
-      formula: ""
+      result: ""
     };
     return _this;
   }
@@ -57,7 +58,12 @@ var Calculator = function (_React$Component) {
     value: function handleDigit(e) {
       var keyValue = e.target.textContent;
       var updatedInput = void 0;
-      if (this.state.input === "0") {
+
+      if (this.state.result != "") {
+        // handle key press after an operation has been made
+        updatedInput = keyValue;
+        this.setState({ formula: "", result: "" });
+      } else if (this.state.input === "0") {
         // handle initial state '0'
         updatedInput = keyValue;
       } else {
@@ -73,7 +79,12 @@ var Calculator = function (_React$Component) {
     key: "handlePeriod",
     value: function handlePeriod() {
       var updatedInput = void 0;
-      if (/\.\d*$/.test(this.state.input)) {
+
+      if (this.state.result != "") {
+        // handle key press after an operation has been made
+        updatedInput = "0.";
+        this.setState({ formula: "", result: "" });
+      } else if (/\.\d*$/.test(this.state.input)) {
         // handle multiple periods
         updatedInput = this.state.input;
       } else if (/[^\d]$/.test(this.state.input)) {
@@ -93,7 +104,12 @@ var Calculator = function (_React$Component) {
     value: function handleOperator(e) {
       var keyValue = e.target.textContent;
       var updatedInput = void 0;
-      if (/[\+\-\*\/\.]$/.test(this.state.input)) {
+
+      if (this.state.result !== "") {
+        // handle key press after an operation has been made
+        updatedInput = this.state.result + keyValue;
+        this.setState({ formula: "", result: "" });
+      } else if (/[\+\-\*\/\.]$/.test(this.state.input)) {
         // handle replacing operator and period ending
         updatedInput = this.state.input.slice(0, -1) + keyValue;
       } else {
@@ -107,18 +123,36 @@ var Calculator = function (_React$Component) {
     }
   }, {
     key: "handleEqual",
-    value: function handleEqual() {}
+    value: function handleEqual() {
+      var formulaValue = this.state.input !== "0" ? this.state.input : this.state.formula;
+      var result = eval(formulaValue).toString();
+
+      this.setState({
+        formula: formulaValue,
+        input: "0",
+        result: result
+      });
+
+      console.log(result);
+    }
   }, {
     key: "handleClear",
     value: function handleClear() {
       this.setState({
-        input: "0"
+        formula: "",
+        input: "0",
+        result: ""
       });
       console.log("cleared");
     }
   }, {
     key: "handleDelete",
     value: function handleDelete() {
+      if (this.state.result != "") {
+        // handle key press after an operation has been made
+        this.setState({ formula: "", result: "" });
+      }
+
       var input = this.state.input;
       var updatedInput = input.slice(0, -1);
       this.setState({
@@ -129,12 +163,16 @@ var Calculator = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var input = this.state.input;
       var formula = this.state.formula;
+      var input = this.state.input;
+      var result = this.state.result;
+
+      var display = result !== "" ? result : input;
+
       return React.createElement(
         "div",
         null,
-        React.createElement(DisplayScreen, { formula: formula, display: input }),
+        React.createElement(DisplayScreen, { formula: formula, display: display }),
         React.createElement(
           "div",
           { className: "row" },
