@@ -43,6 +43,10 @@ button:first-child {
   margin-left: 0;
 }
 
+button:focus {
+  background: green;
+}
+
 #clear, #equals{
   width: calc(60px * 2 + 2px)
 }

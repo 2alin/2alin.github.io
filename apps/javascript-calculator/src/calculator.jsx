@@ -103,7 +103,7 @@ class Calculator extends React.Component {
 
   handleEqual() {
     const formulaValue =
-      this.state.input !== "0" ? this.state.input : this.state.formula;
+      this.state.formula === "" ? this.state.input : this.state.formula;
     let result = eval(formulaValue);
     result = Math.round(result * 10 ** 10) / 10 ** 10;
     result = result.toString();
@@ -153,8 +153,9 @@ class Calculator extends React.Component {
       this.handlePeriod();
     } else if (/^[\+\-\*\/]$/.exec(key)) {
       e.preventDefault(); // prevent browser key bindings for '/'
-      this.handleOperator(eventKey);
+      this.handleOperator(key);
     } else if (/^enter$/i.exec(key)) {
+      e.preventDefault(); // prevent focused key to be clicked
       this.handleEqual();
     } else if (/^backspace$/i.exec(key)) {
       this.handleDelete();

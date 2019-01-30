@@ -129,7 +129,7 @@ var Calculator = function (_React$Component) {
   }, {
     key: "handleEqual",
     value: function handleEqual() {
-      var formulaValue = this.state.input !== "0" ? this.state.input : this.state.formula;
+      var formulaValue = this.state.formula === "" ? this.state.input : this.state.formula;
       var result = eval(formulaValue);
       result = Math.round(result * Math.pow(10, 10)) / Math.pow(10, 10);
       result = result.toString();
@@ -182,8 +182,9 @@ var Calculator = function (_React$Component) {
         this.handlePeriod();
       } else if (/^[\+\-\*\/]$/.exec(key)) {
         e.preventDefault(); // prevent browser key bindings for '/'
-        this.handleOperator(eventKey);
+        this.handleOperator(key);
       } else if (/^enter$/i.exec(key)) {
+        e.preventDefault(); // prevent focused key to be clicked
         this.handleEqual();
       } else if (/^backspace$/i.exec(key)) {
         this.handleDelete();
