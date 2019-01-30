@@ -20,6 +20,7 @@ class Calculator extends React.Component {
     this.handleEqual = this.handleEqual.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
       formula: "",
       input: "0",
@@ -128,6 +129,38 @@ class Calculator extends React.Component {
       input: updatedInput === "" ? "0" : updatedInput
     });
     console.log(updatedInput);
+  }
+
+
+  handleKeyDown(e){
+    console.log(`key ${e.key} was pressed`)
+    const key = e.key;
+    // creating a sintetic event to emulate clicking over the buttons
+    let eventKey = {target: {textContent: key}};
+    
+    // handling all valid keys 
+    if (/^[0-9]$/.exec(key)) {
+      this.handleDigit(eventKey);
+    } else if (/^\.$/.exec(key)) {
+      this.handlePeriod();
+    } else if (/^[\+\-\*\/]$/.exec(key)) {
+      e.preventDefault(); // prevent browser key bindings for '/'
+      this.handleOperator(eventKey);
+    } else if (/^enter$/i.exec(key)) {
+      this.handleEqual();
+    } else if (/^backspace$/i.exec(key)) {
+      this.handleDelete();
+    } else if (/^escape$/i.exec(key)) {
+      this.handleClear();
+    }
+  }
+
+  componentDidMount() {
+    addEventListener("keydown", this.handleKeyDown)
+  }
+
+  componentWillUnmount(){
+    removeEventListener("keydown", this.handleKeyDown)
   }
 
   render() {

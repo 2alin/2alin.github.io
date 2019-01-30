@@ -45,6 +45,7 @@ var Calculator = function (_React$Component) {
     _this.handleEqual = _this.handleEqual.bind(_this);
     _this.handleClear = _this.handleClear.bind(_this);
     _this.handleDelete = _this.handleDelete.bind(_this);
+    _this.handleKeyDown = _this.handleKeyDown.bind(_this);
     _this.state = {
       formula: "",
       input: "0",
@@ -161,6 +162,40 @@ var Calculator = function (_React$Component) {
         input: updatedInput === "" ? "0" : updatedInput
       });
       console.log(updatedInput);
+    }
+  }, {
+    key: "handleKeyDown",
+    value: function handleKeyDown(e) {
+      console.log("key " + e.key + " was pressed");
+      var key = e.key;
+      // creating a sintetic event to emulate clicking over the buttons
+      var eventKey = { target: { textContent: key } };
+
+      // handling all valid keys 
+      if (/^[0-9]$/.exec(key)) {
+        this.handleDigit(eventKey);
+      } else if (/^\.$/.exec(key)) {
+        this.handlePeriod();
+      } else if (/^[\+\-\*\/]$/.exec(key)) {
+        e.preventDefault(); // prevent browser key bindings for '/'
+        this.handleOperator(eventKey);
+      } else if (/^enter$/i.exec(key)) {
+        this.handleEqual();
+      } else if (/^backspace$/i.exec(key)) {
+        this.handleDelete();
+      } else if (/^escape$/i.exec(key)) {
+        this.handleClear();
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      addEventListener("keydown", this.handleKeyDown);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      removeEventListener("keydown", this.handleKeyDown);
     }
   }, {
     key: "render",
