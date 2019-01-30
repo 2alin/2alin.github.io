@@ -43,7 +43,8 @@ button:first-child {
   margin-left: 0;
 }
 
-button:focus {
+button:active,
+button.active {
   background: green;
 }
 

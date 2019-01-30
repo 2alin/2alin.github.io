@@ -1,3 +1,34 @@
+function setActiveKey(key) {
+  keyID = {
+    '0': 'zero',
+    '1': 'one',
+    '2': 'two',
+    '3': 'three',
+    '4': 'four',
+    '5': 'five',
+    '6': 'six',
+    '7': 'seven',
+    '8': 'eight',
+    '9': 'nine',
+    '.': 'decimal',
+    '+': 'add',
+    '-': 'subtract',
+    '*': 'multiply',
+    '/': 'divide',
+    'enter': 'equals',
+    'backspace': 'delete',
+    'escape': 'clear',
+    'c': 'clear'
+  }
+  const DOM_Key = document.getElementById(keyID[key.toLowerCase()]);
+  console.log(keyID[key])
+  DOM_Key.classList.add('active');
+  setTimeout(() => {
+    DOM_Key.classList.remove('active');
+  }, 150 )
+
+}
+
 function Button(props) {
   return (
     <button
@@ -18,6 +49,7 @@ function DisplayScreen(props) {
     </div>
   );
 }
+
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -148,20 +180,27 @@ class Calculator extends React.Component {
 
     // handling all valid keys
     if (/^[0-9]$/.exec(key)) {
+      setActiveKey(key)
       this.handleDigit(eventKey);
     } else if (/^\.$/.exec(key)) {
+      setActiveKey(key)
       this.handlePeriod();
     } else if (/^[\+\-\*\/]$/.exec(key)) {
       e.preventDefault(); // prevent browser key bindings for '/'
+      setActiveKey(key)
       this.handleOperator(key);
     } else if (/^enter$/i.exec(key)) {
       e.preventDefault(); // prevent focused key to be clicked
+      setActiveKey(key)
       this.handleEqual();
     } else if (/^backspace$/i.exec(key)) {
+      setActiveKey(key)
       this.handleDelete();
-    } else if (/^escape$/i.exec(key)) {
+    } else if (/^(escape)|(c)$/i.exec(key)) {
+      setActiveKey(key)
       this.handleClear();
-    }
+    } 
+
   }
 
   componentDidMount() {
