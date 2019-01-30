@@ -64,9 +64,9 @@ var Calculator = function (_React$Component) {
         // handle key press after an operation has been made
         updatedInput = keyValue;
         this.setState({ formula: "", result: "" });
-      } else if (this.state.input === "0") {
-        // handle initial state '0'
-        updatedInput = keyValue;
+      } else if (/(^0$)|([\+\-\*\/]0)$/.exec(this.state.input)) {
+        // handle leading '0' at operands
+        updatedInput = this.state.input.slice(0, -1) + keyValue;
       } else {
         updatedInput = this.state.input + keyValue;
       }
