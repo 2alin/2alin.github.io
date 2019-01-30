@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC');
+
 #display-screen {
-  width: 200px;
+  width: calc(60px * 4 + 2px * 3);
 }
 
 #formula-display,
@@ -10,9 +12,41 @@
 
 #formula-display {
   background: lightblue;
-  font-size: .8em;
+  font-size: 1rem;
 }
 
 #display {
   background: lightgreen;
+  font-size: 2rem;
+}
+
+.row {
+  display: flex;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
+}
+
+/* Keys Style */
+button {
+  margin-left: 2px;
+  width: 60px;
+  height: 50px;
+  background: lightgray;
+  border: none;
+  font-family: 'Noto Serif SC',sans-serif;
+  font-size: 2rem;
+}
+
+button:first-child {
+  background: pink;
+  margin-left: 0;
+}
+
+#clear, #equals{
+  width: calc(60px * 2 + 2px)
+}
+
+#delete {
+  
 }

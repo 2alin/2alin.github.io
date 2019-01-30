@@ -9,7 +9,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function Button(props) {
   return React.createElement(
     "button",
-    { id: props.idValue, onClick: props.onClick },
+    {
+      className: props.className,
+      id: props.idValue,
+      onClick: props.onClick
+    },
     props.value
   );
 }
@@ -102,8 +106,8 @@ var Calculator = function (_React$Component) {
     }
   }, {
     key: "handleOperator",
-    value: function handleOperator(e) {
-      var keyValue = e.target.textContent;
+    value: function handleOperator(char) {
+      var keyValue = char;
       var updatedInput = void 0;
 
       if (this.state.result !== "") {
@@ -171,7 +175,7 @@ var Calculator = function (_React$Component) {
       // creating a sintetic event to emulate clicking over the buttons
       var eventKey = { target: { textContent: key } };
 
-      // handling all valid keys 
+      // handling all valid keys
       if (/^[0-9]$/.exec(key)) {
         this.handleDigit(eventKey);
       } else if (/^\.$/.exec(key)) {
@@ -200,6 +204,8 @@ var Calculator = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var formula = this.state.formula;
       var input = this.state.input;
       var result = this.state.result;
@@ -214,7 +220,14 @@ var Calculator = function (_React$Component) {
           "div",
           { className: "row" },
           React.createElement(Button, { value: "C", idValue: "clear", onClick: this.handleClear }),
-          React.createElement(Button, { value: "DEL", idValue: "delete", onClick: this.handleDelete })
+          React.createElement(Button, {
+            value: "\uD83E\uDC50",
+            idValue: "delete",
+            onClick: this.handleDelete
+          }),
+          React.createElement(Button, { value: "\xF7", idValue: "divide", onClick: function onClick() {
+              return _this2.handleOperator('/');
+            } })
         ),
         React.createElement(
           "div",
@@ -222,7 +235,9 @@ var Calculator = function (_React$Component) {
           React.createElement(Button, { value: "7", idValue: "seven", onClick: this.handleDigit }),
           React.createElement(Button, { value: "8", idValue: "eight", onClick: this.handleDigit }),
           React.createElement(Button, { value: "9", idValue: "nine", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "/", idValue: "divide", onClick: this.handleOperator })
+          React.createElement(Button, { value: "\xD7", idValue: "multiply", onClick: function onClick() {
+              return _this2.handleOperator('*');
+            } })
         ),
         React.createElement(
           "div",
@@ -230,7 +245,9 @@ var Calculator = function (_React$Component) {
           React.createElement(Button, { value: "4", idValue: "four", onClick: this.handleDigit }),
           React.createElement(Button, { value: "5", idValue: "five", onClick: this.handleDigit }),
           React.createElement(Button, { value: "6", idValue: "six", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "*", idValue: "multiply", onClick: this.handleOperator })
+          React.createElement(Button, { value: "\u2212", idValue: "subtract", onClick: function onClick() {
+              return _this2.handleOperator('-');
+            } })
         ),
         React.createElement(
           "div",
@@ -238,15 +255,16 @@ var Calculator = function (_React$Component) {
           React.createElement(Button, { value: "1", idValue: "one", onClick: this.handleDigit }),
           React.createElement(Button, { value: "2", idValue: "two", onClick: this.handleDigit }),
           React.createElement(Button, { value: "3", idValue: "three", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "-", idValue: "subtract", onClick: this.handleOperator })
+          React.createElement(Button, { value: "+", idValue: "add", onClick: function onClick() {
+              return _this2.handleOperator('+');
+            } })
         ),
         React.createElement(
           "div",
           { className: "row" },
           React.createElement(Button, { value: "0", idValue: "zero", onClick: this.handleDigit }),
           React.createElement(Button, { value: ".", idValue: "decimal", onClick: this.handlePeriod }),
-          React.createElement(Button, { value: "=", idValue: "equals", onClick: this.handleEqual }),
-          React.createElement(Button, { value: "+", idValue: "add", onClick: this.handleOperator })
+          React.createElement(Button, { value: "=", idValue: "equals", onClick: this.handleEqual })
         )
       );
     }
