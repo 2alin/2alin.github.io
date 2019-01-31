@@ -18,7 +18,8 @@ function setActiveKey(key) {
     enter: "equals",
     backspace: "delete",
     escape: "clear",
-    c: "clear"
+    c: "clear",
+    m: "sound-toggle"
   };
   const DOM_Key = document.getElementById(keyID[key.toLowerCase()]);
   console.log(keyID[key]);
@@ -28,6 +29,11 @@ function setActiveKey(key) {
   }, 150);
 }
 
+function playSound() {
+  const beep = new Audio('./assets/beep.mp3')
+  beep.loop = false;
+  beep.play();
+}
 
 
 function Button(props) {
@@ -60,17 +66,22 @@ class Calculator extends React.Component {
     this.handleEqual = this.handleEqual.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSoundToggle = this.handleSoundToggle.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
       formula: "",
       input: "0",
-      result: ""
+      result: "",
+      sound: true
     };
   }
 
   handleDigit(e) {
     const keyValue = e.target.textContent;
     let updatedInput;
+
+    // handle sound
+    this.state.sound && playSound();    
 
     if (this.state.result != "") {
       // handle key press after an operation has been made
@@ -91,6 +102,9 @@ class Calculator extends React.Component {
 
   handlePeriod() {
     let updatedInput;
+
+    // handle sound
+    this.state.sound && playSound();    
 
     if (this.state.result != "") {
       // handle key press after an operation has been made
@@ -116,6 +130,9 @@ class Calculator extends React.Component {
     const keyValue = char;
     let updatedInput;
 
+    // handle sound
+    this.state.sound && playSound();
+
     if (this.state.result !== "") {
       // handle key press after an operation has been made
       updatedInput = this.state.result + keyValue;
@@ -134,6 +151,9 @@ class Calculator extends React.Component {
   }
 
   handleEqual() {
+    // handle sound
+    this.state.sound && playSound();
+
     const formulaValue =
       this.state.formula === "" ? this.state.input : this.state.formula;
     let result = eval(formulaValue);
@@ -150,6 +170,9 @@ class Calculator extends React.Component {
   }
 
   handleClear() {
+    // handle sound
+    this.state.sound && playSound();
+
     this.setState({
       formula: "",
       input: "0",
@@ -159,6 +182,9 @@ class Calculator extends React.Component {
   }
 
   handleDelete() {
+    // handle sound
+    this.state.sound && playSound();
+
     if (this.state.result != "") {
       // handle key press after an operation has been made
       this.setState({ formula: "", result: "" });
@@ -172,6 +198,13 @@ class Calculator extends React.Component {
     console.log(updatedInput);
   }
 
+  handleSoundToggle(){
+    // handle sound
+    (!this.state.sound) && playSound();
+
+    this.setState({sound: !this.state.sound})
+  }
+
   handleKeyDown(e) {
     console.log(`key ${e.key} was pressed`);
     const key = e.key;
@@ -179,26 +212,29 @@ class Calculator extends React.Component {
     let eventKey = { target: { textContent: key } };
 
     // handling all valid keys
-    if (/^[0-9]$/.exec(key)) {
+    if (/^[0-9]$/.test(key)) {
       setActiveKey(key);
       this.handleDigit(eventKey);
-    } else if (/^\.$/.exec(key)) {
+    } else if (/^\.$/.test(key)) {
       setActiveKey(key);
       this.handlePeriod();
-    } else if (/^[\+\-\*\/]$/.exec(key)) {
+    } else if (/^[\+\-\*\/]$/.test(key)) {
       e.preventDefault(); // prevent browser key bindings for '/'
       setActiveKey(key);
       this.handleOperator(key);
-    } else if (/^enter$/i.exec(key)) {
+    } else if (/^enter$/i.test(key)) {
       e.preventDefault(); // prevent focused key to be clicked
       setActiveKey(key);
       this.handleEqual();
-    } else if (/^backspace$/i.exec(key)) {
+    } else if (/^backspace$/i.test(key)) {
       setActiveKey(key);
       this.handleDelete();
-    } else if (/^(escape)|(c)$/i.exec(key)) {
+    } else if (/^(escape)|(c)$/i.test(key)) {
       setActiveKey(key);
       this.handleClear();
+    } else if (/^m$/i.test(key)) {
+      setActiveKey(key);
+      this.handleSoundToggle();
     }
   }
 
@@ -221,6 +257,12 @@ class Calculator extends React.Component {
       <div id="calculator">
         <DisplayScreen formula={formula} display={display} />
         <div className="row">
+          <Button
+            value={this.state.sound ? 'volume_up' : 'volume_off'}
+            className="material-icons"
+            idValue="sound-toggle"
+            onClick={this.handleSoundToggle}
+          />
           <Button value="C" idValue="clear" onClick={this.handleClear} />
           <Button
             value="keyboard_backspace"

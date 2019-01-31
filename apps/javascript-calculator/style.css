@@ -7,6 +7,8 @@
   border-radius: 4px;
 }
 
+/* Display Style */
+
 #display-screen {
   width: calc(60px * 4 + 8px * 3);
   background: #28847a;
@@ -42,6 +44,7 @@
 }
 
 /* Keys Style */
+
 button {
   margin-left: 8px;
   width: 60px;
@@ -71,10 +74,6 @@ button:hover {
   border-color: #009df8;
 }
 
-#clear, #equals{
+#equals{
   width: calc(60px * 2 + 8px)
-}
-
-#clear {
-  
 }

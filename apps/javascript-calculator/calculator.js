@@ -26,7 +26,8 @@ function setActiveKey(key) {
     enter: "equals",
     backspace: "delete",
     escape: "clear",
-    c: "clear"
+    c: "clear",
+    m: "sound-toggle"
   };
   var DOM_Key = document.getElementById(keyID[key.toLowerCase()]);
   console.log(keyID[key]);
@@ -34,6 +35,12 @@ function setActiveKey(key) {
   setTimeout(function () {
     DOM_Key.classList.remove("active");
   }, 150);
+}
+
+function playSound() {
+  var beep = new Audio('./assets/beep.mp3');
+  beep.loop = false;
+  beep.play();
 }
 
 function Button(props) {
@@ -79,11 +86,13 @@ var Calculator = function (_React$Component) {
     _this.handleEqual = _this.handleEqual.bind(_this);
     _this.handleClear = _this.handleClear.bind(_this);
     _this.handleDelete = _this.handleDelete.bind(_this);
+    _this.handleSoundToggle = _this.handleSoundToggle.bind(_this);
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
     _this.state = {
       formula: "",
       input: "0",
-      result: ""
+      result: "",
+      sound: true
     };
     return _this;
   }
@@ -93,6 +102,9 @@ var Calculator = function (_React$Component) {
     value: function handleDigit(e) {
       var keyValue = e.target.textContent;
       var updatedInput = void 0;
+
+      // handle sound
+      this.state.sound && playSound();
 
       if (this.state.result != "") {
         // handle key press after an operation has been made
@@ -114,6 +126,9 @@ var Calculator = function (_React$Component) {
     key: "handlePeriod",
     value: function handlePeriod() {
       var updatedInput = void 0;
+
+      // handle sound
+      this.state.sound && playSound();
 
       if (this.state.result != "") {
         // handle key press after an operation has been made
@@ -140,6 +155,9 @@ var Calculator = function (_React$Component) {
       var keyValue = char;
       var updatedInput = void 0;
 
+      // handle sound
+      this.state.sound && playSound();
+
       if (this.state.result !== "") {
         // handle key press after an operation has been made
         updatedInput = this.state.result + keyValue;
@@ -159,6 +177,9 @@ var Calculator = function (_React$Component) {
   }, {
     key: "handleEqual",
     value: function handleEqual() {
+      // handle sound
+      this.state.sound && playSound();
+
       var formulaValue = this.state.formula === "" ? this.state.input : this.state.formula;
       var result = eval(formulaValue);
       result = Math.round(result * Math.pow(10, 10)) / Math.pow(10, 10);
@@ -175,6 +196,9 @@ var Calculator = function (_React$Component) {
   }, {
     key: "handleClear",
     value: function handleClear() {
+      // handle sound
+      this.state.sound && playSound();
+
       this.setState({
         formula: "",
         input: "0",
@@ -185,6 +209,9 @@ var Calculator = function (_React$Component) {
   }, {
     key: "handleDelete",
     value: function handleDelete() {
+      // handle sound
+      this.state.sound && playSound();
+
       if (this.state.result != "") {
         // handle key press after an operation has been made
         this.setState({ formula: "", result: "" });
@@ -198,6 +225,14 @@ var Calculator = function (_React$Component) {
       console.log(updatedInput);
     }
   }, {
+    key: "handleSoundToggle",
+    value: function handleSoundToggle() {
+      // handle sound
+      !this.state.sound && playSound();
+
+      this.setState({ sound: !this.state.sound });
+    }
+  }, {
     key: "handleKeyDown",
     value: function handleKeyDown(e) {
       console.log("key " + e.key + " was pressed");
@@ -206,26 +241,29 @@ var Calculator = function (_React$Component) {
       var eventKey = { target: { textContent: key } };
 
       // handling all valid keys
-      if (/^[0-9]$/.exec(key)) {
+      if (/^[0-9]$/.test(key)) {
         setActiveKey(key);
         this.handleDigit(eventKey);
-      } else if (/^\.$/.exec(key)) {
+      } else if (/^\.$/.test(key)) {
         setActiveKey(key);
         this.handlePeriod();
-      } else if (/^[\+\-\*\/]$/.exec(key)) {
+      } else if (/^[\+\-\*\/]$/.test(key)) {
         e.preventDefault(); // prevent browser key bindings for '/'
         setActiveKey(key);
         this.handleOperator(key);
-      } else if (/^enter$/i.exec(key)) {
+      } else if (/^enter$/i.test(key)) {
         e.preventDefault(); // prevent focused key to be clicked
         setActiveKey(key);
         this.handleEqual();
-      } else if (/^backspace$/i.exec(key)) {
+      } else if (/^backspace$/i.test(key)) {
         setActiveKey(key);
         this.handleDelete();
-      } else if (/^(escape)|(c)$/i.exec(key)) {
+      } else if (/^(escape)|(c)$/i.test(key)) {
         setActiveKey(key);
         this.handleClear();
+      } else if (/^m$/i.test(key)) {
+        setActiveKey(key);
+        this.handleSoundToggle();
       }
     }
   }, {
@@ -256,6 +294,12 @@ var Calculator = function (_React$Component) {
         React.createElement(
           "div",
           { className: "row" },
+          React.createElement(Button, {
+            value: this.state.sound ? 'volume_up' : 'volume_off',
+            className: "material-icons",
+            idValue: "sound-toggle",
+            onClick: this.handleSoundToggle
+          }),
           React.createElement(Button, { value: "C", idValue: "clear", onClick: this.handleClear }),
           React.createElement(Button, {
             value: "keyboard_backspace",
