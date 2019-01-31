@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Inconsolata');
 
 html {
-  
+
 }
 
 body {
@@ -92,4 +92,27 @@ button:hover {
 
 #equals{
   width: calc(60px * 2 + 8px)
+}
+
+
+/* Credits Style */
+#credits {
+  margin-top: .5rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: .75rem;
+  color: #fff;
+  text-align: center;
+}
+
+#credits a,
+#credits a:visited {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#credits a:link {
+  color: inherit
+
 }

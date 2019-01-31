@@ -259,63 +259,75 @@ class Calculator extends React.Component {
     const display = result !== "" ? result : input;
 
     return (
-      <div id="calculator">
-        <DisplayScreen formula={formula} display={display} />
-        <div className="row">
-          <Button
-            value={this.state.sound ? "volume_up" : "volume_off"}
-            className="material-icons"
-            idValue="sound-toggle"
-            onClick={this.handleSoundToggle}
-          />
-          <Button value="C" idValue="clear" onClick={this.handleClear} />
-          <Button
-            value="keyboard_backspace"
-            className="material-icons"
-            idValue="delete"
-            onClick={this.handleDelete}
-          />
-          <Button
-            value="÷"
-            idValue="divide"
-            onClick={() => this.handleOperator("/")}
-          />
+      <div id="container">
+        <div id="calculator">
+          <DisplayScreen formula={formula} display={display} />
+          <div className="row">
+            <Button
+              value={this.state.sound ? "volume_up" : "volume_off"}
+              className="material-icons"
+              idValue="sound-toggle"
+              onClick={this.handleSoundToggle}
+            />
+            <Button value="C" idValue="clear" onClick={this.handleClear} />
+            <Button
+              value="keyboard_backspace"
+              className="material-icons"
+              idValue="delete"
+              onClick={this.handleDelete}
+            />
+            <Button
+              value="÷"
+              idValue="divide"
+              onClick={() => this.handleOperator("/")}
+            />
+          </div>
+          <div className="row">
+            <Button value="7" idValue="seven" onClick={this.handleDigit} />
+            <Button value="8" idValue="eight" onClick={this.handleDigit} />
+            <Button value="9" idValue="nine" onClick={this.handleDigit} />
+            <Button
+              value="×"
+              idValue="multiply"
+              onClick={() => this.handleOperator("*")}
+            />
+          </div>
+          <div className="row">
+            <Button value="4" idValue="four" onClick={this.handleDigit} />
+            <Button value="5" idValue="five" onClick={this.handleDigit} />
+            <Button value="6" idValue="six" onClick={this.handleDigit} />
+            <Button
+              value="−"
+              idValue="subtract"
+              onClick={() => this.handleOperator("-")}
+            />
+          </div>
+          <div className="row">
+            <Button value="1" idValue="one" onClick={this.handleDigit} />
+            <Button value="2" idValue="two" onClick={this.handleDigit} />
+            <Button value="3" idValue="three" onClick={this.handleDigit} />
+            <Button
+              value="+"
+              idValue="add"
+              onClick={() => this.handleOperator("+")}
+            />
+          </div>
+          <div className="row">
+            <Button value="0" idValue="zero" onClick={this.handleDigit} />
+            <Button value="." idValue="decimal" onClick={this.handlePeriod} />
+            <Button value="=" idValue="equals" onClick={this.handleEqual} />
+          </div>
         </div>
-        <div className="row">
-          <Button value="7" idValue="seven" onClick={this.handleDigit} />
-          <Button value="8" idValue="eight" onClick={this.handleDigit} />
-          <Button value="9" idValue="nine" onClick={this.handleDigit} />
-          <Button
-            value="×"
-            idValue="multiply"
-            onClick={() => this.handleOperator("*")}
-          />
-        </div>
-        <div className="row">
-          <Button value="4" idValue="four" onClick={this.handleDigit} />
-          <Button value="5" idValue="five" onClick={this.handleDigit} />
-          <Button value="6" idValue="six" onClick={this.handleDigit} />
-          <Button
-            value="−"
-            idValue="subtract"
-            onClick={() => this.handleOperator("-")}
-          />
-        </div>
-        <div className="row">
-          <Button value="1" idValue="one" onClick={this.handleDigit} />
-          <Button value="2" idValue="two" onClick={this.handleDigit} />
-          <Button value="3" idValue="three" onClick={this.handleDigit} />
-          <Button
-            value="+"
-            idValue="add"
-            onClick={() => this.handleOperator("+")}
-          />
-        </div>
-        <div className="row">
-          <Button value="0" idValue="zero" onClick={this.handleDigit} />
-          <Button value="." idValue="decimal" onClick={this.handlePeriod} />
-          <Button value="=" idValue="equals" onClick={this.handleEqual} />
-        </div>
+        <footer id="credits">
+          by{" "}
+          <a
+            href="http://twitter.com/2alin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            adilson
+          </a>
+        </footer>
       </div>
     );
   }

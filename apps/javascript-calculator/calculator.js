@@ -295,80 +295,99 @@ var Calculator = function (_React$Component) {
 
       return React.createElement(
         "div",
-        { id: "calculator" },
-        React.createElement(DisplayScreen, { formula: formula, display: display }),
+        { id: "container" },
         React.createElement(
           "div",
-          { className: "row" },
-          React.createElement(Button, {
-            value: this.state.sound ? "volume_up" : "volume_off",
-            className: "material-icons",
-            idValue: "sound-toggle",
-            onClick: this.handleSoundToggle
-          }),
-          React.createElement(Button, { value: "C", idValue: "clear", onClick: this.handleClear }),
-          React.createElement(Button, {
-            value: "keyboard_backspace",
-            className: "material-icons",
-            idValue: "delete",
-            onClick: this.handleDelete
-          }),
-          React.createElement(Button, {
-            value: "\xF7",
-            idValue: "divide",
-            onClick: function onClick() {
-              return _this2.handleOperator("/");
-            }
-          })
+          { id: "calculator" },
+          React.createElement(DisplayScreen, { formula: formula, display: display }),
+          React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(Button, {
+              value: this.state.sound ? "volume_up" : "volume_off",
+              className: "material-icons",
+              idValue: "sound-toggle",
+              onClick: this.handleSoundToggle
+            }),
+            React.createElement(Button, { value: "C", idValue: "clear", onClick: this.handleClear }),
+            React.createElement(Button, {
+              value: "keyboard_backspace",
+              className: "material-icons",
+              idValue: "delete",
+              onClick: this.handleDelete
+            }),
+            React.createElement(Button, {
+              value: "\xF7",
+              idValue: "divide",
+              onClick: function onClick() {
+                return _this2.handleOperator("/");
+              }
+            })
+          ),
+          React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(Button, { value: "7", idValue: "seven", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "8", idValue: "eight", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "9", idValue: "nine", onClick: this.handleDigit }),
+            React.createElement(Button, {
+              value: "\xD7",
+              idValue: "multiply",
+              onClick: function onClick() {
+                return _this2.handleOperator("*");
+              }
+            })
+          ),
+          React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(Button, { value: "4", idValue: "four", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "5", idValue: "five", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "6", idValue: "six", onClick: this.handleDigit }),
+            React.createElement(Button, {
+              value: "\u2212",
+              idValue: "subtract",
+              onClick: function onClick() {
+                return _this2.handleOperator("-");
+              }
+            })
+          ),
+          React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(Button, { value: "1", idValue: "one", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "2", idValue: "two", onClick: this.handleDigit }),
+            React.createElement(Button, { value: "3", idValue: "three", onClick: this.handleDigit }),
+            React.createElement(Button, {
+              value: "+",
+              idValue: "add",
+              onClick: function onClick() {
+                return _this2.handleOperator("+");
+              }
+            })
+          ),
+          React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(Button, { value: "0", idValue: "zero", onClick: this.handleDigit }),
+            React.createElement(Button, { value: ".", idValue: "decimal", onClick: this.handlePeriod }),
+            React.createElement(Button, { value: "=", idValue: "equals", onClick: this.handleEqual })
+          )
         ),
         React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(Button, { value: "7", idValue: "seven", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "8", idValue: "eight", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "9", idValue: "nine", onClick: this.handleDigit }),
-          React.createElement(Button, {
-            value: "\xD7",
-            idValue: "multiply",
-            onClick: function onClick() {
-              return _this2.handleOperator("*");
-            }
-          })
-        ),
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(Button, { value: "4", idValue: "four", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "5", idValue: "five", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "6", idValue: "six", onClick: this.handleDigit }),
-          React.createElement(Button, {
-            value: "\u2212",
-            idValue: "subtract",
-            onClick: function onClick() {
-              return _this2.handleOperator("-");
-            }
-          })
-        ),
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(Button, { value: "1", idValue: "one", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "2", idValue: "two", onClick: this.handleDigit }),
-          React.createElement(Button, { value: "3", idValue: "three", onClick: this.handleDigit }),
-          React.createElement(Button, {
-            value: "+",
-            idValue: "add",
-            onClick: function onClick() {
-              return _this2.handleOperator("+");
-            }
-          })
-        ),
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(Button, { value: "0", idValue: "zero", onClick: this.handleDigit }),
-          React.createElement(Button, { value: ".", idValue: "decimal", onClick: this.handlePeriod }),
-          React.createElement(Button, { value: "=", idValue: "equals", onClick: this.handleEqual })
+          "footer",
+          { id: "credits" },
+          "by",
+          " ",
+          React.createElement(
+            "a",
+            {
+              href: "http://twitter.com/2alin",
+              target: "_blank",
+              rel: "noopener noreferrer"
+            },
+            "adilson"
+          )
         )
       );
     }
