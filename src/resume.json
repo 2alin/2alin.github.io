@@ -1,6 +1,20 @@
 {
   "reactjs": [
     {
+      "projectName": "JavaScript Calculator",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/javascript-calculator",
+      "liveVersionUrl": "https://www.adisdev.com/apps/javascript-calculator",
+      "description": "A simple calculator that binds the physical keyboard with the GUI, allowing type/click/push input. It's made with ReactJS and it also features key sounds.",
+      "technologies": [
+        "ReactJS",
+        "Material-UI",
+        "JavaScript",
+        "ES6",
+        "CSS"
+      ],
+      "datePeriod": "Jan 2019"
+    },
+    {
       "projectName": "Random Quotes",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
       "liveVersionUrl": "https://www.adisdev.com/apps/random-quotes",
