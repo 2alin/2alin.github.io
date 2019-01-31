@@ -258,7 +258,8 @@ var Calculator = function (_React$Component) {
           { className: 'row' },
           React.createElement(Button, { value: 'C', idValue: 'clear', onClick: this.handleClear }),
           React.createElement(Button, {
-            value: '\uD83E\uDC50',
+            value: 'keyboard_backspace',
+            className: 'material-icons',
             idValue: 'delete',
             onClick: this.handleDelete
           }),

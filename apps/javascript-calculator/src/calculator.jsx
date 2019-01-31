@@ -224,7 +224,8 @@ class Calculator extends React.Component {
         <div className="row">
           <Button value="C" idValue="clear" onClick={this.handleClear} />
           <Button
-            value="🡐"
+            value="keyboard_backspace"
+            className="material-icons"
             idValue="delete"
             onClick={this.handleDelete}
           />
