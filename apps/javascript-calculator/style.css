@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Inconsolata');
 
+html {
+  
+}
+
+body {
+  background: #795c6a;
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #calculator {
   display: inline-block;
   background: #31363b;
