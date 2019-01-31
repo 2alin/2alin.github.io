@@ -251,7 +251,7 @@ var Calculator = function (_React$Component) {
 
       return React.createElement(
         'div',
-        null,
+        { id: 'calculator' },
         React.createElement(DisplayScreen, { formula: formula, display: display }),
         React.createElement(
           'div',

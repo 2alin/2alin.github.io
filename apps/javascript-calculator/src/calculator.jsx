@@ -219,7 +219,7 @@ class Calculator extends React.Component {
     const display = result !== "" ? result : input;
 
     return (
-      <div>
+      <div id="calculator">
         <DisplayScreen formula={formula} display={display} />
         <div className="row">
           <Button value="C" idValue="clear" onClick={this.handleClear} />
