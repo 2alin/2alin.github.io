@@ -9,25 +9,28 @@
 
 #display-screen {
   width: calc(60px * 4 + 8px * 3);
+  background: #28847a;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  color: #fff;
 }
 
 #formula-display,
 #display {
   min-height: 1.1em;
   margin: 0;
+  padding: 0 4px;
   font-family: 'Inconsolata', monospace;
   overflow-wrap: break-word;
   text-align: right;
 }
 
 #formula-display {
-  background: lightblue;
   font-size: 1rem;
-
+  padding-top: 4px;
 }
 
 #display {
-  background: lightgreen;
   font-size: 1.8rem;
 }
 
@@ -49,10 +52,16 @@ button {
   border-radius: 4px;
   font-family: 'Noto Serif SC',sans-serif;
   font-size: 1.8rem;
+  outline: none;
 }
 
 button:first-child {
   margin-left: 0;
+}
+
+
+button::-moz-focus-inner {
+	border-style: none;
 }
 
 button:active,
@@ -66,6 +75,6 @@ button:hover {
   width: calc(60px * 2 + 8px)
 }
 
-#delete {
+#clear {
   
 }

@@ -1,33 +1,34 @@
 function setActiveKey(key) {
   keyID = {
-    '0': 'zero',
-    '1': 'one',
-    '2': 'two',
-    '3': 'three',
-    '4': 'four',
-    '5': 'five',
-    '6': 'six',
-    '7': 'seven',
-    '8': 'eight',
-    '9': 'nine',
-    '.': 'decimal',
-    '+': 'add',
-    '-': 'subtract',
-    '*': 'multiply',
-    '/': 'divide',
-    'enter': 'equals',
-    'backspace': 'delete',
-    'escape': 'clear',
-    'c': 'clear'
-  }
+    "0": "zero",
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven",
+    "8": "eight",
+    "9": "nine",
+    ".": "decimal",
+    "+": "add",
+    "-": "subtract",
+    "*": "multiply",
+    "/": "divide",
+    enter: "equals",
+    backspace: "delete",
+    escape: "clear",
+    c: "clear"
+  };
   const DOM_Key = document.getElementById(keyID[key.toLowerCase()]);
-  console.log(keyID[key])
-  DOM_Key.classList.add('active');
+  console.log(keyID[key]);
+  DOM_Key.classList.add("active");
   setTimeout(() => {
-    DOM_Key.classList.remove('active');
-  }, 150 )
-
+    DOM_Key.classList.remove("active");
+  }, 150);
 }
+
+
 
 function Button(props) {
   return (
@@ -44,12 +45,11 @@ function Button(props) {
 function DisplayScreen(props) {
   return (
     <div id="display-screen">
-      <p id="formula-display">{props.formula}</p>
+      <p id="formula-display">{props.formula + (props.formula ? "=" : "")}</p>
       <p id="display">{props.display}</p>
     </div>
   );
 }
-
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class Calculator extends React.Component {
       // handle key press after an operation has been made
       updatedInput = keyValue;
       this.setState({ formula: "", result: "" });
-    } else if (/(^0$)|([\+\-\*\/]0)$/.exec(this.state.input)) {
+    } else if (/(^0$)|([\+\-\*\/]0)$/.test(this.state.input)) {
       // handle leading '0' at operands
       updatedInput = this.state.input.slice(0, -1) + keyValue;
     } else {
@@ -180,27 +180,26 @@ class Calculator extends React.Component {
 
     // handling all valid keys
     if (/^[0-9]$/.exec(key)) {
-      setActiveKey(key)
+      setActiveKey(key);
       this.handleDigit(eventKey);
     } else if (/^\.$/.exec(key)) {
-      setActiveKey(key)
+      setActiveKey(key);
       this.handlePeriod();
     } else if (/^[\+\-\*\/]$/.exec(key)) {
       e.preventDefault(); // prevent browser key bindings for '/'
-      setActiveKey(key)
+      setActiveKey(key);
       this.handleOperator(key);
     } else if (/^enter$/i.exec(key)) {
       e.preventDefault(); // prevent focused key to be clicked
-      setActiveKey(key)
+      setActiveKey(key);
       this.handleEqual();
     } else if (/^backspace$/i.exec(key)) {
-      setActiveKey(key)
+      setActiveKey(key);
       this.handleDelete();
     } else if (/^(escape)|(c)$/i.exec(key)) {
-      setActiveKey(key)
+      setActiveKey(key);
       this.handleClear();
-    } 
-
+    }
   }
 
   componentDidMount() {
@@ -229,25 +228,41 @@ class Calculator extends React.Component {
             idValue="delete"
             onClick={this.handleDelete}
           />
-          <Button value="÷" idValue="divide" onClick={()=>this.handleOperator('/')} />
+          <Button
+            value="÷"
+            idValue="divide"
+            onClick={() => this.handleOperator("/")}
+          />
         </div>
         <div className="row">
           <Button value="7" idValue="seven" onClick={this.handleDigit} />
           <Button value="8" idValue="eight" onClick={this.handleDigit} />
           <Button value="9" idValue="nine" onClick={this.handleDigit} />
-          <Button value="×" idValue="multiply" onClick={() => this.handleOperator('*')} />
+          <Button
+            value="×"
+            idValue="multiply"
+            onClick={() => this.handleOperator("*")}
+          />
         </div>
         <div className="row">
           <Button value="4" idValue="four" onClick={this.handleDigit} />
           <Button value="5" idValue="five" onClick={this.handleDigit} />
           <Button value="6" idValue="six" onClick={this.handleDigit} />
-          <Button value="−" idValue="subtract" onClick={() => this.handleOperator('-')} />
+          <Button
+            value="−"
+            idValue="subtract"
+            onClick={() => this.handleOperator("-")}
+          />
         </div>
         <div className="row">
           <Button value="1" idValue="one" onClick={this.handleDigit} />
           <Button value="2" idValue="two" onClick={this.handleDigit} />
           <Button value="3" idValue="three" onClick={this.handleDigit} />
-          <Button value="+" idValue="add" onClick={() => this.handleOperator('+')} />
+          <Button
+            value="+"
+            idValue="add"
+            onClick={() => this.handleOperator("+")}
+          />
         </div>
         <div className="row">
           <Button value="0" idValue="zero" onClick={this.handleDigit} />
