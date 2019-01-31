@@ -1,23 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Inconsolata');
 
 #display-screen {
-  width: calc(60px * 4 + 2px * 3);
+  width: calc(60px * 4 + 4px * 3);
 }
 
 #formula-display,
 #display {
-  height: 1.4em;
+  min-height: 1.4em;
   margin: 0;
+  font-family: 'Inconsolata', monospace;
+  overflow-wrap: break-word;
+  text-align: right;
 }
 
 #formula-display {
   background: lightblue;
   font-size: 1rem;
+
 }
 
 #display {
   background: lightgreen;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .row {
@@ -29,13 +33,13 @@
 
 /* Keys Style */
 button {
-  margin-left: 2px;
+  margin-left: 4px;
   width: 60px;
   height: 50px;
   background: lightgray;
   border: none;
   font-family: 'Noto Serif SC',sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 button:first-child {
@@ -49,7 +53,7 @@ button.active {
 }
 
 #clear, #equals{
-  width: calc(60px * 2 + 2px)
+  width: calc(60px * 2 + 4px)
 }
 
 #delete {
