@@ -30,11 +30,10 @@ function setActiveKey(key) {
 }
 
 function playSound() {
-  const beep = new Audio('./assets/beep.mp3')
+  const beep = new Audio("./assets/beep.mp3");
   beep.loop = false;
   beep.play();
 }
-
 
 function Button(props) {
   return (
@@ -81,7 +80,7 @@ class Calculator extends React.Component {
     let updatedInput;
 
     // handle sound
-    this.state.sound && playSound();    
+    this.state.sound && playSound();
 
     if (this.state.result != "") {
       // handle key press after an operation has been made
@@ -104,7 +103,7 @@ class Calculator extends React.Component {
     let updatedInput;
 
     // handle sound
-    this.state.sound && playSound();    
+    this.state.sound && playSound();
 
     if (this.state.result != "") {
       // handle key press after an operation has been made
@@ -154,8 +153,14 @@ class Calculator extends React.Component {
     // handle sound
     this.state.sound && playSound();
 
-    const formulaValue =
+    let formulaValue =
       this.state.formula === "" ? this.state.input : this.state.formula;
+
+    //removing ending unfinished operators
+    if (/[\+\-\*\/]$/.test(formulaValue)) {
+      formulaValue = formulaValue.slice(0, -1);
+    }
+
     let result = eval(formulaValue);
     result = Math.round(result * 10 ** 10) / 10 ** 10;
     result = result.toString();
@@ -198,11 +203,11 @@ class Calculator extends React.Component {
     console.log(updatedInput);
   }
 
-  handleSoundToggle(){
+  handleSoundToggle() {
     // handle sound
-    (!this.state.sound) && playSound();
+    !this.state.sound && playSound();
 
-    this.setState({sound: !this.state.sound})
+    this.setState({ sound: !this.state.sound });
   }
 
   handleKeyDown(e) {
@@ -258,7 +263,7 @@ class Calculator extends React.Component {
         <DisplayScreen formula={formula} display={display} />
         <div className="row">
           <Button
-            value={this.state.sound ? 'volume_up' : 'volume_off'}
+            value={this.state.sound ? "volume_up" : "volume_off"}
             className="material-icons"
             idValue="sound-toggle"
             onClick={this.handleSoundToggle}

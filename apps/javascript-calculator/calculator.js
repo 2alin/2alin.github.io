@@ -38,7 +38,7 @@ function setActiveKey(key) {
 }
 
 function playSound() {
-  var beep = new Audio('./assets/beep.mp3');
+  var beep = new Audio("./assets/beep.mp3");
   beep.loop = false;
   beep.play();
 }
@@ -181,6 +181,12 @@ var Calculator = function (_React$Component) {
       this.state.sound && playSound();
 
       var formulaValue = this.state.formula === "" ? this.state.input : this.state.formula;
+
+      //removing ending unfinished operators
+      if (/[\+\-\*\/]$/.test(formulaValue)) {
+        formulaValue = formulaValue.slice(0, -1);
+      }
+
       var result = eval(formulaValue);
       result = Math.round(result * Math.pow(10, 10)) / Math.pow(10, 10);
       result = result.toString();
@@ -295,7 +301,7 @@ var Calculator = function (_React$Component) {
           "div",
           { className: "row" },
           React.createElement(Button, {
-            value: this.state.sound ? 'volume_up' : 'volume_off',
+            value: this.state.sound ? "volume_up" : "volume_off",
             className: "material-icons",
             idValue: "sound-toggle",
             onClick: this.handleSoundToggle
