@@ -57,7 +57,7 @@ P R O J E C T S   N A V B A R
 #nav-bar button {
   background: none;
   border: none;
-  width: 8em;
+  width: 6em;
   padding: 1em 0;
   margin-bottom: 1em;
   font: inherit;
@@ -95,7 +95,7 @@ P R O J E C T S   N A V B A R
   left: 0;
   border: 2px solid;
   border-radius: 4px;
-  transform: skewX(-34deg);
+  transform: skewX(-25deg);
   z-index: -1;
   transition: box-shadow 400ms;
 }
@@ -231,7 +231,7 @@ D I S P L A Y   S E C T I O N S
 }
 
 .project main .technologies::before {
-  content: "Technologies: ";
+  content: "Uses: ";
   font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
 }
@@ -300,7 +300,7 @@ D I S P L A Y   S E C T I O N S
   left: 0;
   /* border: 2px solid; */
   border-radius: 4px;
-  transform: skewX(-34deg);
+  transform: skewX(-25deg);
   z-index: -1;
 }
 .controls .button:hover,

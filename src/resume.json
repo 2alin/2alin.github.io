@@ -5,13 +5,7 @@
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/javascript-calculator",
       "liveVersionUrl": "https://www.adisdev.com/apps/javascript-calculator",
       "description": "A simple calculator that binds the physical keyboard with the GUI, allowing type/click/push input. It's made with ReactJS and it also features key sounds.",
-      "technologies": [
-        "ReactJS",
-        "Material-UI",
-        "JavaScript",
-        "ES6",
-        "CSS"
-      ],
+      "technologies": ["ReactJS", "Material-UI", "JavaScript", "ES6", "CSS"],
       "datePeriod": "Jan 2019"
     },
     {
@@ -46,6 +40,14 @@
     }
   ],
   "frontEnd": [
+    {
+      "projectName": "Expenses Manager",
+      "sourceCodeUrl": "https://github.com/2alin/frontend-challenge-solution",
+      "liveVersionUrl": "https://github.com/2alin/frontend-challenge-solution",
+      "description": "Responsive SPA that fetches data from an API, lists it in a pleasant, paginated approach. Supports multiple language, currency conversion, personalized filter/search, and upload comments/receipts to each expense independently.",
+      "technologies": ["TypeScript", "ReactJS", "Redux"],
+      "datePeriod": "Mar 2019"
+    },
     {
       "projectName": "Product Landing Page",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/product-page",
