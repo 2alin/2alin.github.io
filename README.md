@@ -1,4 +1,6 @@
 # 2alin.github.io
-This is the repository of my personal web page along with my web dev projects. The main site (https://adisdev.com) will become available very soon, please wait patiently for it. 
+This is the repository of my personal web page. 
 
-Meanwhile you can see the list of my projects (and links of them) on my CV: https://stackoverflow.com/story/adilson
+The main site (https://adisdev.com) is already available.
+
+And also, you can see the complete list of my projects here: https://stackoverflow.com/story/adilson
