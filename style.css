@@ -458,7 +458,7 @@ R E S P O N S I V E   S T Y L E
   .project picture img {
     width: initial;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     height: auto;
   }
 
