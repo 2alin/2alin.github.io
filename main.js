@@ -52,14 +52,12 @@ fetch("./src/resume.json")
   .then(resumeJson => {
     // inject data in DOM
     injectProjects(frontEndDisplay, resumeJson.frontEnd);
-    injectProjects(reactjsDisplay, resumeJson.reactjs);
     injectProjects(pythonDisplay, resumeJson.python);
     injectProjects(miscDisplay, resumeJson.misc);
   });
 
 // selectors
 frontEndDisplay = document.querySelector("#front-end-display");
-reactjsDisplay = document.querySelector("#reactjs-display");
 pythonDisplay = document.querySelector("#python-display");
 miscDisplay = document.querySelector("#misc-display");
 
@@ -158,7 +156,7 @@ function injectProjects(sectionDOMElement, data) {
       currentProjectIndex++;
     }
     projectsList[currentProjectIndex].classList.add("active");
-    console.log(currentProjectIndex);
+    // console.log(currentProjectIndex);
   });
 
   previousButton.addEventListener("click", () => {

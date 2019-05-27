@@ -1,5 +1,21 @@
 {
-  "reactjs": [
+  "frontEnd": [
+    {
+      "projectName": "MeteorLib",
+      "sourceCodeUrl": "https://github.com/2alin/MeteorLib",
+      "liveVersionUrl": "https://meteorlib.netlify.com/",
+      "description": "Web app library that displays information about meteorite landings on earth, using NASA API. It features Filter Controls, Infinite Scroll, Responsive Design, Personalized Color (based on meteorite structure).",
+      "technologies": ["TypeScript", "ReactJS", "Redux", "JSS"],
+      "datePeriod": "May 2019"
+    },
+    {
+      "projectName": "Expenses Manager",
+      "sourceCodeUrl": "https://github.com/2alin/frontend-challenge-solution",
+      "liveVersionUrl": "https://github.com/2alin/frontend-challenge-solution",
+      "description": "Responsive SPA that fetches data from an API, lists it in a pleasant, paginated approach. Supports multiple language, currency conversion, personalized filter/search, and upload comments/receipts to each expense independently.",
+      "technologies": ["TypeScript", "ReactJS", "Redux", "CSS-Modules"],
+      "datePeriod": "Mar 2019"
+    },
     {
       "projectName": "JavaScript Calculator",
       "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/javascript-calculator",
@@ -23,30 +39,12 @@
       "datePeriod": "Nov 2018"
     },
     {
-      "projectName": "Temperature Converter",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
-      "liveVersionUrl": "https://www.adisdev.com/apps/temperature-converter",
-      "description": "Simple app made with ReactJS that automatically identifies the units of temperature the user types in, and converts the amount to other units.",
-      "technologies": ["ReactJS", "JavaScript", "ES6", "CSS"],
+      "projectName": "Technical Documentation Page",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/tech-doc-page",
+      "liveVersionUrl": "https://www.adisdev.com/learn/fcc/tech-doc-page/",
+      "description": "A responsive project for a technical documentation page. I specially loved learning how to use the :before and :after pseudo-elements to design and implement tricky styles.",
+      "technologies": ["JavaScript", "CSS", "HTML5"],
       "datePeriod": "Nov 2018"
-    },
-    {
-      "projectName": "Markdown Previewer",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/markdown-previewer",
-      "liveVersionUrl": "https://www.adisdev.com/apps/markdown-previewer/",
-      "description": "A simple app made with ReactJS that previews markdown input.",
-      "technologies": ["ReactJS", "JavaScript", "ES6", "CSS", "Material-UI"],
-      "datePeriod": "Nov 2018"
-    }
-  ],
-  "frontEnd": [
-    {
-      "projectName": "Expenses Manager",
-      "sourceCodeUrl": "https://github.com/2alin/frontend-challenge-solution",
-      "liveVersionUrl": "https://github.com/2alin/frontend-challenge-solution",
-      "description": "Responsive SPA that fetches data from an API, lists it in a pleasant, paginated approach. Supports multiple language, currency conversion, personalized filter/search, and upload comments/receipts to each expense independently.",
-      "technologies": ["TypeScript", "ReactJS", "Redux"],
-      "datePeriod": "Mar 2019"
     },
     {
       "projectName": "Product Landing Page",
@@ -57,28 +55,20 @@
       "datePeriod": "Sept 2018"
     },
     {
-      "projectName": "Technical Documentation Page",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/fcc/tech-doc-page",
-      "liveVersionUrl": "https://www.adisdev.com/learn/fcc/tech-doc-page/",
-      "description": "A responsive project for a technical documentation page. I specially loved learning how to use the :before and :after pseudo-elements to design and implement tricky styles.",
-      "technologies": ["JavaScript", "CSS", "HTML5"],
+      "projectName": "Markdown Previewer",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/markdown-previewer",
+      "liveVersionUrl": "https://www.adisdev.com/apps/markdown-previewer/",
+      "description": "A simple app made with ReactJS that previews markdown input.",
+      "technologies": ["ReactJS", "JavaScript", "ES6", "CSS", "Material-UI"],
       "datePeriod": "Nov 2018"
     },
     {
-      "projectName": "Weird Shapes",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/projects/weird-shapes",
-      "liveVersionUrl": "https://www.adisdev.com/projects/weird-shapes/",
-      "description": "This was my first big project. It's an app that allows to draw weird shapes everytime the user clicks over the white canvas. It allows shapes customization and language selection.",
-      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
-      "datePeriod": "Mar 2018"
-    },
-    {
-      "projectName": "Bouncing Balls (Improved)",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/mozilla/improve-bouncing-balls",
-      "liveVersionUrl": "http://www.adisdev.com/learn/mozilla/improve-bouncing-balls/",
-      "description": "I improved the bouncing balls game that was developed at MDN course site, allowing multiplayer and diagonal moves. Use arrow and A/W/S/D keys to play the game. Only for Desktop.",
-      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
-      "datePeriod": "Mar 2018"
+      "projectName": "Temperature Converter",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
+      "liveVersionUrl": "https://www.adisdev.com/apps/temperature-converter",
+      "description": "Simple app made with ReactJS that automatically identifies the units of temperature the user types in, and converts the amount to other units.",
+      "technologies": ["ReactJS", "JavaScript", "ES6", "CSS"],
+      "datePeriod": "Nov 2018"
     }
   ],
   "python": [
@@ -107,6 +97,22 @@
       "description": "Born from a forum user request. I designed, developed and maintained my first browser extension, that allows the user to filter and manage tabs either manually or automatically.",
       "technologies": ["JavaScript", "ES6", "CSS"],
       "datePeriod": "Apr 2018"
+    },
+    {
+      "projectName": "Weird Shapes",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/projects/weird-shapes",
+      "liveVersionUrl": "https://www.adisdev.com/projects/weird-shapes/",
+      "description": "This was my first big project. It's an app that allows to draw weird shapes everytime the user clicks over the white canvas. It allows shapes customization and language selection.",
+      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
+      "datePeriod": "Mar 2018"
+    },
+    {
+      "projectName": "Bouncing Balls (Improved)",
+      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/learn/mozilla/improve-bouncing-balls",
+      "liveVersionUrl": "http://www.adisdev.com/learn/mozilla/improve-bouncing-balls/",
+      "description": "I improved the bouncing balls game that was developed at MDN course site, allowing multiplayer and diagonal moves. Use arrow and A/W/S/D keys to play the game. Only for Desktop.",
+      "technologies": ["JavaScript", "CSS", "HTML Canvas"],
+      "datePeriod": "Mar 2018"
     }
   ]
 }
