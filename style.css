@@ -460,6 +460,7 @@ R E S P O N S I V E   S T Y L E
     width: 100%;
     max-width: 320px;
     height: auto;
+    max-height: 220px;
   }
 
   #profile-display header {
