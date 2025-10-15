@@ -352,7 +352,6 @@ P R O F I L E    S E C T I O N
 #profile-display picture img {
   max-width: calc(180px / 1.4);
   border-radius: 12px;
-  transform: rotate(45deg);
 }
 
 #profile-display .description footer {
