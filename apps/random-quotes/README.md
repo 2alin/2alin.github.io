@@ -1,1 +1,1 @@
-Try this app: https://www.adisdev.com/apps/random-quotes/
+Try this app: https://adilson.mx/apps/random-quotes/

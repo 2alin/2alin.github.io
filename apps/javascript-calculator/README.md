@@ -1,4 +1,4 @@
-Try this app: https://www.adisdev.com/apps/javascript-calculator/
+Try this app: https://adilson.mx/apps/javascript-calculator/
 
 You can use physical keyboard to activate the calculator keys:
 

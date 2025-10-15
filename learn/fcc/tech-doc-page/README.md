@@ -1,1 +1,1 @@
-Try the page live: https://www.adisdev.com/learn/fcc/tech-doc-page/
+Try the page live: https://adilson.mx/learn/fcc/tech-doc-page/

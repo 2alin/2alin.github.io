@@ -1,1 +1,1 @@
-Try this app: https://www.adisdev.com/apps/markdown-previewer/
+Try this app: https://adilson.mx/apps/markdown-previewer/
