@@ -34,7 +34,7 @@ function TweetButton(props) {
     { type: "button", onClick: props.onClick, id: "tweet-quote" },
     React.createElement(
       "span",
-      { className: "fab fa-twitter" },
+      { className: "fa-brands fa-twitter" },
       " "
     )
   );

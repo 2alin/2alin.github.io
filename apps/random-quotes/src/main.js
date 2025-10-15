@@ -37,7 +37,7 @@ function randomColorIndex(currentIndex) {
 function TweetButton(props) {
   return (
     <button type="button" onClick={props.onClick} id="tweet-quote">
-      <span className="fab fa-twitter"> </span>
+      <span className="fa-brands fa-twitter"> </span>
     </button>
   );
 }

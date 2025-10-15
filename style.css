@@ -229,7 +229,7 @@ D I S P L A Y   S E C T I O N S
 }
 
 .project footer {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   display: flex;
   justify-content: space-around;
   text-transform: uppercase;
@@ -242,8 +242,8 @@ D I S P L A Y   S E C T I O N S
   padding: 1.2em 1em;
 }
 
-.project footer a::before {
-  margin-right: 0.5em;
+.project footer a i {
+  margin-right: 0.3rem;
 }
 
 .project picture {
