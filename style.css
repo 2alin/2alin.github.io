@@ -51,9 +51,10 @@ P R O J E C T S   N A V B A R
 }
 
 #nav-bar button {
+  --button-width: 7.5em;
   background: none;
   border: none;
-  width: 6.5em;
+  width: var(--button-width);
   padding: 1em 0;
   margin-bottom: 1em;
   font: inherit;
@@ -119,8 +120,10 @@ P R O J E C T S   N A V B A R
 
 #nav-bar button.active:before {
   border-color: var(--secondary-hover-color);
-  box-shadow: inset 4em 0 2px var(--secondary-hover-color),
-    inset -4em 0 2px var(--secondary-hover-color);
+  box-shadow: inset calc(0.5 * var(--button-width)) 0 2px
+      var(--secondary-hover-color),
+    inset calc(-1 * 0.5 * var(--button-width)) 0 2px
+      var(--secondary-hover-color);
 }
 
 #nav-bar button:after {
@@ -252,7 +255,9 @@ D I S P L A Y   S E C T I O N S
 }
 
 .project img {
-  width: 100%;
+  max-width: 280px;
+  height: auto;
+  max-height: 220px;  
   border-radius: 4px;
 }
 

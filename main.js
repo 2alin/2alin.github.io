@@ -47,19 +47,17 @@ FETCH AND INJECT DATA
 */
 
 // Fetching resume data
-fetch("./src/resume.json")
+fetch("./data/resume.json")
   .then((response) => response.json())
   .then((resumeJson) => {
     // inject data in DOM
-    injectProjects(frontEndDisplay, resumeJson.frontEnd);
-    injectProjects(pythonDisplay, resumeJson.python);
-    injectProjects(miscDisplay, resumeJson.misc);
+    injectProjects(webAppsDisplay, resumeJson.webApps);
+    injectProjects(extensionsDisplay, resumeJson.extensions);
   });
 
 // selectors
-frontEndDisplay = document.querySelector("#front-end-display");
-pythonDisplay = document.querySelector("#python-display");
-miscDisplay = document.querySelector("#misc-display");
+webAppsDisplay = document.querySelector("#web-apps-display");
+extensionsDisplay = document.querySelector("#extensions-display");
 
 function injectProjects(sectionDOMElement, data) {
   //receives a DOM element (section) and injects new elements in there using json data
