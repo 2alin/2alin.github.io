@@ -10,40 +10,40 @@
     },
     {
       "projectName": "JavaScript Calculator",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/javascript-calculator",
-      "liveVersionUrl": "https://adilson.mx/apps/javascript-calculator",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/javascript-calculator",
+      "liveVersionUrl": "https://adilson.mx/mini-apps/javascript-calculator",
       "description": "A simple calculator that binds the physical keyboard with the GUI, allowing type/click/push input. It's made with ReactJS and it also features key sounds.",
       "technologies": ["ReactJS", "Material-UI", "JavaScript", "ES6", "CSS"],
       "datePeriod": "Jan 2019"
     },
     {
       "projectName": "Temperature Converter",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/temperature-converter",
-      "liveVersionUrl": "https://adilson.mx/apps/temperature-converter",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/temperature-converter",
+      "liveVersionUrl": "https://adilson.mx/mini-apps/temperature-converter",
       "description": "Simple app made with ReactJS that automatically identifies the units of temperature the user types in, and converts the amount to other units.",
       "technologies": ["ReactJS", "JavaScript", "ES6", "CSS"],
       "datePeriod": "Nov 2018"
     },
     {
       "projectName": "Weird Shapes",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/weird-shapes",
-      "liveVersionUrl": "https://adilson.mx/apps/weird-shapes/",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/weird-shapes",
+      "liveVersionUrl": "https://adilson.mx/mini-apps/weird-shapes/",
       "description": "This was my first big project. It's an app that allows to draw weird shapes everytime the user clicks over the white canvas. It allows shapes customization and language selection.",
       "technologies": ["JavaScript", "CSS", "HTML Canvas"],
       "datePeriod": "Mar 2018"
     },
     {
       "projectName": "Bouncing Balls (Improved)",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/apps/improve-bouncing-balls",
-      "liveVersionUrl": "http://adilson.mx/apps/improve-bouncing-balls/",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/improve-bouncing-balls",
+      "liveVersionUrl": "https://adilson.mx/mini-apps/improve-bouncing-balls/",
       "description": "I improved the bouncing balls game that was developed at MDN course site, allowing multiplayer and diagonal moves. Use arrow and A/W/S/D keys to play the game. Only for Desktop.",
       "technologies": ["JavaScript", "CSS", "HTML Canvas"],
       "datePeriod": "Mar 2018"
     },
     {
       "projectName": "Random Quotes",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
-      "liveVersionUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/random-quotes",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/random-quotes",
+      "liveVersionUrl": "https://github.com/2alin/mini-apps/tree/main/random-quotes",
       "description": "App that fetches random quotes and display it to the user, made with ReactJS and react-transition-group for the main transition.",
       "technologies": [
         "ReactJS",
@@ -56,8 +56,8 @@
     },
     {
       "projectName": "Markdown Previewer",
-      "sourceCodeUrl": "https://github.com/2alin/2alin.github.io/tree/master/apps/markdown-previewer",
-      "liveVersionUrl": "https://adilson.mx/apps/markdown-previewer/",
+      "sourceCodeUrl": "https://github.com/2alin/mini-apps/tree/main/markdown-previewer",
+      "liveVersionUrl": "https://adilson.mx/mini-apps/markdown-previewer/",
       "description": "A simple app made with ReactJS that previews markdown input.",
       "technologies": ["ReactJS", "JavaScript", "ES6", "CSS", "Material-UI"],
       "datePeriod": "Nov 2018"
