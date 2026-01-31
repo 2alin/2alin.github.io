@@ -23,18 +23,17 @@ function setActive(chosenBtn) {
   navButtons.forEach((button) => {
     let sectionID =
       button.textContent.toLowerCase().replace(/\s/g, "-") + "-display";
-    // console.log(sectionID);
     if (chosenBtn === button) {
       button.classList.add("active");
       setTimeout(
         () => document.getElementById(sectionID).classList.add("active"),
-        500
+        500,
       );
     } else {
       button.classList.remove("active");
       setTimeout(
         () => document.getElementById(sectionID).classList.remove("active"),
-        500
+        500,
       );
     }
   });
@@ -51,33 +50,36 @@ fetch("./data/resume.json")
   .then((response) => response.json())
   .then((resumeJson) => {
     // inject data in DOM
-    injectProjects(webAppsDisplay, resumeJson.webApps);
-    injectProjects(extensionsDisplay, resumeJson.extensions);
+    appendProjects(webAppsDisplay, resumeJson.webApps);
+    appendProjects(extensionsDisplay, resumeJson.extensions);
   });
 
 // selectors
-webAppsDisplay = document.querySelector("#web-apps-display");
-extensionsDisplay = document.querySelector("#extensions-display");
+webAppsDisplay = document.getElementById("web-apps-display");
+extensionsDisplay = document.getElementById("extensions-display");
 
-function injectProjects(sectionDOMElement, data) {
-  //receives a DOM element (section) and injects new elements in there using json data
-
-  let projectsContainer = document.createElement("div");
+/**
+ * Create and append project elements in the given selction element
+ *
+ * @param {*} sectionElement
+ * @param {*} data
+ */
+function appendProjects(sectionElement, data) {
+  const projectsContainer = document.createElement("div");
   projectsContainer.classList.add("projects-container");
 
-  for (let project of data) {
-    // console.log(project.projectName);
-    let main = document.createElement("main");
-    let projectName = document.createElement("h1");
-    let timePeriod = document.createElement("p");
-    let description = document.createElement("p");
-    let technologies = document.createElement("p");
-    let pictureContainer = document.createElement("picture");
-    let picture = document.createElement("img");
-    let footer = document.createElement("footer");
-    let sourceCode = document.createElement("a");
-    let tryLive = document.createElement("a");
-    let projectArticle = document.createElement("article");
+  for (const project of data) {
+    const main = document.createElement("main");
+    const projectName = document.createElement("h1");
+    const timePeriod = document.createElement("p");
+    const description = document.createElement("p");
+    const technologies = document.createElement("p");
+    const pictureContainer = document.createElement("picture");
+    const picture = document.createElement("img");
+    const footer = document.createElement("footer");
+    const sourceCode = document.createElement("a");
+    const tryLive = document.createElement("a");
+    const projectArticle = document.createElement("article");
 
     //adding classes and properties
     timePeriod.classList.add("period");
@@ -106,7 +108,7 @@ function injectProjects(sectionDOMElement, data) {
     tryLive.prepend(iconExternal.cloneNode(true));
     sourceCode.prepend(iconExternal.cloneNode(true));
 
-    //adding elements to the DOM
+    // structuring elements
     main.appendChild(timePeriod);
     main.appendChild(projectName);
     main.appendChild(description);
@@ -121,12 +123,21 @@ function injectProjects(sectionDOMElement, data) {
     projectsContainer.appendChild(projectArticle);
   }
 
-  sectionDOMElement.appendChild(projectsContainer);
+  sectionElement.appendChild(projectsContainer);
+
+  // initializing active project
+  if (data.length > 0) {
+    const activeProjectIdx = 0;
+    sectionElement.dataset.activeProjectIdx = activeProjectIdx;
+
+    const projectsList = sectionElement.querySelectorAll(".project");
+    projectsList[activeProjectIdx].classList.add("active");
+  }
 
   //adding control bar elements to section container
-  let navControls = document.createElement("nav");
-  let previousButton = document.createElement("span");
-  let nextButton = document.createElement("span");
+  const navControls = document.createElement("nav");
+  const previousButton = document.createElement("span");
+  const nextButton = document.createElement("span");
 
   previousButton.textContent = "prev";
   nextButton.textContent = "next";
@@ -135,36 +146,65 @@ function injectProjects(sectionDOMElement, data) {
   nextButton.classList.add("next", "button");
   navControls.classList.add("controls");
 
+  previousButton.dataset.direction = -1;
+  nextButton.dataset.direction = 1;
+
+  nextButton.addEventListener("click", handleNavigateProject);
+  previousButton.addEventListener("click", handleNavigateProject);
+
   navControls.appendChild(previousButton);
   navControls.appendChild(nextButton);
+
   // append navControls only if the number of projects is 2 or more
-  if (data.length > 1) sectionDOMElement.appendChild(navControls);
+  if (data.length > 1) {
+    sectionElement.appendChild(navControls);
+  }
+}
 
-  //handle control actions
-  let projectsList = document.querySelectorAll(
-    "#" + sectionDOMElement.id + " .project"
-  );
-  let currentProjectIndex = 0;
-  projectsList[currentProjectIndex].classList.add("active");
+/**
+ * Handles project navigation in a section
+ *
+ * @param {PointerEvent} event Event triggered after user clicks navigation button
+ * @returns when navigation is not possible
+ */
+function handleNavigateProject(event) {
+  const { target } = event;
 
-  nextButton.addEventListener("click", () => {
-    projectsList[currentProjectIndex].classList.remove("active");
-    if (currentProjectIndex === projectsList.length - 1) {
-      currentProjectIndex = 0;
-    } else {
-      currentProjectIndex++;
-    }
-    projectsList[currentProjectIndex].classList.add("active");
-  });
+  const direction = Number(target.dataset.direction);
 
-  previousButton.addEventListener("click", () => {
-    projectsList[currentProjectIndex].classList.remove("active");
-    if (currentProjectIndex === 0) {
-      currentProjectIndex = projectsList.length - 1;
-    } else {
-      currentProjectIndex--;
-    }
-    projectsList[currentProjectIndex].classList.add("active");
-    console.log(currentProjectIndex);
-  });
+  if (Number.isNaN(direction)) {
+    console.error("no direction set in navigate button attribute");
+    return;
+  }
+
+  const section = target.closest(".display-section");
+
+  if (!section) {
+    console.error("No section found");
+    return;
+  }
+
+  const projectsList = section.querySelectorAll(".project");
+
+  if (!projectsList) {
+    console.error("No projects found");
+    return;
+  }
+
+  let activeProjectIdx = Number(section.dataset.activeProjectIdx);
+
+  if (Number.isNaN(activeProjectIdx)) {
+    console.error("Incorrect format for 'active-project-idx' attribute");
+    return;
+  }
+
+  projectsList[activeProjectIdx].classList.remove("active");
+
+  // we are using modulo operation to stay in the desired range when
+  // moving back or forth, but for modulo to work we need to stay out
+  // of negative values, that's why move the interval ahead by its same length
+  activeProjectIdx =
+    (projectsList.length + activeProjectIdx + direction) % projectsList.length;
+  projectsList[activeProjectIdx].classList.add("active");
+  section.dataset.activeProjectIdx = activeProjectIdx;
 }
