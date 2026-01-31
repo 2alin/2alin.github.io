@@ -1,65 +1,39 @@
-/* 
-------------------
-HANDLE NAV ACTIONS
-------------------
-*/
+/**
+ * Updates the active status for the section aund its corresponding nav button
+ *
+ * @param {string} sectionToActivate
+ */
+function setActiveSection(sectionToActivate) {
+  const mainNavButtons = document.querySelectorAll(".nav-btn");
 
-navButtons = document.querySelectorAll(".nav-btn");
-displayContainer = document.querySelector("#display-container");
+  mainNavButtons.forEach((button) => {
+    const { section } = button.dataset;
 
-// menu button action on click
-navButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    target = e.target;
-    displayContainer.classList.remove("opened");
-    setTimeout(() => setActive(target), 0);
-    setTimeout(() => displayContainer.classList.add("opened"), 600);
-  });
-});
+    if (!section) {
+      console.error("No section data attribute in navigation button");
+      return;
+    }
 
-function setActive(chosenBtn) {
-  /* clears and sets the 'active' class on the nav buttons
-  and on the display sections*/
-  navButtons.forEach((button) => {
-    let sectionID =
-      button.textContent.toLowerCase().replace(/\s/g, "-") + "-display";
-    if (chosenBtn === button) {
+    const sectionId = `${section}-section`;
+
+    if (sectionToActivate === section) {
       button.classList.add("active");
       setTimeout(
-        () => document.getElementById(sectionID).classList.add("active"),
+        () => document.getElementById(sectionId).classList.add("active"),
         500,
       );
     } else {
       button.classList.remove("active");
       setTimeout(
-        () => document.getElementById(sectionID).classList.remove("active"),
+        () => document.getElementById(sectionId).classList.remove("active"),
         500,
       );
     }
   });
 }
 
-/* 
----------------------
-FETCH AND INJECT DATA
----------------------
-*/
-
-// Fetching resume data
-fetch("./data/resume.json")
-  .then((response) => response.json())
-  .then((resumeJson) => {
-    // inject data in DOM
-    appendProjects(webAppsDisplay, resumeJson.webApps);
-    appendProjects(extensionsDisplay, resumeJson.extensions);
-  });
-
-// selectors
-webAppsDisplay = document.getElementById("web-apps-display");
-extensionsDisplay = document.getElementById("extensions-display");
-
 /**
- * Create and append project elements in the given selction element
+ * Create and append project elements in the given selection element
  *
  * @param {*} sectionElement
  * @param {*} data
@@ -177,7 +151,7 @@ function handleNavigateProject(event) {
     return;
   }
 
-  const section = target.closest(".display-section");
+  const section = target.closest("section");
 
   if (!section) {
     console.error("No section found");
@@ -208,3 +182,38 @@ function handleNavigateProject(event) {
   projectsList[activeProjectIdx].classList.add("active");
   section.dataset.activeProjectIdx = activeProjectIdx;
 }
+
+/**
+ * Initializes page
+ */
+function initialize() {
+  const sectionContainer = document.getElementById("section-container");
+  const webAppsSection = document.getElementById("web-apps-section");
+  const extensionsSection = document.getElementById("extensions-section");
+  const mainNavButtons = document.querySelectorAll(".nav-btn");
+
+  fetch("./data/projects.json")
+    .then((response) => response.json())
+    .then((resumeJson) => {
+      // inject data in DOM
+      appendProjects(webAppsSection, resumeJson.webApps);
+      appendProjects(extensionsSection, resumeJson.extensions);
+    });
+
+  mainNavButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const { section } = event.target.dataset;
+
+      if (!section) {
+        console.error("No section data attribute found in nanvigation button");
+        return;
+      }
+
+      sectionContainer.classList.remove("opened");
+      setActiveSection(section);
+      setTimeout(() => sectionContainer.classList.add("opened"), 600);
+    });
+  });
+}
+
+initialize();

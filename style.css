@@ -130,14 +130,14 @@ D I S P L A Y   C O N T A I N E R
 ------------------------------------
 */
 
-#display-container {
+#section-container {
   flex: 1;
   padding: 1rem;
   border-left: 1px solid var(--secondary-color);
   position: relative;
 }
 
-#display-container:after {
+#section-container:after {
   position: absolute;
   content: "";
   top: 0;
@@ -149,23 +149,23 @@ D I S P L A Y   C O N T A I N E R
   transition: 400ms;
 }
 
-#display-container.opened:after {
+#section-container.opened:after {
   left: 100%;
 }
 
 /* 
---------------------------------
-D I S P L A Y   S E C T I O N S 
---------------------------------
+----------------
+S E C T I O N S 
+----------------
 */
-.display-section {
+section {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
 
-.display-section.active {
+section.active {
   display: flex;
 }
 
@@ -310,7 +310,7 @@ P R O F I L E    S E C T I O N
 -------------------------------
 */
 
-#profile-display h1 {
+#profile-section h1 {
   font-weight: 500;
   font-size: 1.6rem;
   text-align: center;
@@ -318,35 +318,35 @@ P R O F I L E    S E C T I O N
   margin-bottom: 0.8rem;
 }
 
-#profile-display h2 {
+#profile-section h2 {
   font-weight: 500;
   font-size: 1rem;
   text-align: center;
   margin: 0;
 }
 
-#profile-display main {
+#profile-section main {
   display: flex;
   align-items: center;
 }
 
-#profile-display picture {
+#profile-section picture {
   align-self: center;
   order: 1;
   margin: calc(180px * 0.15);
 }
 
-#profile-display picture img {
+#profile-section picture img {
   max-width: calc(180px / 1.4);
   border-radius: 12px;
 }
 
-#profile-display .description footer {
+#profile-section .description footer {
   display: flex;
 }
 
-#profile-display a,
-#profile-display a:visited {
+#profile-section a,
+#profile-section a:visited {
   display: inline-block;
   margin: 0 0.5rem;
   text-decoration: none;
@@ -395,7 +395,7 @@ R E S P O N S I V E   S T Y L E
     margin-right: 0;
   }
 
-  #display-container {
+  #section-container {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
@@ -433,31 +433,31 @@ R E S P O N S I V E   S T Y L E
     max-height: 220px;
   }
 
-  #profile-display header {
+  #profile-section header {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  #profile-display header h1 {
+  #profile-section header h1 {
     margin-top: 0;
   }
 
-  #profile-display main {
+  #profile-section main {
     flex: 4;
     flex-direction: column;
   }
 
-  #profile-display main picture {
+  #profile-section main picture {
     order: 0;
   }
 
-  #profile-display main p {
+  #profile-section main p {
     margin: 0.5rem 0;
   }
 
-  #profile-display .description footer {
+  #profile-section .description footer {
     justify-content: center;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -469,19 +469,19 @@ R E S P O N S I V E   S T Y L E
     padding: 0.5rem 0.7rem;
   }
 
-  #display-container {
+  #section-container {
     padding: 0.5rem;
   }
 
-  #profile-display h1 {
+  #profile-section h1 {
     margin-bottom: 0.2rem;
   }
 
-  #profile-display main {
+  #profile-section main {
     flex: 6;
   }
 
-  #profile-display picture img {
+  #profile-section picture img {
     max-width: calc(120px / 1.4);
   }
 }

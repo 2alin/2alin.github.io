@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,13 +11,13 @@
   <body>
     <div id="portfolio">
       <div id="nav-bar">
-        <button class="nav-btn active profile-btn">Profile</button>
-        <button class="nav-btn">Web Apps</button>
-        <button class="nav-btn">Extensions</button>
+        <button data-section="profile" class="nav-btn active">Profile</button>
+        <button data-section="web-apps" class="nav-btn">Web Apps</button>
+        <button data-section="extensions" class="nav-btn">Extensions</button>
       </div>
 
-      <div id="display-container" class="opened">
-        <section class="display-section active" id="profile-display">
+      <div id="section-container" class="opened">
+        <section class="active" id="profile-section">
           <header>
             <h1>Adilson Sandoval</h1>
             <h2>Web Developer</h2>
@@ -67,8 +67,8 @@
             </div>
           </main>
         </section>
-        <section class="display-section" id="web-apps-display"></section>
-        <section class="display-section" id="extensions-display"></section>
+        <section id="web-apps-section"></section>
+        <section id="extensions-section"></section>
       </div>
     </div>
 
