@@ -413,10 +413,6 @@ R E S P O N S I V E   S T Y L E
     text-align: left;
   }
 
-  .project main .technologies::before {
-    content: "Used: ";
-  }
-
   .project picture {
     flex: initial;
     margin: 0;
