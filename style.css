@@ -61,26 +61,11 @@ P R O J E C T S   N A V B A R
   text-transform: uppercase;
   color: var(--secondary-color);
   cursor: pointer;
-  outline: none;
   position: relative;
-
-  /* lock text selection */
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-
-  /* disable blue hihglight on mobile chrome */
-  -webkit-tap-highlight-color: transparent;
 }
 
 #nav-bar button:last-of-type {
   margin-bottom: 0;
-}
-
-#nav-bar button::-moz-focus-inner {
-  /* no dotted line on firefox when clicked */
-  border: 0;
 }
 
 #nav-bar button:before {
@@ -108,7 +93,8 @@ P R O J E C T S   N A V B A R
 #nav-bar button:hover:before,
 #nav-bar button:focus:before {
   border-color: var(--secondary-hover-color);
-  box-shadow: inset 4em 0 2px var(--secondary-hover-color),
+  box-shadow:
+    inset 4em 0 2px var(--secondary-hover-color),
     inset -4em 0 2px var(--secondary-hover-color);
 }
 
@@ -120,8 +106,8 @@ P R O J E C T S   N A V B A R
 
 #nav-bar button.active:before {
   border-color: var(--secondary-hover-color);
-  box-shadow: inset calc(0.5 * var(--button-width)) 0 2px
-      var(--secondary-hover-color),
+  box-shadow:
+    inset calc(0.5 * var(--button-width)) 0 2px var(--secondary-hover-color),
     inset calc(-1 * 0.5 * var(--button-width)) 0 2px
       var(--secondary-hover-color);
 }
@@ -191,15 +177,15 @@ D I S P L A Y   S E C T I O N S
   position: absolute;
   display: flex;
   width: 100%;
+  visibility: hidden;
   opacity: 0;
-  z-index: -1000;
   transition: opacity ease-in-out 400ms;
 }
 
 .project.active {
   display: flex;
+  visibility: visible;
   opacity: 1;
-  z-index: initial;
 }
 
 .project main {
@@ -257,7 +243,7 @@ D I S P L A Y   S E C T I O N S
 .project img {
   max-width: 240px;
   height: auto;
-  max-height: 220px;  
+  max-height: 220px;
   border-radius: 4px;
 }
 
@@ -268,6 +254,8 @@ D I S P L A Y   S E C T I O N S
 }
 
 .controls .button {
+  background: none;
+  border: none;
   cursor: pointer;
   width: 3.2rem;
   line-height: 2;
@@ -276,12 +264,6 @@ D I S P L A Y   S E C T I O N S
   position: relative;
   text-align: center;
   color: var(--secondary-color);
-
-  /* lock text selection */
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 .controls .button:before {

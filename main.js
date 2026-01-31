@@ -136,8 +136,8 @@ function appendProjects(sectionElement, data) {
 
   //adding control bar elements to section container
   const navControls = document.createElement("nav");
-  const previousButton = document.createElement("span");
-  const nextButton = document.createElement("span");
+  const previousButton = document.createElement("button");
+  const nextButton = document.createElement("button");
 
   previousButton.textContent = "prev";
   nextButton.textContent = "next";
